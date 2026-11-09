@@ -12,3 +12,4 @@ tmp/
 public-site/
 data/
 output/*.zip
+.vercel

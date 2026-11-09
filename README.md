@@ -2,6 +2,14 @@
 
 Eight custom animated D3 experiences using real, freshly fetched public data. No runtime snapshots, generated measurements or saved-response fallback. All API endpoints are free and require no key for these noncommercial classroom labs. Open-Meteo free service is noncommercial and quota-limited: https://open-meteo.com/en/pricing .
 
+## Share with students
+
+Live site: https://unit12-live-motion-labs.vercel.app
+
+Public source: https://github.com/ykumar2020/unit12-live-motion-labs
+
+The public site hosts all eight labs under /labs/1/ through /labs/8/. Live data is fetched by an allowlisted Vercel server function with no API keys and no response fallback.
+
 ## Run
 
 Install Node.js 22.12+. In this folder:
