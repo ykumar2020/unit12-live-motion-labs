@@ -1,0 +1,31 @@
+# Live Motion Labs ? CPS 5745 Unit 12
+
+Eight custom animated D3 experiences using real, freshly fetched public data. No runtime snapshots, generated measurements or saved-response fallback. All API endpoints are free and require no key for these noncommercial classroom labs. Open-Meteo free service is noncommercial and quota-limited: https://open-meteo.com/en/pricing .
+
+## Run
+
+Install Node.js 22.12+. In this folder:
+
+```powershell
+npm.cmd ci
+npm.cmd run dev
+```
+
+Use `npm` on macOS/Linux. Open http://127.0.0.1:5280 for live previews and the complete beginner assignment. All eight apps run concurrently, ports 5281?5288. Stop with Ctrl+C or `npm.cmd run stop`.
+
+1. Vanilla: rotating USGS earthquake globe, depth needles and time filtering.
+2. Vue: World Bank population choreography, bubble physics and linked history.
+3. React: Open-Meteo forecast wind particles, thermal ribbons and brush.
+4. Preact: Open Library author?work force constellation.
+5. Lit: NASA EONET radial memberships and event orbits.
+6. Svelte: USGS morphing particle sculpture, bins and depth cloud.
+7. Solid: World Bank GDP growth phase-space trajectories.
+8. Qwik: five-city isometric precipitation and interactive rain particles.
+
+World Bank values are historical annual data. Open-Meteo values are forecasts. Motion describes encodings, not additional observations. Failure clears scenes and displays the upstream error.
+
+## Verify and edit
+
+`npm.cmd run audit:live` checks all seven upstream endpoints and writes metadata/checksums only. `npm.cmd test` validates normalization. `npm.cmd run build` builds all eight. With servers running, `npx playwright install chromium` then `npm.cmd run test:browser` verifies actual data, checksum exports, motion, controls, mobile layouts and no-fallback failures.
+
+Edit root `shared/` then `npm.cmd run sync`. Native framework entry files are in `apps/*/src`. The complete HTML assignment includes copyable actual source for every custom scene. Current evidence is in `evidence/v2`; `evidence/verification.json` summarizes the latest run.

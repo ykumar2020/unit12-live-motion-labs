@@ -1,0 +1,4827 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CPS 5745 Unit 12 - Corrected beginner assignment</title><style>:root {
+  font-family:
+    Inter,
+    Segoe UI,
+    Arial,
+    sans-serif;
+  color: #173b49;
+  background: #f4f5f1;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+a {
+  color: #176174;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+select,
+input[type='text'],
+input[type='number'] {
+  border: 1px solid #b8cbd0;
+  border-radius: 8px;
+  padding: 9px 13px;
+  background: white;
+  color: #173b49;
+}
+button {
+  cursor: pointer;
+}
+button:hover {
+  background: #edf5f5;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+button.primary {
+  background: #164f60;
+  color: white;
+  border-color: #164f60;
+}
+input[type='range'] {
+  accent-color: #146477;
+  max-width: 350px;
+  width: 100%;
+}
+header {
+  border-bottom: 1px solid #d8dedb;
+  padding: 20px 0;
+  background: white;
+}
+.wrap {
+  max-width: 1160px;
+  margin: auto;
+  padding: 0 25px;
+}
+.topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+}
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7a6439;
+}
+h1 {
+  font-size: clamp(26px, 4vw, 38px);
+  margin: 14px 0 8px;
+  letter-spacing: -0.035em;
+}
+h2 {
+  font-size: 21px;
+}
+h3 {
+  font-size: 16px;
+}
+p {
+  line-height: 1.6;
+}
+.sub {
+  color: #506773;
+  max-width: 850px;
+}
+.student {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.student input {
+  width: 180px;
+}
+.pill {
+  display: inline-block;
+  border-radius: 99px;
+  background: #e7f1ee;
+  color: #164f60;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.pill.snapshot {
+  background: #fff0cf;
+  color: #76541a;
+}
+main.wrap {
+  padding-top: 24px;
+  padding-bottom: 55px;
+}
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid #d8e2e2;
+  border-radius: 12px;
+}
+.controls label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.chart-card,
+.panel {
+  padding: 22px;
+  background: white;
+  border: 1px solid #d8e2e2;
+  border-radius: 12px;
+  margin: 18px 0;
+}
+.chart-card h2 {
+  margin: 0 0 8px;
+}
+.chart {
+  min-height: 210px;
+}
+.chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chart .grid line {
+  stroke: #e4ebed;
+}
+.chart .grid path {
+  stroke: none;
+}
+.mark:hover,
+.mark:focus {
+  fill: #b27838;
+  stroke: #173b49;
+  stroke-width: 2;
+  outline: none;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.stat {
+  border: 1px solid #d8e2e2;
+  border-radius: 10px;
+  padding: 16px;
+  background: #fbfcfa;
+}
+.stat strong {
+  display: block;
+  font-size: 26px;
+  overflow-wrap: anywhere;
+}
+.stat span {
+  font-size: 12px;
+  color: #506773;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0;
+}
+.notice {
+  border-left: 4px solid #b27838;
+  padding: 12px 16px;
+  background: #fff5df;
+}
+.error {
+  color: #8c2832;
+  background: #fff0f0;
+  padding: 12px;
+}
+.table-wrap {
+  overflow: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+td,
+th {
+  text-align: left;
+  padding: 9px;
+  border-bottom: 1px solid #e0e6e5;
+  overflow-wrap: anywhere;
+}
+textarea {
+  width: 100%;
+  min-height: 145px;
+  padding: 12px;
+  border: 1px solid #becdd0;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  background: #f3f6f5;
+  padding: 16px;
+}
+summary {
+  cursor: pointer;
+  font-weight: 650;
+  padding: 8px 0;
+}
+details {
+  margin: 10px 0;
+}
+.small {
+  font-size: 12px;
+  color: #506773;
+}
+label {
+  line-height: 1.5;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #b27838;
+  outline-offset: 3px;
+}
+.empty {
+  padding: 25px;
+  background: #faf2e5;
+}
+code {
+  font-size: 0.92em;
+  background: #edf1ef;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+.mode-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 15px 0;
+}
+.status {
+  font-size: 13px;
+}
+footer {
+  border-top: 1px solid #d8dedb;
+  padding: 20px 0;
+  font-size: 13px;
+}
+.audit input {
+  max-width: 380px;
+}
+.audit-result {
+  min-height: 24px;
+}
+.loading {
+  padding: 20px;
+}
+@media (max-width: 650px) {
+  .wrap {
+    padding: 0 14px;
+  }
+  .topline {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+  .controls {
+    gap: 12px;
+  }
+  .chart-card,
+  .panel {
+    padding: 14px;
+  }
+
+  td,
+  th {
+    min-width: 90px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+}
+/* V2: custom kinetic scenes, responsive artboards and live-only provenance. */
+:root {
+  background: #f5f7fb;
+  color: #233d61;
+}
+header {
+  padding: 18px 0 12px;
+  background: #fff;
+}
+header .wrap {
+  max-width: 1440px;
+}
+h1 {
+  font-size: clamp(27px, 4vw, 43px);
+  margin: 10px 0 4px;
+  letter-spacing: -0.045em;
+}
+.sub {
+  margin: 7px 0 13px;
+  max-width: none;
+}
+.student {
+  position: absolute;
+  right: 28px;
+  top: 80px;
+  font-size: 11px;
+}
+.student input {
+  padding: 5px 9px;
+  width: 130px;
+}
+.wrap {
+  max-width: 1440px;
+}
+.mode-row {
+  font-size: 12px;
+  margin: 4px 0 14px;
+  gap: 13px;
+}
+.mode-row button {
+  padding: 6px 11px;
+  font-size: 12px;
+}
+.pill {
+  background: #e5f5ef;
+  color: #28755c;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+.pill.failed {
+  background: #fbe9e9;
+  color: #a34444;
+}
+.controls {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  gap: 20px;
+  font-size: 12px;
+}
+.controls input[type='range'] {
+  width: 200px;
+}
+.controls select {
+  padding: 6px 10px;
+}
+.status {
+  font-size: 11px;
+  color: #7687a0;
+  margin: 8px 0;
+}
+.chart-card {
+  margin: 0 0 18px;
+  padding: 0;
+  border: 1px solid #dbe3ef;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 15px 55px #283e6010;
+}
+.chart-card > h2 {
+  display: none;
+}
+.chart {
+  min-height: 200px;
+}
+.kinetic-stage {
+  background: #fafcff;
+}
+.scene-toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 13px 18px;
+  background: #fff;
+  border-bottom: 1px solid #e4eaf4;
+}
+.scene-label {
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  color: #7486a0;
+  margin-right: auto;
+}
+.scene-toolbar button {
+  font-size: 11px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border-color: #d7e2ee;
+}
+.segmented {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+}
+.segmented button[aria-pressed='true'] {
+  background: #e9f0fb;
+  color: #29558d;
+  border-color: #b7cbe6;
+}
+.scene-surface {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.custom-scene {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+  touch-action: none;
+}
+.custom-scene text {
+  font-family:
+    Inter,
+    Segoe UI,
+    sans-serif;
+}
+.custom-scene .scene-grid line {
+  stroke: #e3eaf4;
+}
+.custom-scene .scene-grid path {
+  stroke: none;
+}
+.custom-scene .domain {
+  stroke: #acbcd0;
+}
+.custom-scene .tick line {
+  stroke: #b9c8d9;
+}
+.custom-scene .tick text {
+  fill: #7185a1;
+  font-size: 11px;
+}
+.particle-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.scene-inspector {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  flex-wrap: wrap;
+  background: #fff;
+  border-top: 1px solid #e4eaf4;
+  padding: 13px 20px;
+  font-size: 12px;
+  min-height: 50px;
+}
+.scene-inspector strong {
+  color: #405a83;
+}
+.scene-inspector span {
+  color: #7b8da4;
+  line-height: 1.5;
+}
+.scene-timeline {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px 20px;
+  font-size: 12px;
+  background: #f1f5fc;
+}
+.scene-timeline input {
+  flex: 1;
+  max-width: none;
+}
+.scene-timeline output {
+  min-width: 65px;
+  font-weight: 700;
+  color: #577daa;
+}
+.mission-board {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  background: #fff;
+  color: #8595ac;
+  font-size: 11px;
+}
+.mission-board strong {
+  color: #476187;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+.mission-board span:before {
+  content: '○ ';
+  color: #aebcd0;
+}
+.mission-board span.complete {
+  color: #2f9776;
+}
+.mission-board span.complete:before {
+  content: '● ';
+}
+.live-evidence {
+  font-size: 12px;
+}
+.live-evidence a {
+  overflow-wrap: anywhere;
+}
+.panel {
+  background: #fff;
+}
+.embedded header,
+.embedded .mode-row,
+.embedded .controls,
+.embedded #app > p,
+.embedded #app > .small,
+.embedded #evidence,
+.embedded footer,
+.embedded .scene-toolbar,
+.embedded .scene-inspector,
+.embedded .scene-timeline,
+.embedded .mission-board {
+  display: none !important;
+}
+.embedded main.wrap {
+  padding: 0;
+  max-width: none;
+}
+.embedded .chart-card {
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+}
+.embedded .custom-scene {
+  width: 1100px;
+}
+.embedded .scene-surface {
+  overflow: hidden;
+}
+.embedded body {
+  background: #fff;
+}
+@media (max-width: 900px) {
+  .student {
+    position: static;
+    margin: 10px 0 0;
+  }
+  .scene-label {
+    width: 100%;
+    margin: 0;
+  }
+  .scene-toolbar {
+    gap: 7px;
+  }
+  .scene-surface {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+  .custom-scene {
+    width: 900px;
+    max-width: none;
+  }
+  .particle-layer {
+    width: 900px;
+    height: 491px;
+  }
+  .mode-row {
+    gap: 8px;
+  }
+  .scene-timeline {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .scene-inspector {
+    gap: 6px;
+  }
+  .scene-toolbar button {
+    min-height: 34px;
+  }
+}
+@media (max-width: 550px) {
+  .wrap {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .custom-scene {
+    width: 760px;
+  }
+  .particle-layer {
+    width: 760px;
+    height: 415px;
+  }
+  .controls input[type='range'] {
+    width: 150px;
+  }
+  .scene-toolbar {
+    padding: 10px;
+  }
+  .scene-timeline input {
+    min-width: 150px;
+  }
+  .mission-board {
+    gap: 10px;
+  }
+  .scene-label {
+    font-size: 9px;
+  }
+}
+
+.mobile-pan {
+  display: none;
+}
+@media (max-width: 900px) {
+  .mobile-pan {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 14px;
+    background: #edf3fc;
+    font-size: 11px;
+  }
+  .mobile-pan input {
+    flex: 1;
+    max-width: none;
+  }
+}
+.scene-surface {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.chart-card {
+  background: #fafcff;
+}
+.embedded .mobile-pan {
+  display: none !important;
+}
+.embedded .custom-scene {
+  max-width: none;
+}
+@media (max-width:900px) { .chart .custom-scene { width:900px; max-width:none; } }
+@media (max-width:550px) { .chart .custom-scene { width:760px; } }
+
+.article{max-width:1080px;margin:auto;padding:30px 25px}pre{background:#123844;color:#edf5f3;white-space:pre;overflow:auto;font:13px/1.6 Consolas,monospace}pre code{background:none;padding:0;color:inherit}.source-code{position:relative;margin:15px 0}.copy{margin:5px 0}h2{margin-top:35px}nav ol{columns:2}@media(max-width:650px){nav ol{columns:1}}@media print{.copy,nav{display:none}pre{white-space:pre-wrap;color:black;background:#eee}h2{break-after:avoid}}</style></head><body><article class="article"><p><a href="http://127.0.0.1:5280">Back to eight-lab launcher</a></p><nav><h2>Contents</h2><ol><li><a href="#section-2">1. Begin with Node.js</a></li><li><a href="#section-6">2. Honest live data, free APIs</a></li><li><a href="#section-11">3. JavaScript and D3 foundations</a></li><li><a href="#section-14">4. Follow the code pipeline</a></li><li><a href="#section-18">5. Interaction contract</a></li><li><a href="#section-20">6. Mini-lab 1: Vanilla JavaScript</a></li><li><a href="#section-25">6. Mini-lab 2: Vue</a></li><li><a href="#section-30">6. Mini-lab 3: React</a></li><li><a href="#section-35">6. Mini-lab 4: Preact</a></li><li><a href="#section-40">6. Mini-lab 5: Lit</a></li><li><a href="#section-45">6. Mini-lab 6: Svelte</a></li><li><a href="#section-50">6. Mini-lab 7: Solid</a></li><li><a href="#section-55">6. Mini-lab 8: Qwik</a></li><li><a href="#section-60">7. Diagnose failures</a></li><li><a href="#all-source">Full source code</a></li></ol></nav><h1 id="section-0">CPS 5745 Unit 12: Live Motion Labs</h1><p>Version 2 | November 9, 2026. Eight custom D3 experiences, native UI frameworks and free public APIs. This replaces the basic-chart edition. The supplied original assignment is unchanged.</p><h2 id="section-2">1. Begin with Node.js</h2><p>Install Node.js 22.12 or newer. Node runs JavaScript outside the browser. npm installs libraries; package-lock.json records dependency versions. Open a terminal in the extracted unit12-real-data-labs root, where package.json lives. Do not double-click index.html: these apps need their API server.</p><div class="source-code"><button class="copy">Copy code</button><pre><code>node --version
+npm.cmd --version
+npm.cmd ci
+npm.cmd run dev</code></pre></div><p>On macOS/Linux use npm instead of npm.cmd. Keep the terminal running and open http://127.0.0.1:5280. Eight servers run concurrently at ports 5281-5288. Stop with Ctrl+C or npm.cmd run stop. Windows launch/stop shortcuts are included. If a port is occupied, stop the conflicting process.</p><h2 id="section-6">2. Honest live data, free APIs</h2><p>Every load and refresh fetches the external provider. There is no saved-response fallback or local response cache. Weather and earthquakes refresh every two minutes while visible; other sources every five minutes. Fetch fresh data requests immediately. Providers can serve unchanged observations: fresh retrieval does not mean newly measured data.</p><p>USGS provides reported earthquakes; World Bank historical annual statistics; Open Library catalog metadata; NASA EONET curated natural events; Open-Meteo model forecasts. Annual playback is not a real-time population counter. Forecasts are not station observations. Animation changes layouts, never scientific values.</p><p>No key or paid subscription is required for these noncommercial classroom labs. Open-Meteo free access is noncommercial and quota-limited: https://open-meteo.com/en/pricing . Open Library requests low-volume access: https://openlibrary.org/developers/api . Do not load-test public services. Hidden tabs do not poll.</p><p>Inspect the data drawer for source URL, time, units, count and checksum. An explicit Download exports the response; it is never reused as fallback. Failure clears the scene and displays an error. EONET requests cap at 500 events and the radial scene displays up to 150; this is not a complete global hazard census.</p><h2 id="section-11">3. JavaScript and D3 foundations</h2><ul><li>const declares a binding; let allows reassignment. Objects group fields and arrays hold records.</li><li>map transforms records; filter selects records. Missing null is not zero.</li><li>async functions return promises; await waits without blocking the UI. try/catch exposes errors.</li><li>SVG has selectable shapes. Canvas paints pixels efficiently for particle systems. D3 binds record IDs to marks.</li><li>Scales map data units to coordinates. Forces calculate layouts, not new measurements. Projections map geographic coordinates.</li><li>Stop timers and remove listeners on unmount. Reduced-motion starts static; Play is an explicit override.</li></ul><div class="source-code"><button class="copy">Copy code</button><pre><code>const values = [0, null, 2.5];
+const valid = values.filter(v =&gt; typeof v === &quot;number&quot; &amp;&amp; Number.isFinite(v));
+console.log(valid); // [0, 2.5]</code></pre></div><h2 id="section-14">4. Follow the code pipeline</h2><ul><li>scripts/providers.mjs: allowlisted URLs. scripts/vite-common.mjs: fresh requests through /api/data/:key.</li><li>shared/sources.js: validation, normalization, polling and abort cleanup.</li><li>shared/lab.js: UI/provenance. shared/experiences/index.js: scene selection. core.js: artboard, timer, controls and disposal.</li><li>apps/NN-framework/src: native state/lifecycle. Edit canonical root shared files, then npm run sync to copy into all eight apps.</li></ul><div class="source-code"><button class="copy">Copy code</button><pre><code>npm.cmd run sync
+npm.cmd run audit:live
+npm.cmd run build
+npm.cmd test
+npx playwright install chromium
+npm.cmd run test:browser</code></pre></div><p>Start servers before browser tests. audit:live requests upstream data and saves metadata/checksums only. Browser tests cover requests, downloads, controls, mobile panning, reduced motion and controlled failures. Public API availability is not guaranteed.</p><h2 id="section-18">5. Interaction contract</h2><p>Inspect records, change geometry and scrub/select to complete exploration missions. These track interaction, not mastery. Pause freezes motion while controls still update. On phones use Explore canvas to pan the legible artboard. Accessible source tables remain below the scene.</p><h2 id="section-20">6. Mini-lab 1: Vanilla JavaScript</h2><p>Open http://127.0.0.1:5281. Source: USGS. Read shared/experiences/globe.js and the matching apps/ folder native entry.</p><p>Drag the globe, switch surface/depth needles and scrub time. Magnitude controls size; depth controls needles/color. Pulses are decorative, not measured seismic waves.</p><p>Framework focus: DOM listeners, cleanup and geographic projection.</p><ul><li>Run the lab, inspect provenance and match a raw record to a mark.</li><li>Find the source field driving a visual property. Explain the scale or projection.</li><li>Change one visual parameter without changing source measurements. Sync shared edits and rebuild.</li><li>Investigation: Compare similar-magnitude events at different depths. Explain projection occlusion.</li><li>Submit a screenshot, source URL/time, edited diff and data-versus-animation explanation. Test phone layout and unavailable-source behavior.</li></ul><h2 id="section-25">6. Mini-lab 2: Vue</h2><p>Open http://127.0.0.1:5282. Source: World Bank. Read shared/experiences/population.js and the matching apps/ folder native entry.</p><p>Animate reported years, drag/pin country bubbles and compare history. Area encodes population. Missing annual values are not invented.</p><p>Framework focus: refs, computed values, watchers and unmount cleanup.</p><ul><li>Run the lab, inspect provenance and match a raw record to a mark.</li><li>Find the source field driving a visual property. Explain the scale or projection.</li><li>Change one visual parameter without changing source measurements. Sync shared edits and rebuild.</li><li>Investigation: Compare two country trajectories using actual years and values.</li><li>Submit a screenshot, source URL/time, edited diff and data-versus-animation explanation. Test phone layout and unavailable-source behavior.</li></ul><h2 id="section-30">6. Mini-lab 3: React</h2><p>Open http://127.0.0.1:5283. Source: Open-Meteo. Read shared/experiences/weather.js and the matching apps/ folder native entry.</p><p>Brush forecast windows and scrub temperature, wind and humidity. Canvas particles illustrate wind, not geographic fluid simulation.</p><p>Framework focus: useState, useMemo, useEffect and Canvas outside React renders.</p><ul><li>Run the lab, inspect provenance and match a raw record to a mark.</li><li>Find the source field driving a visual property. Explain the scale or projection.</li><li>Change one visual parameter without changing source measurements. Sync shared edits and rebuild.</li><li>Investigation: Report a warmer interval and its associated wind, including units.</li><li>Submit a screenshot, source URL/time, edited diff and data-versus-animation explanation. Test phone layout and unavailable-source behavior.</li></ul><h2 id="section-35">6. Mini-lab 4: Preact</h2><p>Open http://127.0.0.1:5284. Source: Open Library. Read shared/experiences/books.js and the matching apps/ folder native entry.</p><p>Drag/pin/zoom authors and works; switch layouts. Editions size works; links represent actual returned authors. Results are sampled.</p><p>Framework focus: hooks, forceLink identity and drag cleanup.</p><ul><li>Run the lab, inspect provenance and match a raw record to a mark.</li><li>Find the source field driving a visual property. Explain the scale or projection.</li><li>Change one visual parameter without changing source measurements. Sync shared edits and rebuild.</li><li>Investigation: Pin a work and identify its authors; distinguish layout from metadata.</li><li>Submit a screenshot, source URL/time, edited diff and data-versus-animation explanation. Test phone layout and unavailable-source behavior.</li></ul><h2 id="section-40">6. Mini-lab 5: Lit</h2><p>Open http://127.0.0.1:5285. Source: NASA EONET. Read shared/experiences/events.js and the matching apps/ folder native entry.</p><p>Switch category petals/time orbits and isolate memberships. Membership counts can exceed distinct event counts.</p><p>Framework focus: reactive properties, updated lifecycle and radial grouping.</p><ul><li>Run the lab, inspect provenance and match a raw record to a mark.</li><li>Find the source field driving a visual property. Explain the scale or projection.</li><li>Change one visual parameter without changing source measurements. Sync shared edits and rebuild.</li><li>Investigation: Compare all-category and first-category counting; disclose event caps.</li><li>Submit a screenshot, source URL/time, edited diff and data-versus-animation explanation. Test phone layout and unavailable-source behavior.</li></ul><h2 id="section-45">6. Mini-lab 6: Svelte</h2><p>Open http://127.0.0.1:5286. Source: USGS. Read shared/experiences/swarm.js and the matching apps/ folder native entry.</p><p>Morph real event particles between beeswarm, stacked bins and depth cloud. Brush real IDs and pin particles. Layout changes; magnitudes do not.</p><p>Framework focus: state, effects, onMount and separating physics/source fields.</p><ul><li>Run the lab, inspect provenance and match a raw record to a mark.</li><li>Find the source field driving a visual property. Explain the scale or projection.</li><li>Change one visual parameter without changing source measurements. Sync shared edits and rebuild.</li><li>Investigation: Select a subset and find it in another layout.</li><li>Submit a screenshot, source URL/time, edited diff and data-versus-animation explanation. Test phone layout and unavailable-source behavior.</li></ul><h2 id="section-50">6. Mini-lab 7: Solid</h2><p>Open http://127.0.0.1:5287. Source: World Bank. Read shared/experiences/economy.js and the matching apps/ folder native entry.</p><p>Time travel through annual real GDP growth. Each point compares previous-year and current-year growth. Pin country traces.</p><p>Framework focus: signals, effects, onCleanup and adjacent-year pairing.</p><ul><li>Run the lab, inspect provenance and match a raw record to a mark.</li><li>Find the source field driving a visual property. Explain the scale or projection.</li><li>Change one visual parameter without changing source measurements. Sync shared edits and rebuild.</li><li>Investigation: Find a quadrant crossing and quote its years; explain why this is not prediction.</li><li>Submit a screenshot, source URL/time, edited diff and data-versus-animation explanation. Test phone layout and unavailable-source behavior.</li></ul><h2 id="section-55">6. Mini-lab 8: Qwik</h2><p>Open http://127.0.0.1:5288. Source: Open-Meteo. Read shared/experiences/rain.js and the matching apps/ folder native entry.</p><p>Select cities, scrub forecast hours, orbit or find the wettest interval. Height scales linearly with mm; zero rain emits zero particles.</p><p>Framework focus: signals, visible tasks, multi-city arrays and Canvas cleanup.</p><ul><li>Run the lab, inspect provenance and match a raw record to a mark.</li><li>Find the source field driving a visual property. Explain the scale or projection.</li><li>Change one visual parameter without changing source measurements. Sync shared edits and rebuild.</li><li>Investigation: Compare dry/wet intervals and verify source values.</li><li>Submit a screenshot, source URL/time, edited diff and data-versus-animation explanation. Test phone layout and unavailable-source behavior.</li></ul><h2 id="section-60">7. Diagnose failures</h2><ul><li>npm not recognized: install Node and reopen the terminal. Windows execution-policy issue: use npm.cmd.</li><li>HTTP 502: read the provider error, inspect Network and retry later. Never invent a replacement record.</li><li>Identical refresh: compare request times/checksums. Provider publication or caching can leave values unchanged.</li><li>Build fails after dependency edits: restore the lockfile, npm ci, sync, build. Keep compatible dependency pins.</li><li>Drag events update geometry, not network requests. Respect free API quotas.</li><li>Submit all eight apps with custom interactions, attribution, units, responsive controls and honest failure behavior.</li></ul><p>The HTML assignment includes complete copyable app and custom-scene source. Use Copy buttons or actual files instead of copying wrapped PDF code. Optional AI critique prompts require no paid API integration.</p><h2 id="all-source">Full copyable source files</h2><p>The blocks below are read directly from the runnable workspace. Keep their exact paths and bootstrap/config imports. The shared files are copied into every src/shared folder by npm run sync.</p><details><summary>apps/01-vanilla/src/main.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import &#x27;./shared/style.css&#x27;;
+import { watchLive } from &#x27;./shared/sources.js&#x27;;
+import { installShell, draw, setStatus } from &#x27;./shared/lab.js&#x27;;
+installShell(1);
+document.querySelector(&#x27;#app&#x27;).innerHTML =
+  `&lt;div class=&quot;controls&quot;&gt;&lt;label&gt;Minimum magnitude &lt;output id=&quot;threshold-value&quot;&gt;3.0&lt;/output&gt;&lt;input id=&quot;primary-control&quot; aria-label=&quot;Minimum magnitude&quot; type=&quot;range&quot; min=&quot;2.5&quot; max=&quot;9&quot; step=&quot;.5&quot; value=&quot;3&quot;&gt;&lt;/label&gt;&lt;label&gt;Experience &lt;select id=&quot;view&quot;&gt;&lt;option value=&quot;globe&quot;&gt;Depth globe&lt;/option&gt;&lt;option value=&quot;bins&quot;&gt;Particle sculpture&lt;/option&gt;&lt;/select&gt;&lt;/label&gt;&lt;/div&gt;&lt;p id=&quot;status&quot; role=&quot;status&quot;&gt;Fetching USGS…&lt;/p&gt;&lt;section class=&quot;chart-card&quot;&gt;&lt;div id=&quot;chart&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;&lt;/section&gt;`;
+const slider = document.querySelector(&#x27;#primary-control&#x27;),
+  view = document.querySelector(&#x27;#view&#x27;),
+  message = document.querySelector(&#x27;#status&#x27;);
+let packet;
+function redraw() {
+  if (!packet) return;
+  const min = +slider.value,
+    shown = packet.rows.filter((d) =&gt; d.x &gt;= min);
+  document.querySelector(&#x27;#threshold-value&#x27;).textContent = min.toFixed(1);
+  setStatus(
+    message,
+    `${shown.length} of ${packet.rows.length} live-requested earthquakes selected`,
+  );
+  draw(document.querySelector(&#x27;#chart&#x27;), packet, shown, {
+    bins: view.value === &#x27;bins&#x27;,
+    unit: &#x27;magnitude&#x27;,
+    filters: { minimumMagnitude: min },
+    limitation:
+      &#x27;Earthquake timestamps describe actual past events. Moving locator rings are not measured seismic waves.&#x27;,
+  });
+}
+const stop = watchLive(
+  &#x27;earthquakes&#x27;,
+  (p) =&gt; {
+    packet = p;
+    redraw();
+  },
+  (e) =&gt; {
+    packet = null;
+    setStatus(message, e.message, true);
+  },
+);
+slider.addEventListener(&#x27;input&#x27;, redraw);
+view.addEventListener(&#x27;change&#x27;, redraw);
+window.addEventListener(&#x27;pagehide&#x27;, stop, { once: true });
+</code></pre></div></details><details><summary>apps/01-vanilla/vite.config.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import {labConfig} from &#x27;../../scripts/vite-common.mjs&#x27;;
+export default labConfig([],5281);
+</code></pre></div></details><details><summary>apps/02-vue/src/App.vue</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>&lt;script setup&gt;
+import { ref, onMounted, onBeforeUnmount, watch } from &#x27;vue&#x27;;
+import { watchLive, recentYears } from &#x27;./shared/sources.js&#x27;;
+import { draw } from &#x27;./shared/lab.js&#x27;;
+const chart = ref(null),
+  packet = ref(null),
+  years = ref(25),
+  metric = ref(&#x27;population&#x27;),
+  error = ref(&#x27;&#x27;),
+  loading = ref(true);
+let stop;
+function load() {
+  stop?.();
+  packet.value = null;
+  loading.value = true;
+  error.value = &#x27;&#x27;;
+  chart.value?.replaceChildren();
+  stop = watchLive(
+    metric.value,
+    (p) =&gt; {
+      packet.value = p;
+      loading.value = false;
+    },
+    (e) =&gt; {
+      packet.value = null;
+      loading.value = false;
+      error.value = e.message;
+    },
+  );
+}
+function redraw() {
+  if (!chart.value || !packet.value) return;
+  const shown = recentYears(packet.value, years.value);
+  draw(chart.value, packet.value, shown, {
+    kind: &#x27;line&#x27;,
+    title:
+      metric.value === &#x27;population&#x27; ? &#x27;U.S. population by year&#x27; : &#x27;U.S. real GDP growth&#x27;,
+    filters: { lastYears: years.value, metric: metric.value },
+    limitation:
+      &#x27;Missing years are omitted, not zero-filled. This chart describes the &#x27; +
+      &#x27;six selected countries; the line may use a nonzero vertical origin. &#x27; +
+      &#x27;Forecasts and causal stories are not implied.&#x27;,
+  });
+}
+onMounted(load);
+onBeforeUnmount(() =&gt; stop?.());
+watch(metric, load);
+watch([packet, years], redraw, { flush: &#x27;post&#x27; });
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div class=&quot;controls&quot;&gt;
+    &lt;label
+      &gt;Years displayed: {{ years }}
+      &lt;input
+        id=&quot;primary-control&quot;
+        aria-label=&quot;Years displayed&quot;
+        type=&quot;range&quot;
+        min=&quot;10&quot;
+        max=&quot;60&quot;
+        step=&quot;5&quot;
+        v-model.number=&quot;years&quot; /&gt;&lt;/label
+    &gt;&lt;label
+      &gt;Metric
+      &lt;select aria-label=&quot;Metric&quot; v-model=&quot;metric&quot;&gt;
+        &lt;option value=&quot;population&quot;&gt;Population (people)&lt;/option&gt;
+      &lt;/select&gt;&lt;/label
+    &gt;
+  &lt;/div&gt;
+  &lt;p v-if=&quot;error&quot; role=&quot;alert&quot; class=&quot;error&quot;&gt;{{ error }}&lt;/p&gt;
+  &lt;p v-else role=&quot;status&quot;&gt;
+    {{
+      loading
+        ? &#x27;Loading World Bank data…&#x27;
+        : `${Math.min(years, packet?.rows.length || 0)} reporting years per available country`
+    }}
+  &lt;/p&gt;
+  &lt;section class=&quot;chart-card&quot;&gt;
+    &lt;h2&gt;Population choreography&lt;/h2&gt;
+    &lt;div ref=&quot;chart&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
+  &lt;/section&gt;
+&lt;/template&gt;
+</code></pre></div></details><details><summary>apps/02-vue/src/main.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { createApp } from &#x27;vue&#x27;;
+import App from &#x27;./App.vue&#x27;;
+import &#x27;./shared/style.css&#x27;;
+import { installShell } from &#x27;./shared/lab.js&#x27;;
+installShell(2);
+createApp(App).mount(&#x27;#app&#x27;);
+</code></pre></div></details><details><summary>apps/02-vue/vite.config.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import vue from &#x27;@vitejs/plugin-vue&#x27;;
+import {labConfig} from &#x27;../../scripts/vite-common.mjs&#x27;;
+export default labConfig([vue()],5282);
+</code></pre></div></details><details><summary>apps/03-react/src/App.jsx</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { useEffect, useMemo, useRef, useState } from &#x27;react&#x27;;
+import { watchLive, firstHours } from &#x27;./shared/sources.js&#x27;;
+import { draw } from &#x27;./shared/lab.js&#x27;;
+export default function App() {
+  const chart = useRef(null),
+    [packet, setPacket] = useState(null),
+    [error, setError] = useState(&#x27;&#x27;),
+    [firstDayOnly, setFirstDayOnly] = useState(false);
+  useEffect(
+    () =&gt;
+      watchLive(
+        &#x27;temperature&#x27;,
+        (p) =&gt; {
+          setError(&#x27;&#x27;);
+          setPacket(p);
+        },
+        (e) =&gt; {
+          setPacket(null);
+          setError(e.message);
+        },
+      ),
+    [],
+  );
+  const shown = useMemo(
+    () =&gt; (packet ? (firstDayOnly ? firstHours(packet, 24) : packet.rows) : []),
+    [packet, firstDayOnly],
+  );
+  useEffect(() =&gt; {
+    if (chart.current &amp;&amp; packet)
+      draw(chart.current, packet, shown, {
+        kind: &#x27;line&#x27;,
+        title: &#x27;NYC hourly air temperature&#x27;,
+        filters: { first24Hours: firstDayOnly },
+        limitation:
+          &#x27;A model forecast is not an observed measurement or a climate trend. &#x27; +
+          &#x27;Times are displayed in America/New_York; the line breaks over &#x27; +
+          &#x27;missing hours.&#x27;,
+      });
+  }, [packet, shown, firstDayOnly]);
+  return (
+    &lt;&gt;
+      &lt;div className=&quot;controls&quot;&gt;
+        &lt;label&gt;
+          &lt;input
+            id=&quot;primary-control&quot;
+            aria-label=&quot;First 24 forecast hours&quot;
+            type=&quot;checkbox&quot;
+            checked={firstDayOnly}
+            onChange={(e) =&gt; setFirstDayOnly(e.target.checked)}
+          /&gt;{&#x27; &#x27;}
+          Show first 24 forecast hours only
+        &lt;/label&gt;
+      &lt;/div&gt;
+      {error ? (
+        &lt;p role=&quot;alert&quot; className=&quot;error&quot;&gt;
+          {error}
+        &lt;/p&gt;
+      ) : (
+        &lt;p role=&quot;status&quot;&gt;
+          {packet ? `${shown.length} hourly records selected` : &#x27;Loading forecast…&#x27;}
+        &lt;/p&gt;
+      )}
+      &lt;section className=&quot;chart-card&quot;&gt;
+        &lt;h2&gt;Temperature forecast (°C)&lt;/h2&gt;
+        &lt;div ref={chart} className=&quot;chart&quot; /&gt;
+      &lt;/section&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre></div></details><details><summary>apps/03-react/src/main.jsx</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { StrictMode } from &#x27;react&#x27;;
+import { createRoot } from &#x27;react-dom/client&#x27;;
+import App from &#x27;./App.jsx&#x27;;
+import &#x27;./shared/style.css&#x27;;
+import { installShell } from &#x27;./shared/lab.js&#x27;;
+installShell(3);
+createRoot(document.getElementById(&#x27;app&#x27;)).render(
+  &lt;StrictMode&gt;
+    &lt;App /&gt;
+  &lt;/StrictMode&gt;,
+);
+</code></pre></div></details><details><summary>apps/03-react/vite.config.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import react from &#x27;@vitejs/plugin-react&#x27;;
+import {labConfig} from &#x27;../../scripts/vite-common.mjs&#x27;;
+export default labConfig([react()],5283);
+</code></pre></div></details><details><summary>apps/04-preact/src/App.jsx</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { useEffect, useRef, useState } from &#x27;preact/hooks&#x27;;
+import { watchLive } from &#x27;./shared/sources.js&#x27;;
+import { draw } from &#x27;./shared/lab.js&#x27;;
+export function App() {
+  const chart = useRef(null),
+    [packet, setPacket] = useState(null),
+    [error, setError] = useState(&#x27;&#x27;),
+    [limit, setLimit] = useState(32);
+  useEffect(
+    () =&gt;
+      watchLive(
+        &#x27;books&#x27;,
+        (p) =&gt; {
+          setError(&#x27;&#x27;);
+          setPacket(p);
+        },
+        (e) =&gt; {
+          setPacket(null);
+          setError(e.message);
+        },
+      ),
+    [],
+  );
+  useEffect(() =&gt; {
+    if (chart.current &amp;&amp; packet)
+      draw(chart.current, packet, packet.rows.slice(0, limit), {
+        kind: &#x27;bar&#x27;,
+        title: &#x27;Most editions among returned search results&#x27;,
+        filters: { topN: limit, query: &#x27;data visualization&#x27; },
+        limitation:
+          &#x27;This is at most 70 Open Library search results, not a census of all &#x27; +
+          &#x27;books or all editions worldwide. Only the returned sample is ranked; &#x27; +
+          &#x27;edition counts are catalog metadata.&#x27;,
+      });
+  }, [packet, limit]);
+  return (
+    &lt;&gt;
+      &lt;div class=&quot;controls&quot;&gt;
+        &lt;label&gt;
+          Books displayed: {limit}
+          &lt;input
+            id=&quot;primary-control&quot;
+            aria-label=&quot;Books displayed&quot;
+            type=&quot;range&quot;
+            min=&quot;5&quot;
+            max=&quot;60&quot;
+            step=&quot;1&quot;
+            value={limit}
+            onInput={(e) =&gt; setLimit(Number(e.currentTarget.value))}
+          /&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+      {error ? (
+        &lt;p role=&quot;alert&quot; class=&quot;error&quot;&gt;
+          {error}
+        &lt;/p&gt;
+      ) : (
+        &lt;p role=&quot;status&quot;&gt;
+          {packet
+            ? `${Math.min(limit, packet.rows.length)} of ${packet.rows.length} valid search results selected`
+            : &#x27;Loading Open Library results…&#x27;}
+        &lt;/p&gt;
+      )}
+      &lt;section class=&quot;chart-card&quot;&gt;
+        &lt;h2&gt;Author–work force constellation&lt;/h2&gt;
+        &lt;div ref={chart} class=&quot;chart&quot; /&gt;
+      &lt;/section&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre></div></details><details><summary>apps/04-preact/src/main.jsx</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { render } from &#x27;preact&#x27;;
+import { App } from &#x27;./App.jsx&#x27;;
+import &#x27;./shared/style.css&#x27;;
+import { installShell } from &#x27;./shared/lab.js&#x27;;
+installShell(4);
+render(&lt;App /&gt;, document.getElementById(&#x27;app&#x27;));
+</code></pre></div></details><details><summary>apps/04-preact/vite.config.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import preact from &#x27;@preact/preset-vite&#x27;;
+import {labConfig} from &#x27;../../scripts/vite-common.mjs&#x27;;
+export default labConfig([preact()],5284);
+</code></pre></div></details><details><summary>apps/05-lit/src/main.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { LitElement, html } from &#x27;lit&#x27;;
+import &#x27;./shared/style.css&#x27;;
+import { watchLive, normalizeEvents } from &#x27;./shared/sources.js&#x27;;
+import { installShell, draw } from &#x27;./shared/lab.js&#x27;;
+installShell(5);
+class EventChart extends LitElement {
+  static properties = {
+    packet: { state: true },
+    error: { state: true },
+    limit: { state: true },
+    countMode: { state: true },
+  };
+  constructor() {
+    super();
+    this.packet = null;
+    this.error = &#x27;&#x27;;
+    this.limit = 12;
+    this.countMode = &#x27;all&#x27;;
+  }
+  // Light DOM shares classroom styles; Lit owns the template, D3 only #chart.
+  createRenderRoot() {
+    return this;
+  }
+  firstUpdated() {
+    this.stop = watchLive(
+      &#x27;events&#x27;,
+      (p) =&gt; {
+        this.packet = p;
+        this.error = &#x27;&#x27;;
+      },
+      (e) =&gt; {
+        this.packet = null;
+        this.error = e.message;
+      },
+    );
+  }
+  disconnectedCallback() {
+    this.stop?.();
+    super.disconnectedCallback();
+  }
+  updated() {
+    if (!this.packet) return;
+    const rows = normalizeEvents(this.packet.raw, this.countMode).slice(0, this.limit);
+    draw(this.querySelector(&#x27;#chart&#x27;), this.packet, rows, {
+      kind: &#x27;bar&#x27;,
+      title: &#x27;NASA EONET event categories&#x27;,
+      filters: { categories: this.limit, countMode: this.countMode },
+      limitation: `${this.packet.raw.events.length} unique events were returned by a request capped at 500. Counts are ${this.countMode === &#x27;all&#x27; ? &#x27;category memberships, which may exceed the number of events&#x27; : &#x27;first-category assignments, one per event&#x27;}. The provider is not a complete census of all disasters; a capped response may be incomplete.`,
+    });
+  }
+  render() {
+    return html`&lt;div class=&quot;controls&quot;&gt;
+        &lt;label
+          &gt;Categories displayed: ${this.limit}&lt;input
+            id=&quot;primary-control&quot;
+            aria-label=&quot;Categories displayed&quot;
+            type=&quot;range&quot;
+            min=&quot;1&quot;
+            max=&quot;12&quot;
+            step=&quot;1&quot;
+            .value=${String(this.limit)}
+            @input=${(e) =&gt; (this.limit = Number(e.target.value))} /&gt;&lt;/label
+        &gt;&lt;label
+          &gt;Counting rule
+          &lt;select
+            aria-label=&quot;Counting rule&quot;
+            @change=${(e) =&gt; (this.countMode = e.target.value)}
+          &gt;
+            &lt;option value=&quot;all&quot;&gt;All category memberships&lt;/option&gt;
+            &lt;option value=&quot;first&quot;&gt;First category only&lt;/option&gt;
+          &lt;/select&gt;&lt;/label
+        &gt;
+      &lt;/div&gt;
+      ${this.error
+        ? html`&lt;p role=&quot;alert&quot; class=&quot;error&quot;&gt;${this.error}&lt;/p&gt;`
+        : html`&lt;p role=&quot;status&quot;&gt;
+            ${this.packet
+              ? `${this.packet.raw.events.length} unique source events`
+              : &#x27;Loading NASA EONET data…&#x27;}
+          &lt;/p&gt;`}
+      &lt;section class=&quot;chart-card&quot;&gt;
+        &lt;h2&gt;Natural-event radial atlas&lt;/h2&gt;
+        &lt;div id=&quot;chart&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
+      &lt;/section&gt;`;
+  }
+}
+customElements.define(&#x27;event-chart&#x27;, EventChart);
+document.querySelector(&#x27;#app&#x27;).append(document.createElement(&#x27;event-chart&#x27;));
+</code></pre></div></details><details><summary>apps/05-lit/vite.config.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import {labConfig} from &#x27;../../scripts/vite-common.mjs&#x27;;
+export default labConfig([],5285);
+</code></pre></div></details><details><summary>apps/06-svelte/src/App.svelte</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>&lt;script&gt;
+  import { onMount, untrack } from &#x27;svelte&#x27;;
+  import { watchLive } from &#x27;./shared/sources.js&#x27;;
+  import { draw } from &#x27;./shared/lab.js&#x27;;
+  let chart = $state(null),
+    packet = $state(null),
+    minimum = $state(3),
+    error = $state(&#x27;&#x27;);
+  onMount(() =&gt;
+    watchLive(
+      &#x27;earthquakes&#x27;,
+      (p) =&gt; {
+        packet = p;
+        error = &#x27;&#x27;;
+      },
+      (e) =&gt; {
+        packet = null;
+        error = e.message;
+      },
+    ),
+  );
+  $effect(() =&gt; {
+    const p = packet,
+      min = Number(minimum),
+      node = chart;
+    if (node &amp;&amp; p) {
+      const shown = p.rows.filter((q) =&gt; q.x &gt;= min);
+      untrack(() =&gt;
+        draw(node, p, shown, {
+          kind: &#x27;bar&#x27;,
+          bins: true,
+          unit: &#x27;magnitude&#x27;,
+          title: &#x27;USGS magnitude distribution&#x27;,
+          filters: { minimumMagnitude: min },
+          limitation:
+            &#x27;Each half-open bin [a,b) includes a and excludes b. Zero counts &#x27; +
+            &#x27;indicate no selected events in that interval, not missing &#x27; +
+            &#x27;measurements. Thresholded weekly events are not all global &#x27; +
+            &#x27;earthquake activity.&#x27;,
+        }),
+      );
+    }
+  });
+&lt;/script&gt;
+
+&lt;div class=&quot;controls&quot;&gt;
+  &lt;label
+    &gt;Minimum magnitude: {minimum}&lt;input
+      id=&quot;primary-control&quot;
+      aria-label=&quot;Minimum magnitude&quot;
+      type=&quot;range&quot;
+      min=&quot;2.5&quot;
+      max=&quot;9&quot;
+      step=&quot;.5&quot;
+      bind:value={minimum}
+    /&gt;&lt;/label
+  &gt;
+&lt;/div&gt;
+{#if error}&lt;p role=&quot;alert&quot; class=&quot;error&quot;&gt;{error}&lt;/p&gt;{:else}&lt;p role=&quot;status&quot;&gt;
+    {packet
+      ? `${packet.rows.filter((q) =&gt; q.x &gt;= Number(minimum)).length} of ${packet.rows.length} earthquakes selected`
+      : &#x27;Loading USGS data…&#x27;}
+  &lt;/p&gt;{/if}
+&lt;section class=&quot;chart-card&quot;&gt;
+  &lt;h2&gt;Seismic particle sculpture&lt;/h2&gt;
+  &lt;div bind:this={chart} class=&quot;chart&quot;&gt;&lt;/div&gt;
+&lt;/section&gt;
+</code></pre></div></details><details><summary>apps/06-svelte/src/main.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { mount } from &#x27;svelte&#x27;;
+import App from &#x27;./App.svelte&#x27;;
+import &#x27;./shared/style.css&#x27;;
+import { installShell } from &#x27;./shared/lab.js&#x27;;
+installShell(6);
+mount(App, { target: document.getElementById(&#x27;app&#x27;) });
+</code></pre></div></details><details><summary>apps/06-svelte/vite.config.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import {svelte} from &#x27;@sveltejs/vite-plugin-svelte&#x27;;
+import {labConfig} from &#x27;../../scripts/vite-common.mjs&#x27;;
+export default labConfig([svelte()],5286);
+</code></pre></div></details><details><summary>apps/07-solid/src/App.jsx</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { createSignal, onMount, onCleanup, createEffect, Show } from &#x27;solid-js&#x27;;
+import { watchLive, recentYears } from &#x27;./shared/sources.js&#x27;;
+import { draw } from &#x27;./shared/lab.js&#x27;;
+export default function App() {
+  let chart, stop;
+  const [packet, setPacket] = createSignal(null),
+    [years, setYears] = createSignal(25),
+    [metric, setMetric] = createSignal(&#x27;growth&#x27;),
+    [error, setError] = createSignal(&#x27;&#x27;);
+  function load(key) {
+    stop?.();
+    setError(&#x27;&#x27;);
+    setPacket(null);
+    chart?.replaceChildren();
+    stop = watchLive(
+      key,
+      (p) =&gt; {
+        setError(&#x27;&#x27;);
+        setPacket(p);
+      },
+      (e) =&gt; {
+        setPacket(null);
+        setError(e.message);
+      },
+    );
+  }
+  onMount(() =&gt; load(&#x27;growth&#x27;));
+  onCleanup(() =&gt; stop?.());
+  createEffect(() =&gt; {
+    const p = packet(),
+      n = years(),
+      key = metric();
+    if (chart &amp;&amp; p)
+      draw(chart, p, recentYears(p, n), {
+        kind: &#x27;line&#x27;,
+        title: key === &#x27;growth&#x27; ? &#x27;U.S. real GDP growth&#x27; : &#x27;U.S. population by year&#x27;,
+        filters: { lastYears: n, metric: key },
+        limitation:
+          &#x27;Negative growth is retained. An annual rate is not a dollar GDP &#x27; +
+          &#x27;level; causes require outside evidence. Switch to population and &#x27; +
+          &#x27;compare Vue with the same years/data mode.&#x27;,
+      });
+  });
+  return (
+    &lt;&gt;
+      &lt;div class=&quot;controls&quot;&gt;
+        &lt;label&gt;
+          Years displayed: {years()}
+          &lt;input
+            id=&quot;primary-control&quot;
+            aria-label=&quot;Years displayed&quot;
+            type=&quot;range&quot;
+            min=&quot;10&quot;
+            max=&quot;60&quot;
+            step=&quot;5&quot;
+            value={years()}
+            onInput={(e) =&gt; setYears(Number(e.currentTarget.value))}
+          /&gt;
+        &lt;/label&gt;
+        &lt;label&gt;
+          Metric{&#x27; &#x27;}
+          &lt;select
+            aria-label=&quot;Metric&quot;
+            value={metric()}
+            onChange={(e) =&gt; {
+              setMetric(e.currentTarget.value);
+              load(e.currentTarget.value);
+            }}
+          &gt;
+            &lt;option value=&quot;growth&quot;&gt;Real GDP growth (annual %)&lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;Show
+        when={error()}
+        fallback={
+          &lt;p role=&quot;status&quot;&gt;
+            {packet()
+              ? `${Math.min(years(), packet().rows.length)} reporting years per available country`
+              : &#x27;Loading World Bank data…&#x27;}
+          &lt;/p&gt;
+        }
+      &gt;
+        &lt;p role=&quot;alert&quot; class=&quot;error&quot;&gt;
+          {error()}
+        &lt;/p&gt;
+      &lt;/Show&gt;
+      &lt;section class=&quot;chart-card&quot;&gt;
+        &lt;h2&gt;Economic phase space&lt;/h2&gt;
+        &lt;div ref={chart} class=&quot;chart&quot; /&gt;
+      &lt;/section&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre></div></details><details><summary>apps/07-solid/src/main.jsx</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { render } from &#x27;solid-js/web&#x27;;
+import App from &#x27;./App.jsx&#x27;;
+import &#x27;./shared/style.css&#x27;;
+import { installShell } from &#x27;./shared/lab.js&#x27;;
+installShell(7);
+render(() =&gt; &lt;App /&gt;, document.getElementById(&#x27;app&#x27;));
+</code></pre></div></details><details><summary>apps/07-solid/vite.config.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import solid from &#x27;vite-plugin-solid&#x27;;
+import {labConfig} from &#x27;../../scripts/vite-common.mjs&#x27;;
+export default labConfig([solid()],5287);
+</code></pre></div></details><details><summary>apps/08-qwik/src/App.jsx</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { component$, useSignal, useVisibleTask$ } from &#x27;@builder.io/qwik&#x27;;
+import { watchLive, firstHours } from &#x27;./shared/sources.js&#x27;;
+import { draw } from &#x27;./shared/lab.js&#x27;;
+export const App = component$(() =&gt; {
+  const chart = useSignal(),
+    packet = useSignal(null),
+    hours = useSignal(48),
+    error = useSignal(&#x27;&#x27;),
+    timing = useSignal(&#x27;Waiting for component visibility&#x27;);
+  useVisibleTask$(({ cleanup }) =&gt; {
+    const stop = watchLive(
+      &#x27;precipitation&#x27;,
+      (p) =&gt; {
+        packet.value = p;
+        error.value = &#x27;&#x27;;
+        timing.value = &#x27;Fresh response &#x27; + p.meta.fetchedAt;
+      },
+      (e) =&gt; {
+        packet.value = null;
+        error.value = e.message;
+      },
+    );
+    cleanup(stop);
+  });
+  useVisibleTask$(({ track }) =&gt; {
+    const p = track(() =&gt; packet.value),
+      n = track(() =&gt; hours.value);
+    if (chart.value &amp;&amp; p)
+      draw(chart.value, p, firstHours(p, n), {
+        kind: &#x27;line&#x27;,
+        title: &#x27;Five-city rainfall observatory&#x27;,
+        filters: { firstHours: n },
+        limitation:
+          &#x27;Precipitation is a forecast amount per provider interval, not a &#x27; +
+          &#x27;probability of rain. This standalone classroom app uses client-side &#x27; +
+          &#x27;rendering; it is not a benchmark or demonstration of full &#x27; +
+          &#x27;server-rendered resumability.&#x27;,
+      });
+  });
+  return (
+    &lt;&gt;
+      &lt;div class=&quot;controls&quot;&gt;
+        &lt;label&gt;
+          Forecast hours: {hours.value}
+          &lt;input
+            id=&quot;primary-control&quot;
+            aria-label=&quot;Forecast hours&quot;
+            type=&quot;range&quot;
+            min=&quot;6&quot;
+            max=&quot;48&quot;
+            step=&quot;6&quot;
+            value={hours.value}
+            onInput$={(e) =&gt; (hours.value = Number(e.target.value))}
+          /&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+      {error.value ? (
+        &lt;p role=&quot;alert&quot; class=&quot;error&quot;&gt;
+          {error.value}
+        &lt;/p&gt;
+      ) : (
+        &lt;p role=&quot;status&quot;&gt;
+          {packet.value
+            ? `${Math.min(hours.value, packet.value.rows.length)} hourly records selected`
+            : &#x27;Loading forecast after visibility…&#x27;}
+        &lt;/p&gt;
+      )}
+      &lt;p class=&quot;small&quot; id=&quot;timing&quot;&gt;
+        {timing.value}
+      &lt;/p&gt;
+      &lt;section class=&quot;chart-card&quot;&gt;
+        &lt;h2&gt;Rainfall observatory (mm)&lt;/h2&gt;
+        &lt;div ref={chart} class=&quot;chart&quot; /&gt;
+      &lt;/section&gt;
+    &lt;/&gt;
+  );
+});
+</code></pre></div></details><details><summary>apps/08-qwik/src/main.jsx</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import &#x27;@builder.io/qwik/qwikloader.js&#x27;;
+import { render } from &#x27;@builder.io/qwik&#x27;;
+import { App } from &#x27;./App.jsx&#x27;;
+import &#x27;./shared/style.css&#x27;;
+import { installShell } from &#x27;./shared/lab.js&#x27;;
+installShell(8);
+render(document.getElementById(&#x27;app&#x27;), &lt;App /&gt;);
+</code></pre></div></details><details><summary>apps/08-qwik/vite.config.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import {qwikVite} from &#x27;@builder.io/qwik/optimizer&#x27;;
+import {labConfig} from &#x27;../../scripts/vite-common.mjs&#x27;;
+export default labConfig([qwikVite({csr:true})],5288);
+</code></pre></div></details><details><summary>scripts/providers.mjs</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>export const providers = {
+  earthquakes: {
+    name: &#x27;USGS&#x27;,
+    url: &#x27;https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson&#x27;,
+    docs: &#x27;https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php&#x27;,
+    license: &#x27;USGS public-domain data; retain attribution.&#x27;,
+    unit: &#x27;magnitude; depth in km&#x27;,
+  },
+  population: {
+    name: &#x27;World Bank&#x27;,
+    url: &#x27;https://api.worldbank.org/v2/country/USA;CHN;IND;BRA;DEU;NGA/indicator/SP.POP.TOTL?format=json&amp;per_page=1000&#x27;,
+    docs: &#x27;https://datahelpdesk.worldbank.org/knowledgebase/articles/898581-api-basic-call-structures&#x27;,
+    license: &#x27;World Bank data attribution; consult dataset license.&#x27;,
+    unit: &#x27;people&#x27;,
+  },
+  growth: {
+    name: &#x27;World Bank&#x27;,
+    url: &#x27;https://api.worldbank.org/v2/country/USA;CHN;IND;BRA;DEU;NGA/indicator/NY.GDP.MKTP.KD.ZG?format=json&amp;per_page=1000&#x27;,
+    docs: &#x27;https://datahelpdesk.worldbank.org/knowledgebase/articles/898581-api-basic-call-structures&#x27;,
+    license: &#x27;World Bank data attribution; consult dataset license.&#x27;,
+    unit: &#x27;annual %&#x27;,
+  },
+  temperature: {
+    name: &#x27;Open-Meteo&#x27;,
+    url: &#x27;https://api.open-meteo.com/v1/forecast?latitude=40.7&amp;longitude=-74.0&amp;hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m&amp;wind_speed_unit=ms&amp;forecast_days=2&amp;timezone=America%2FNew_York&amp;timeformat=unixtime&#x27;,
+    docs: &#x27;https://open-meteo.com/en/docs&#x27;,
+    license: &#x27;Open-Meteo weather data: CC BY 4.0 attribution.&#x27;,
+    unit: &#x27;°C&#x27;,
+  },
+  precipitation: {
+    name: &#x27;Open-Meteo&#x27;,
+    url: &#x27;https://api.open-meteo.com/v1/forecast?latitude=40.7,51.5074,19.076,1.3521,-23.5505&amp;longitude=-74.0,-0.1278,72.8777,103.8198,-46.6333&amp;hourly=precipitation&amp;forecast_days=2&amp;timezone=America%2FNew_York&amp;timeformat=unixtime&#x27;,
+    docs: &#x27;https://open-meteo.com/en/docs&#x27;,
+    license: &#x27;Open-Meteo weather data: CC BY 4.0 attribution.&#x27;,
+    unit: &#x27;mm&#x27;,
+  },
+  books: {
+    name: &#x27;Open Library&#x27;,
+    url: &#x27;https://openlibrary.org/search.json?q=data+visualization&amp;limit=70&amp;fields=key,title,first_publish_year,edition_count,author_key,author_name,subject&#x27;,
+    docs: &#x27;https://openlibrary.org/dev/docs/api/search&#x27;,
+    license: &#x27;Open Library catalog data; retain attribution and original response.&#x27;,
+    unit: &#x27;editions&#x27;,
+  },
+  events: {
+    name: &#x27;NASA EONET&#x27;,
+    url: &#x27;https://eonet.gsfc.nasa.gov/api/v3/events?status=all&amp;days=60&amp;limit=500&#x27;,
+    docs: &#x27;https://eonet.gsfc.nasa.gov/docs/v3&#x27;,
+    license: &#x27;NASA EONET attribution; upstream sources have their own terms.&#x27;,
+    unit: &#x27;category memberships&#x27;,
+  },
+};
+
+providers.population.url += &#x27;&amp;date=1980:&#x27; + new Date().getUTCFullYear();
+</code></pre></div></details><details><summary>scripts/vite-common.mjs</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { createHash } from &#x27;node:crypto&#x27;;
+import { providers } from &#x27;./providers.mjs&#x27;;
+function liveAPI() {
+  const install = (server) =&gt; {
+    server.middlewares.use(async (req, res, next) =&gt; {
+      const url = new URL(req.url, &#x27;http://localhost&#x27;);
+      if (!url.pathname.startsWith(&#x27;/api/data/&#x27;)) return next();
+      res.setHeader(&#x27;Content-Type&#x27;, &#x27;application/json; charset=utf-8&#x27;);
+      res.setHeader(&#x27;Cache-Control&#x27;, &#x27;no-store, no-cache, must-revalidate&#x27;);
+      const key = url.pathname.slice(10),
+        source = Object.hasOwn(providers, key) ? providers[key] : null;
+      if (!source) {
+        res.writeHead(404);
+        res.end(JSON.stringify({ error: &#x27;Unknown live dataset&#x27; }));
+        return;
+      }
+      if (req.method !== &#x27;GET&#x27;) {
+        res.writeHead(405);
+        res.end(JSON.stringify({ error: &#x27;GET only&#x27; }));
+        return;
+      }
+      if (url.searchParams.get(&#x27;mode&#x27;) === &#x27;snapshot&#x27;) {
+        res.writeHead(410);
+        res.end(
+          JSON.stringify({
+            error: &#x27;Saved-data mode has been removed. This lab is live-only.&#x27;,
+          }),
+        );
+        return;
+      }
+      try {
+        const response = await fetch(source.url, {
+          cache: &#x27;no-store&#x27;,
+          signal: AbortSignal.timeout(25000),
+          headers: {
+            &#x27;User-Agent&#x27;: &#x27;CPS5745-Live-D3-Labs/2.0&#x27;,
+            &#x27;Cache-Control&#x27;: &#x27;no-cache&#x27;,
+          },
+        });
+        if (!response.ok) throw Error(`${source.name} returned HTTP ${response.status}`);
+        const rawText = await response.text(),
+          raw = JSON.parse(rawText);
+        res.end(
+          JSON.stringify({
+            raw,
+            rawText,
+            meta: {
+              ...source,
+              key,
+              mode: &#x27;live&#x27;,
+              fetchedAt: new Date().toISOString(),
+              providerDate: response.headers.get(&#x27;date&#x27;),
+              providerAge: response.headers.get(&#x27;age&#x27;),
+              sha256: createHash(&#x27;sha256&#x27;).update(rawText).digest(&#x27;hex&#x27;),
+            },
+          }),
+        );
+      } catch (error) {
+        res.writeHead(502);
+        res.end(
+          JSON.stringify({
+            error: `Live request failed: ${error.message}. No saved response is substituted.`,
+          }),
+        );
+      }
+    });
+  };
+  return {
+    name: &#x27;live-only-data&#x27;,
+    configureServer: install,
+    configurePreviewServer: install,
+  };
+}
+export function labConfig(plugins, port) {
+  return {
+    plugins: [...plugins, liveAPI()],
+    server: { host: &#x27;127.0.0.1&#x27;, port, strictPort: true },
+    preview: { host: &#x27;127.0.0.1&#x27;, port, strictPort: true },
+    build: { target: &#x27;es2022&#x27; },
+    clearScreen: false,
+  };
+}
+</code></pre></div></details><details><summary>shared/charts.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import * as d3 from &#x27;d3&#x27;;
+const W = 900,
+  H = 400,
+  M = { top: 28, right: 25, bottom: 74, left: 90 },
+  color = &#x27;#146477&#x27;;
+function root(node, title, description) {
+  node.replaceChildren();
+  const svg = d3
+    .select(node)
+    .append(&#x27;svg&#x27;)
+    .attr(&#x27;viewBox&#x27;, `0 0 ${W} ${H}`)
+    .attr(&#x27;role&#x27;, &#x27;img&#x27;)
+    .attr(&#x27;aria-label&#x27;, title + &#x27;. &#x27; + description);
+  svg.append(&#x27;title&#x27;).text(title);
+  svg.append(&#x27;desc&#x27;).text(description);
+  return svg;
+}
+function empty(node) {
+  node.replaceChildren();
+  const p = document.createElement(&#x27;p&#x27;);
+  p.className = &#x27;empty&#x27;;
+  p.textContent =
+    &#x27;No numeric observations match this selection. Lower the filter or retry the source.&#x27;;
+  node.append(p);
+}
+function domain(values) {
+  let [a, b] = d3.extent(values);
+  if (a === b &amp;&amp; a === 0) return [0, 1];
+  const pad = Math.max((b - a) * 0.07, a === b ? Math.abs(a) * 0.05 : 0, 0.00001);
+  return [a - pad, b + pad];
+}
+function axes(svg, x, y, xLabel, yLabel, xAxis = d3.axisBottom(x).ticks(6)) {
+  svg
+    .append(&#x27;g&#x27;)
+    .attr(&#x27;class&#x27;, &#x27;grid&#x27;)
+    .attr(&#x27;transform&#x27;, `translate(${M.left},0)`)
+    .call(
+      d3
+        .axisLeft(y)
+        .ticks(5)
+        .tickSize(-(W - M.left - M.right))
+        .tickFormat(&#x27;&#x27;),
+    );
+  svg
+    .append(&#x27;g&#x27;)
+    .attr(&#x27;transform&#x27;, `translate(0,${H - M.bottom})`)
+    .call(xAxis);
+  svg
+    .append(&#x27;g&#x27;)
+    .attr(&#x27;transform&#x27;, `translate(${M.left},0)`)
+    .call(
+      d3
+        .axisLeft(y)
+        .ticks(5)
+        .tickFormat(yLabel === &#x27;people&#x27; ? d3.format(&#x27;~s&#x27;) : d3.format(&#x27;.4~g&#x27;)),
+    );
+  svg
+    .append(&#x27;text&#x27;)
+    .attr(&#x27;x&#x27;, (W + M.left) / 2)
+    .attr(&#x27;y&#x27;, H - 12)
+    .attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;)
+    .text(xLabel);
+  svg
+    .append(&#x27;text&#x27;)
+    .attr(&#x27;transform&#x27;, &#x27;rotate(-90)&#x27;)
+    .attr(&#x27;x&#x27;, -(H - M.bottom + M.top) / 2)
+    .attr(&#x27;y&#x27;, 19)
+    .attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;)
+    .text(yLabel);
+}
+function tips(selection, text) {
+  selection
+    .attr(&#x27;tabindex&#x27;, 0)
+    .attr(&#x27;role&#x27;, &#x27;img&#x27;)
+    .attr(&#x27;aria-label&#x27;, text)
+    .append(&#x27;title&#x27;)
+    .text(text);
+}
+export function renderScatterPlot(
+  node,
+  rows,
+  title,
+  xLabel = &#x27;Earthquake magnitude&#x27;,
+  yLabel = &#x27;Depth (km)&#x27;,
+) {
+  const data = rows.filter((d) =&gt; Number.isFinite(d.x) &amp;&amp; Number.isFinite(d.y));
+  if (!data.length) return empty(node);
+  const svg = root(
+      node,
+      title,
+      `${data.length} events; each point is an earthquake. A data table follows.`,
+    ),
+    x = d3
+      .scaleLinear()
+      .domain(domain(data.map((d) =&gt; d.x)))
+      .nice()
+      .range([M.left, W - M.right]),
+    y = d3
+      .scaleLinear()
+      .domain(domain(data.map((d) =&gt; d.y)))
+      .nice()
+      .range([H - M.bottom, M.top]);
+  axes(svg, x, y, xLabel, yLabel);
+  const dots = svg
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;circle&#x27;)
+    .data(data)
+    .join(&#x27;circle&#x27;)
+    .attr(&#x27;class&#x27;, &#x27;mark&#x27;)
+    .attr(&#x27;cx&#x27;, (d) =&gt; x(d.x))
+    .attr(&#x27;cy&#x27;, (d) =&gt; y(d.y))
+    .attr(&#x27;r&#x27;, 5)
+    .attr(&#x27;fill&#x27;, color)
+    .attr(&#x27;opacity&#x27;, 0.65);
+  tips(dots, (d) =&gt; `${d.label}: magnitude ${d.x}; depth ${d.y} km`);
+}
+export function renderBarChart(node, rows, title, xLabel = &#x27;Count&#x27;, yLabel = &#x27;Category&#x27;) {
+  const data = rows.filter((d) =&gt; Number.isFinite(d.value));
+  if (!data.length) return empty(node);
+  const h = Math.max(400, data.length * 32 + 100),
+    left = 210,
+    svg = root(
+      node,
+      title,
+      `${data.length} categories. Bars start at zero; exact values are in the table.`,
+    ).attr(&#x27;viewBox&#x27;, `0 0 ${W} ${h}`),
+    x = d3
+      .scaleLinear()
+      .domain([
+        Math.min(
+          0,
+          d3.min(data, (d) =&gt; d.value),
+        ),
+        Math.max(
+          1,
+          d3.max(data, (d) =&gt; d.value),
+        ),
+      ])
+      .nice()
+      .range([left, W - M.right]),
+    y = d3
+      .scaleBand()
+      .domain(data.map((_, i) =&gt; String(i)))
+      .range([20, h - 66])
+      .padding(0.22);
+  svg
+    .append(&#x27;g&#x27;)
+    .attr(&#x27;transform&#x27;, `translate(0,${h - 66})`)
+    .call(d3.axisBottom(x).ticks(6));
+  svg
+    .append(&#x27;g&#x27;)
+    .attr(&#x27;transform&#x27;, `translate(${left},0)`)
+    .call(
+      d3
+        .axisLeft(y)
+        .tickFormat((i) =&gt;
+          data[+i].label.length &gt; 27 ? data[+i].label.slice(0, 26) + &#x27;…&#x27; : data[+i].label,
+        ),
+    );
+  const bars = svg
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;rect&#x27;)
+    .data(data)
+    .join(&#x27;rect&#x27;)
+    .attr(&#x27;class&#x27;, &#x27;mark&#x27;)
+    .attr(&#x27;x&#x27;, (d) =&gt; x(Math.min(0, d.value)))
+    .attr(&#x27;y&#x27;, (_, i) =&gt; y(String(i)))
+    .attr(&#x27;width&#x27;, (d) =&gt; Math.abs(x(d.value) - x(0)))
+    .attr(&#x27;height&#x27;, y.bandwidth())
+    .attr(&#x27;fill&#x27;, color);
+  tips(bars, (d) =&gt; `${d.label}: ${d.value}`);
+  svg
+    .append(&#x27;text&#x27;)
+    .attr(&#x27;x&#x27;, (W + left) / 2)
+    .attr(&#x27;y&#x27;, h - 14)
+    .attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;)
+    .text(xLabel);
+  svg.append(&#x27;text&#x27;).attr(&#x27;x&#x27;, 8).attr(&#x27;y&#x27;, 14).text(yLabel);
+}
+export function renderLineChart(node, rows, title, xLabel = &#x27;Time&#x27;, yLabel = &#x27;Value&#x27;) {
+  const data = rows
+    .filter((d) =&gt; Number.isFinite(d.value) &amp;&amp; Number.isFinite(d.time))
+    .sort((a, b) =&gt; a.time - b.time);
+  if (!data.length) return empty(node);
+  const annual = data.every((d) =&gt; /^\d{4}$/.test(d.label)),
+    xx = domain(data.map((d) =&gt; d.time)),
+    x = (annual ? d3.scaleLinear() : d3.scaleTime())
+      .domain(annual ? xx : xx.map((n) =&gt; new Date(n)))
+      .range([M.left, W - M.right]),
+    y = d3
+      .scaleLinear()
+      .domain(
+        yLabel === &#x27;mm&#x27;
+          ? [0, Math.max(1, d3.max(data, (d) =&gt; d.value) * 1.1)]
+          : domain(data.map((d) =&gt; d.value)),
+      )
+      .nice()
+      .range([H - M.bottom, M.top]),
+    svg = root(
+      node,
+      title,
+      `${data.length} records. Real time spacing is preserved; missing years/hours break the line. The vertical axis may not start at zero. Exact values are in the table.`,
+    );
+  const axis = d3
+    .axisBottom(x)
+    .ticks(6)
+    .tickFormat(
+      annual
+        ? d3.format(&#x27;d&#x27;)
+        : (v) =&gt;
+            new Intl.DateTimeFormat(&#x27;en-US&#x27;, {
+              timeZone: &#x27;America/New_York&#x27;,
+              month: &#x27;short&#x27;,
+              day: &#x27;numeric&#x27;,
+              hour: &#x27;numeric&#x27;,
+            }).format(v),
+    );
+  axes(svg, x, y, xLabel, yLabel, axis);
+  if (y.domain()[0] &lt;= 0 &amp;&amp; y.domain()[1] &gt;= 0)
+    svg
+      .append(&#x27;line&#x27;)
+      .attr(&#x27;x1&#x27;, M.left)
+      .attr(&#x27;x2&#x27;, W - M.right)
+      .attr(&#x27;y1&#x27;, y(0))
+      .attr(&#x27;y2&#x27;, y(0))
+      .attr(&#x27;stroke&#x27;, &#x27;#6b747a&#x27;)
+      .attr(&#x27;stroke-dasharray&#x27;, &#x27;4 4&#x27;);
+  const segments = [];
+  let part = [];
+  for (const d of data) {
+    if (part.length &amp;&amp; d.time - part.at(-1).time &gt; (annual ? 1.5 : 1.5 * 3600000)) {
+      segments.push(part);
+      part = [];
+    }
+    part.push(d);
+  }
+  segments.push(part);
+  const line = d3
+    .line()
+    .x((d) =&gt; x(annual ? d.time : new Date(d.time)))
+    .y((d) =&gt; y(d.value));
+  for (const segment of segments)
+    svg
+      .append(&#x27;path&#x27;)
+      .datum(segment)
+      .attr(&#x27;class&#x27;, &#x27;series&#x27;)
+      .attr(&#x27;fill&#x27;, &#x27;none&#x27;)
+      .attr(&#x27;stroke&#x27;, color)
+      .attr(&#x27;stroke-width&#x27;, 2.5)
+      .attr(&#x27;d&#x27;, line);
+  const dots = svg
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;circle&#x27;)
+    .data(data)
+    .join(&#x27;circle&#x27;)
+    .attr(&#x27;class&#x27;, &#x27;mark&#x27;)
+    .attr(&#x27;cx&#x27;, (d) =&gt; x(annual ? d.time : new Date(d.time)))
+    .attr(&#x27;cy&#x27;, (d) =&gt; y(d.value))
+    .attr(&#x27;r&#x27;, 3.8)
+    .attr(&#x27;fill&#x27;, color);
+  tips(dots, (d) =&gt; `${d.label}: ${d.value} ${yLabel}`);
+}
+</code></pre></div></details><details><summary>shared/evidence.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>export function element(tag, value, parent) {
+  const el = document.createElement(tag);
+  el.textContent = String(value);
+  parent.append(el);
+  return el;
+}
+export function download(name, value) {
+  const a = document.createElement(&#x27;a&#x27;);
+  a.href = URL.createObjectURL(
+    new Blob([typeof value === &#x27;string&#x27; ? value : JSON.stringify(value, null, 2)], {
+      type: &#x27;application/json&#x27;,
+    }),
+  );
+  a.download = name;
+  a.click();
+  setTimeout(() =&gt; URL.revokeObjectURL(a.href), 1000);
+}
+export function statistics(rows) {
+  const v = rows.map((d) =&gt; d.value ?? d.x).filter(Number.isFinite);
+  return v.length
+    ? {
+        count: v.length,
+        min: Math.min(...v),
+        max: Math.max(...v),
+        mean: v.reduce((a, b) =&gt; a + b, 0) / v.length,
+        sum: v.reduce((a, b) =&gt; a + b, 0),
+      }
+    : { count: 0, min: null, max: null, mean: null, sum: 0 };
+}
+export function aiPanel(parent, context) {
+  const e = element,
+    ai = e(&#x27;section&#x27;, &#x27;&#x27;, parent);
+  ai.className = &#x27;panel&#x27;;
+  e(&#x27;h2&#x27;, &#x27;Ask AI about this chart&#x27;, ai);
+  e(
+    &#x27;p&#x27;,
+    &#x27;Generate a prompt from the current selection. Paste it into an approved LLM. This button does not contact a model or use a secret key.&#x27;,
+    ai,
+  );
+  const button = e(&#x27;button&#x27;, &#x27;Generate chart-aware AI prompt&#x27;, ai);
+  button.className = &#x27;primary&#x27;;
+  const area = e(&#x27;textarea&#x27;, &#x27;&#x27;, ai);
+  area.readOnly = true;
+  area.setAttribute(&#x27;aria-label&#x27;, &#x27;AI prompt&#x27;);
+  button.onclick = () =&gt; {
+    area.value =
+      &#x27;Act as a skeptical data analyst. Use ONLY this chart context: &#x27; +
+      JSON.stringify(context) +
+      &#x27;. State two supported observations, one limitation and one better-view recommendation. Do not invent statistics, events or causal explanations. Distinguish forecasts from observations. Return numerical claims I can check against the selected records.&#x27;;
+  };
+  const audit = e(&#x27;details&#x27;, &#x27;&#x27;, ai);
+  e(&#x27;summary&#x27;, &#x27;Verify AI claims (local numerical checks)&#x27;, audit);
+  e(
+    &#x27;p&#x27;,
+    &#x27;Paste each actual model claim in your submission. These controls check only the numerical minimum, maximum or mean, not an entire narrative or causality. Numeric tolerance is max(0.000001, |expected| x 0.00001); check rounded claims at sufficient precision.&#x27;,
+    audit,
+  );
+  for (let i = 1; i &lt;= 3; i++) {
+    const row = e(&#x27;div&#x27;, &#x27;&#x27;, audit);
+    row.className = &#x27;mode-row audit&#x27;;
+    const label = e(&#x27;label&#x27;, `Claim ${i} text `, row),
+      claim = e(&#x27;input&#x27;, &#x27;&#x27;, label);
+    claim.placeholder = &#x27;Paste an actual AI claim&#x27;;
+    claim.setAttribute(&#x27;aria-label&#x27;, `Claim ${i}`);
+    const metric = e(&#x27;select&#x27;, &#x27;&#x27;, row);
+    metric.setAttribute(&#x27;aria-label&#x27;, `Claim ${i} metric`);
+    for (const k of [&#x27;min&#x27;, &#x27;max&#x27;, &#x27;mean&#x27;]) {
+      const op = e(&#x27;option&#x27;, k, metric);
+      op.value = k;
+    }
+    const value = e(&#x27;input&#x27;, &#x27;&#x27;, row);
+    value.type = &#x27;number&#x27;;
+    value.step = &#x27;any&#x27;;
+    value.setAttribute(&#x27;aria-label&#x27;, `Claim ${i} value`);
+    const check = e(&#x27;button&#x27;, &#x27;Check numerical claim&#x27;, row),
+      result = e(&#x27;span&#x27;, &#x27;Unverified&#x27;, row);
+    result.setAttribute(&#x27;role&#x27;, &#x27;status&#x27;);
+    check.onclick = () =&gt; {
+      const expected = context.summary[metric.value],
+        n = Number(value.value);
+      result.textContent =
+        !claim.value.trim() || value.value === &#x27;&#x27; || expected === null
+          ? &#x27;Unverified: enter a real claim and a number.&#x27;
+          : Math.abs(n - expected) &lt;= Math.max(1e-6, Math.abs(expected) * 1e-5)
+            ? &#x27;Correct for this numeric metric.&#x27;
+            : &#x27;Incorrect for this numeric metric: selected-data value is &#x27; + expected;
+    };
+  }
+}
+</code></pre></div></details><details><summary>shared/experiences/books.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { d3, createScene, label, hover, dragNodes, palette, number } from &#x27;./core.js&#x27;;
+export function books(node, packet, rows) {
+  const scene = createScene(
+    node,
+    &#x27;The author–work constellation&#x27;,
+    &#x27;FORCE GRAPH · DRAG NODES · PIN A NEIGHBORHOOD · ZOOM&#x27;,
+  );
+  const { svg } = scene;
+  const map = new Map(),
+    edges = [];
+  rows.forEach((book, i) =&gt; {
+    map.set(book.id, {
+      ...book,
+      kind: &#x27;work&#x27;,
+      r: Math.max(4, Math.sqrt(Math.max(0, book.value)) * 8),
+      x: 360 + Math.cos(i * 2.4) * 160,
+      y: 260 + Math.sin(i * 2.4) * 140,
+    });
+    for (const author of book.authors || []) {
+      const id = &#x27;author:&#x27; + author.id;
+      if (!map.has(id))
+        map.set(id, {
+          id,
+          label: author.name,
+          kind: &#x27;author&#x27;,
+          r: 8,
+          x: 500 + Math.cos(i) * 160,
+          y: 280 + Math.sin(i) * 140,
+        });
+      edges.push({ source: id, target: book.id });
+    }
+  });
+  const nodes = [...map.values()],
+    layer = svg.append(&#x27;g&#x27;);
+  let mode = 0,
+    pinned = null,
+    showNames = false;
+  const simulation = d3
+    .forceSimulation(nodes)
+    .force(&#x27;charge&#x27;, d3.forceManyBody().strength(-40))
+    .force(
+      &#x27;link&#x27;,
+      d3
+        .forceLink(edges)
+        .id((d) =&gt; d.id)
+        .distance(72)
+        .strength(0.5),
+    )
+    .force(
+      &#x27;collide&#x27;,
+      d3.forceCollide((d) =&gt; d.r + 9),
+    )
+    .force(
+      &#x27;x&#x27;,
+      d3.forceX((d) =&gt; (mode ? (d.kind === &#x27;author&#x27; ? 280 : 700) : 480)).strength(0.065),
+    )
+    .force(&#x27;y&#x27;, d3.forceY(280).strength(0.065))
+    .stop();
+  for (let i = 0; i &lt; 70; i++) simulation.tick();
+  const links = layer
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;path&#x27;)
+    .data(edges)
+    .join(&#x27;path&#x27;)
+    .attr(&#x27;fill&#x27;, &#x27;none&#x27;)
+    .attr(&#x27;stroke&#x27;, &#x27;#9bb3d0&#x27;)
+    .attr(&#x27;stroke-width&#x27;, 1.2);
+  const travelers = layer
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;circle&#x27;)
+    .data(edges)
+    .join(&#x27;circle&#x27;)
+    .attr(&#x27;r&#x27;, 2.5)
+    .attr(&#x27;fill&#x27;, &#x27;#aa7dce&#x27;)
+    .attr(&#x27;pointer-events&#x27;, &#x27;none&#x27;);
+  const groups = layer
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;g&#x27;)
+    .data(nodes)
+    .join(&#x27;g&#x27;)
+    .attr(&#x27;class&#x27;, &#x27;network-node&#x27;);
+  groups
+    .append(&#x27;circle&#x27;)
+    .attr(&#x27;r&#x27;, (d) =&gt; d.r)
+    .attr(&#x27;fill&#x27;, (d) =&gt; (d.kind === &#x27;author&#x27; ? &#x27;#8066b6&#x27; : &#x27;#edac64&#x27;))
+    .attr(&#x27;stroke&#x27;, &#x27;white&#x27;)
+    .attr(&#x27;stroke-width&#x27;, 2)
+    .attr(&#x27;filter&#x27;, &#x27;url(#soft-shadow)&#x27;);
+  groups
+    .filter((d) =&gt; d.kind === &#x27;author&#x27;)
+    .append(&#x27;text&#x27;)
+    .attr(&#x27;x&#x27;, 13)
+    .attr(&#x27;dy&#x27;, 4)
+    .attr(&#x27;font-size&#x27;, 12)
+    .attr(&#x27;fill&#x27;, &#x27;#514d79&#x27;)
+    .text((d) =&gt; (d.label.length &gt; 24 ? d.label.slice(0, 23) + &#x27;…&#x27; : d.label));
+  groups
+    .filter((d) =&gt; d.kind === &#x27;work&#x27;)
+    .append(&#x27;text&#x27;)
+    .attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;)
+    .attr(&#x27;dy&#x27;, 5)
+    .attr(&#x27;font-size&#x27;, 11)
+    .attr(&#x27;font-weight&#x27;, 700)
+    .attr(&#x27;fill&#x27;, &#x27;#70411b&#x27;)
+    .text((d) =&gt; d.value);
+  dragNodes(groups, simulation);
+  hover(
+    groups,
+    scene,
+    (d) =&gt; d.label,
+    (d) =&gt;
+      d.kind === &#x27;author&#x27;
+        ? &#x27;Author node; links are catalog work credits&#x27;
+        : `${d.value} catalog editions · first publication ${d.year || &#x27;not reported&#x27;}`,
+  );
+  groups.on(&#x27;click&#x27;, (_, d) =&gt; {
+    pinned = pinned === d.id ? null : d.id;
+    scene.inspect(
+      d.label,
+      d.kind === &#x27;work&#x27;
+        ? `${d.value} editions · ${(d.authors || []).map((a) =&gt; a.name).join(&#x27;, &#x27;) || &#x27;No author field returned&#x27;}`
+        : &#x27;Pinned author and connected works&#x27;,
+    );
+    scene.probe.pinned = pinned;
+    simulation.alpha(0.25);
+  });
+  const zoom = d3
+    .zoom()
+    .scaleExtent([0.6, 3])
+    .filter((e) =&gt; !e.target.closest(&#x27;.network-node&#x27;))
+    .on(&#x27;zoom&#x27;, (e) =&gt; layer.attr(&#x27;transform&#x27;, e.transform));
+  svg.call(zoom);
+  scene.controls(&#x27;Network geometry&#x27;, [&#x27;Constellation&#x27;, &#x27;Authors → works&#x27;], (_, i) =&gt; {
+    mode = i;
+    simulation.alpha(0.9);
+  });
+  scene.controls(
+    &#x27;Author labels&#x27;,
+    [&#x27;Inspect names&#x27;, &#x27;Show names&#x27;],
+    (_, i) =&gt; (showNames = !!i),
+  );
+  scene.controls(&#x27;Network selection&#x27;, [&#x27;Clear pin&#x27;, &#x27;Reset view&#x27;], (_, i) =&gt; {
+    ((pinned = null), (showNames = false));
+    if (i) svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
+  });
+  label(
+    svg,
+    65,
+    38,
+    `${rows.length} works / ${nodes.length - rows.length} authors`,
+    17,
+    &#x27;#4b4d75&#x27;,
+  );
+  label(
+    svg,
+    65,
+    570,
+    &#x27;Purple = authors · Amber area = editions · Numbers = exact edition counts&#x27;,
+    12,
+  );
+  label(
+    svg,
+    65,
+    592,
+    &#x27;Motion traces catalog relationships, not reading traffic. Search results are a sample.&#x27;,
+    12,
+  );
+  scene.inspect(
+    &#x27;A bipartite catalog, not a ranked bar chart&#x27;,
+    &#x27;Move a work or author and watch the connected structure relax. Click a node to isolate its actual catalog relationships.&#x27;,
+  );
+  function related(n) {
+    return (
+      !pinned ||
+      n.id === pinned ||
+      edges.some(
+        (e) =&gt;
+          (e.source.id === pinned &amp;&amp; e.target.id === n.id) ||
+          (e.target.id === pinned &amp;&amp; e.source.id === n.id),
+      )
+    );
+  }
+  scene.frame((dt, t) =&gt; {
+    simulation.tick();
+    for (const d of nodes) {
+      if (!d.fx) {
+        d.x = Math.max(45, Math.min(1020, d.x));
+        d.y = Math.max(65, Math.min(510, d.y));
+      }
+    }
+    groups
+      .attr(&#x27;transform&#x27;, (d) =&gt; `translate(${d.x},${d.y})`)
+      .attr(&#x27;opacity&#x27;, (d) =&gt; (related(d) ? 1 : 0.12));
+    links
+      .attr(
+        &#x27;d&#x27;,
+        (d) =&gt;
+          `M${d.source.x},${d.source.y}Q${(d.source.x + d.target.x) / 2},${(d.source.y + d.target.y) / 2 - 20} ${d.target.x},${d.target.y}`,
+      )
+      .attr(&#x27;opacity&#x27;, (d) =&gt;
+        !pinned || d.source.id === pinned || d.target.id === pinned ? 0.8 : 0.07,
+      );
+    travelers
+      .attr(&#x27;cx&#x27;, (d, i) =&gt; {
+        const a = (t * 0.22 + i * 0.071) % 1;
+        return (1 - a) * d.source.x + a * d.target.x;
+      })
+      .attr(&#x27;cy&#x27;, (d, i) =&gt; {
+        const a = (t * 0.22 + i * 0.071) % 1;
+        return (1 - a) * d.source.y + a * d.target.y - 40 * a * (1 - a);
+      })
+      .attr(&#x27;opacity&#x27;, (d) =&gt;
+        !pinned || d.source.id === pinned || d.target.id === pinned ? 1 : 0,
+      );
+    scene.probe.nodes = nodes.length;
+    scene.probe.edges = edges.length;
+  });
+  return scene;
+}
+</code></pre></div></details><details><summary>shared/experiences/core.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import * as d3 from &#x27;d3&#x27;;
+export { d3 };
+export const palette = [&#x27;#247bdf&#x27;, &#x27;#f2823d&#x27;, &#x27;#3baf94&#x27;, &#x27;#9a72d7&#x27;, &#x27;#dc5b89&#x27;, &#x27;#b89b3d&#x27;];
+export const W = 1100,
+  H = 600;
+export const number = (n) =&gt;
+  new Intl.NumberFormat(&#x27;en&#x27;, {
+    maximumFractionDigits: 2,
+    notation: Math.abs(n) &gt;= 1000000 ? &#x27;compact&#x27; : &#x27;standard&#x27;,
+  }).format(n);
+export function createScene(node, title, subtitle) {
+  node.replaceChildren();
+  node.classList.add(&#x27;kinetic-stage&#x27;);
+  const toolbar = document.createElement(&#x27;div&#x27;);
+  toolbar.className = &#x27;scene-toolbar&#x27;;
+  const tag = document.createElement(&#x27;span&#x27;);
+  tag.className = &#x27;scene-label&#x27;;
+  tag.textContent = subtitle;
+  toolbar.append(tag);
+  const pause = document.createElement(&#x27;button&#x27;);
+  pause.className = &#x27;motion-toggle&#x27;;
+  pause.textContent = &#x27;Pause motion&#x27;;
+  toolbar.append(pause);
+  node.append(toolbar);
+  const surface = document.createElement(&#x27;div&#x27;);
+  surface.className = &#x27;scene-surface&#x27;;
+  node.append(surface);
+  const pan = document.createElement(&#x27;label&#x27;);
+  pan.className = &#x27;mobile-pan&#x27;;
+  pan.textContent = &#x27;Explore canvas&#x27;;
+  const panInput = document.createElement(&#x27;input&#x27;);
+  panInput.type = &#x27;range&#x27;;
+  panInput.min = 0;
+  panInput.max = 100;
+  panInput.value = 25;
+  panInput.setAttribute(&#x27;aria-label&#x27;, &#x27;Canvas viewport&#x27;);
+  panInput.oninput = () =&gt;
+    (surface.scrollLeft =
+      ((surface.scrollWidth - surface.clientWidth) * panInput.value) / 100);
+  pan.append(panInput);
+  node.append(pan);
+  queueMicrotask(() =&gt; {
+    surface.scrollLeft = (surface.scrollWidth - surface.clientWidth) * 0.25;
+  });
+  const svg = d3
+    .select(surface)
+    .append(&#x27;svg&#x27;)
+    .attr(&#x27;viewBox&#x27;, `0 0 ${W} ${H}`)
+    .attr(&#x27;role&#x27;, &#x27;img&#x27;)
+    .attr(&#x27;aria-label&#x27;, title)
+    .attr(&#x27;class&#x27;, &#x27;custom-scene&#x27;);
+  svg.append(&#x27;title&#x27;).text(title);
+  const defs = svg.append(&#x27;defs&#x27;);
+  const filter = defs.append(&#x27;filter&#x27;).attr(&#x27;id&#x27;, &#x27;soft-shadow&#x27;);
+  filter
+    .append(&#x27;feDropShadow&#x27;)
+    .attr(&#x27;dx&#x27;, 0)
+    .attr(&#x27;dy&#x27;, 6)
+    .attr(&#x27;stdDeviation&#x27;, 9)
+    .attr(&#x27;flood-color&#x27;, &#x27;#233e6620&#x27;);
+  const grad = defs
+    .append(&#x27;linearGradient&#x27;)
+    .attr(&#x27;id&#x27;, &#x27;ocean&#x27;)
+    .attr(&#x27;x2&#x27;, &#x27;1&#x27;)
+    .attr(&#x27;y2&#x27;, &#x27;1&#x27;);
+  grad.append(&#x27;stop&#x27;).attr(&#x27;stop-color&#x27;, &#x27;#edf5ff&#x27;);
+  grad.append(&#x27;stop&#x27;).attr(&#x27;offset&#x27;, &#x27;100%&#x27;).attr(&#x27;stop-color&#x27;, &#x27;#b7d5f3&#x27;);
+  const inspector = document.createElement(&#x27;div&#x27;);
+  inspector.className = &#x27;scene-inspector&#x27;;
+  inspector.setAttribute(&#x27;aria-live&#x27;, &#x27;off&#x27;);
+  node.append(inspector);
+  let inView = true;
+  const observer = new IntersectionObserver((entries) =&gt; {
+    inView = entries[0]?.isIntersecting !== false;
+  });
+  observer.observe(node);
+  let paused = matchMedia(&#x27;(prefers-reduced-motion: reduce)&#x27;).matches,
+    t = 0,
+    last = 0,
+    callback = () =&gt; {},
+    dead = false;
+  pause.textContent = paused ? &#x27;Play motion&#x27; : &#x27;Pause motion&#x27;;
+  const state = (window.__missionState ||= new Map());
+  const done = state.get(title) || new Set();
+  state.set(title, done);
+  const board = document.createElement(&#x27;div&#x27;);
+  board.className = &#x27;mission-board&#x27;;
+  board.innerHTML =
+    &#x27;&lt;strong&gt;EXPLORE / PLAY&lt;/strong&gt;&lt;span data-mission=&quot;0&quot;&gt;Inspect a real record&lt;/span&gt;&lt;span data-mission=&quot;1&quot;&gt;Change the geometry&lt;/span&gt;&lt;span data-mission=&quot;2&quot;&gt;Scrub or select data&lt;/span&gt;&#x27;;
+  node.append(board);
+  function achieve(i) {
+    done.add(i);
+    board
+      .querySelectorAll(&#x27;[data-mission]&#x27;)
+      .forEach((el) =&gt; el.classList.toggle(&#x27;complete&#x27;, done.has(+el.dataset.mission)));
+  }
+  done.forEach(achieve);
+  const probe = {
+    kind: title,
+    frame: 0,
+    time: 0,
+    selection: null,
+    playing: !paused,
+    missions: [...done],
+  };
+  window.__vizProbe = probe;
+  pause.onclick = () =&gt; {
+    paused = !paused;
+    probe.playing = !paused;
+    pause.textContent = paused ? &#x27;Play motion&#x27; : &#x27;Pause motion&#x27;;
+  };
+  const timer = d3.timer((now) =&gt; {
+    const dt = Math.min(0.05, (now - last) / 1000 || 0.016);
+    last = now;
+    if (dead || document.hidden || !inView) return;
+    if (!paused) {
+      t += dt;
+      probe.frame++;
+      probe.time = t;
+      callback(dt, t);
+    }
+  });
+  const controls = (label, options, onChange) =&gt; {
+    const group = document.createElement(&#x27;div&#x27;);
+    group.className = &#x27;segmented&#x27;;
+    group.setAttribute(&#x27;aria-label&#x27;, label);
+    for (const [i, name] of options.entries()) {
+      const b = document.createElement(&#x27;button&#x27;);
+      b.textContent = name;
+      b.setAttribute(&#x27;aria-pressed&#x27;, String(i === 0));
+      b.onclick = () =&gt; {
+        group
+          .querySelectorAll(&#x27;button&#x27;)
+          .forEach((x) =&gt; x.setAttribute(&#x27;aria-pressed&#x27;, &#x27;false&#x27;));
+        b.setAttribute(&#x27;aria-pressed&#x27;, &#x27;true&#x27;);
+        onChange(name, i);
+        if (paused) callback(0.5, t);
+        achieve(1);
+        probe.missions = [...done];
+        probe.selection = name;
+      };
+      group.append(b);
+    }
+    toolbar.insertBefore(group, pause);
+    return group;
+  };
+  const inspect = (heading, detail) =&gt; {
+    inspector.replaceChildren();
+    const strong = document.createElement(&#x27;strong&#x27;);
+    strong.textContent = heading;
+    const p = document.createElement(&#x27;span&#x27;);
+    p.textContent = detail;
+    inspector.append(strong, p);
+    probe.selection = heading;
+  };
+  const timeline = (label, min, max, value, onInput) =&gt; {
+    const wrap = document.createElement(&#x27;label&#x27;);
+    wrap.className = &#x27;scene-timeline&#x27;;
+    const output = document.createElement(&#x27;output&#x27;);
+    output.textContent = String(value);
+    wrap.append(document.createTextNode(label + &#x27; &#x27;), output);
+    const slider = document.createElement(&#x27;input&#x27;);
+    slider.type = &#x27;range&#x27;;
+    slider.min = min;
+    slider.max = max;
+    slider.step = &#x27;1&#x27;;
+    slider.value = value;
+    slider.setAttribute(&#x27;aria-label&#x27;, label);
+    slider.oninput = () =&gt; {
+      output.textContent = slider.value;
+      onInput(+slider.value);
+      if (paused) callback(0.5, t);
+      achieve(0);
+      achieve(2);
+      probe.missions = [...done];
+    };
+    wrap.append(slider);
+    node.append(wrap);
+    return {
+      slider,
+      output,
+      set(v, labelValue = v) {
+        slider.value = v;
+        output.textContent = String(labelValue);
+      },
+    };
+  };
+  return {
+    svg,
+    surface,
+    toolbar,
+    probe,
+    inspect,
+    controls,
+    timeline,
+    achieve,
+    frame(fn) {
+      callback = fn;
+      fn(0, t);
+    },
+    dispose() {
+      dead = true;
+      observer.disconnect();
+      timer.stop();
+      svg.interrupt();
+      svg.selectAll(&#x27;*&#x27;).interrupt();
+      node.replaceChildren();
+    },
+    setPaused(v) {
+      paused = v;
+      probe.playing = !v;
+      pause.textContent = v ? &#x27;Play motion&#x27; : &#x27;Pause motion&#x27;;
+    },
+  };
+}
+export function label(svg, x, y, text, size = 13, color = &#x27;#5e7188&#x27;) {
+  return svg
+    .append(&#x27;text&#x27;)
+    .attr(&#x27;x&#x27;, x)
+    .attr(&#x27;y&#x27;, y)
+    .attr(&#x27;fill&#x27;, color)
+    .attr(&#x27;font-size&#x27;, size)
+    .text(text);
+}
+export function hover(selection, scene, title, detail) {
+  selection
+    .attr(&#x27;tabindex&#x27;, 0)
+    .attr(&#x27;role&#x27;, &#x27;button&#x27;)
+    .attr(&#x27;aria-label&#x27;, (d) =&gt; title(d) + &#x27;. &#x27; + detail(d))
+    .on(&#x27;pointerenter focus&#x27;, (_, d) =&gt; {
+      scene.inspect(title(d), detail(d));
+      scene.achieve(0);
+    })
+    .on(&#x27;click keydown&#x27;, (e, d) =&gt; {
+      if (e.type === &#x27;click&#x27; || e.key === &#x27;Enter&#x27;) {
+        scene.inspect(title(d), detail(d));
+        scene.probe.pinned = d.id || title(d);
+      }
+    });
+  selection.append(&#x27;title&#x27;).text((d) =&gt; title(d) + &#x27; · &#x27; + detail(d));
+}
+export function dragNodes(selection, simulation) {
+  selection.call(
+    d3
+      .drag()
+      .on(&#x27;start&#x27;, (e, d) =&gt; {
+        d.fx = d.x;
+        d.fy = d.y;
+        simulation.alpha(0.8);
+      })
+      .on(&#x27;drag&#x27;, (e, d) =&gt; {
+        d.fx = e.x;
+        d.fy = e.y;
+      })
+      .on(&#x27;end&#x27;, (_, d) =&gt; {
+        d.fx = null;
+        d.fy = null;
+        simulation.alpha(0.6);
+      }),
+  );
+}
+export function axisGrid(svg, x, y, xTitle, yTitle) {
+  svg
+    .append(&#x27;g&#x27;)
+    .attr(&#x27;class&#x27;, &#x27;scene-grid&#x27;)
+    .attr(&#x27;transform&#x27;, &#x27;translate(80,0)&#x27;)
+    .call(d3.axisLeft(y).ticks(5).tickSize(-930).tickFormat(&#x27;&#x27;));
+  svg.append(&#x27;g&#x27;).attr(&#x27;transform&#x27;, &#x27;translate(0,510)&#x27;).call(d3.axisBottom(x).ticks(7));
+  svg.append(&#x27;g&#x27;).attr(&#x27;transform&#x27;, &#x27;translate(80,0)&#x27;).call(d3.axisLeft(y).ticks(5));
+  label(svg, 480, 565, xTitle);
+  label(svg, 80, 35, yTitle);
+}
+</code></pre></div></details><details><summary>shared/experiences/economy.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { d3, createScene, label, hover, palette, number, axisGrid } from &#x27;./core.js&#x27;;
+export function economy(node, packet, rows) {
+  const scene = createScene(
+    node,
+    &#x27;Economic phase space&#x27;,
+    &#x27;SIX COUNTRY TRAJECTORIES · PREVIOUS YEAR × CURRENT YEAR · SCRUB TIME&#x27;,
+  );
+  const { svg } = scene;
+  const groups = [...d3.group(rows, (d) =&gt; d.country)].map(([id, s], i) =&gt; ({
+    id,
+    name: s[0].countryName,
+    color: palette[i % 6],
+    series: s.sort((a, b) =&gt; a.time - b.time),
+  }));
+  for (const g of groups)
+    g.pairs = g.series.flatMap((d, i) =&gt;
+      i &amp;&amp; d.time - g.series[i - 1].time === 1
+        ? [{ year: d.time, x: g.series[i - 1].value, y: d.value }]
+        : [],
+    );
+  const points = groups.flatMap((g) =&gt; g.pairs),
+    extent = Math.max(5, ...points.flatMap((d) =&gt; [Math.abs(d.x), Math.abs(d.y)])),
+    x = d3.scaleLinear().domain([-extent, extent]).nice().range([80, 1005]),
+    y = d3.scaleLinear().domain([-extent, extent]).nice().range([510, 60]);
+  axisGrid(
+    svg,
+    x,
+    y,
+    &#x27;PREVIOUS YEAR REAL GDP GROWTH (%)&#x27;,
+    &#x27;CURRENT YEAR REAL GDP GROWTH (%)&#x27;,
+  );
+  svg
+    .append(&#x27;rect&#x27;)
+    .attr(&#x27;x&#x27;, x(0))
+    .attr(&#x27;y&#x27;, 60)
+    .attr(&#x27;width&#x27;, 1005 - x(0))
+    .attr(&#x27;height&#x27;, y(0) - 60)
+    .attr(&#x27;fill&#x27;, &#x27;#e7f4ec&#x27;)
+    .attr(&#x27;opacity&#x27;, 0.6);
+  svg
+    .append(&#x27;rect&#x27;)
+    .attr(&#x27;x&#x27;, 80)
+    .attr(&#x27;y&#x27;, y(0))
+    .attr(&#x27;width&#x27;, x(0) - 80)
+    .attr(&#x27;height&#x27;, 510 - y(0))
+    .attr(&#x27;fill&#x27;, &#x27;#fbe9eb&#x27;)
+    .attr(&#x27;opacity&#x27;, 0.6);
+  svg
+    .append(&#x27;line&#x27;)
+    .attr(&#x27;x1&#x27;, x(0))
+    .attr(&#x27;x2&#x27;, x(0))
+    .attr(&#x27;y1&#x27;, 60)
+    .attr(&#x27;y2&#x27;, 510)
+    .attr(&#x27;stroke&#x27;, &#x27;#8797ae&#x27;);
+  svg
+    .append(&#x27;line&#x27;)
+    .attr(&#x27;x1&#x27;, 80)
+    .attr(&#x27;x2&#x27;, 1005)
+    .attr(&#x27;y1&#x27;, y(0))
+    .attr(&#x27;y2&#x27;, y(0))
+    .attr(&#x27;stroke&#x27;, &#x27;#8797ae&#x27;);
+  label(svg, 840, 91, &#x27;TWO YEARS OF GROWTH&#x27;, 11, &#x27;#4c8f69&#x27;);
+  label(svg, 98, 494, &#x27;TWO YEARS OF CONTRACTION&#x27;, 11, &#x27;#ad6673&#x27;);
+  const years = [...new Set(points.map((d) =&gt; d.year))].sort((a, b) =&gt; a - b);
+  let index = 0,
+    clock = 0,
+    playing = true,
+    pin = null,
+    full = false;
+  const paths = svg
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;path&#x27;)
+    .data(groups)
+    .join(&#x27;path&#x27;)
+    .attr(&#x27;class&#x27;, &#x27;phase-trail&#x27;)
+    .attr(&#x27;fill&#x27;, &#x27;none&#x27;)
+    .attr(&#x27;stroke&#x27;, (d) =&gt; d.color)
+    .attr(&#x27;stroke-width&#x27;, 2.4)
+    .attr(&#x27;stroke-linecap&#x27;, &#x27;round&#x27;);
+  const heads = svg
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;g&#x27;)
+    .data(groups)
+    .join(&#x27;g&#x27;)
+    .attr(&#x27;class&#x27;, &#x27;phase-country&#x27;);
+  heads
+    .append(&#x27;circle&#x27;)
+    .attr(&#x27;r&#x27;, 11)
+    .attr(&#x27;fill&#x27;, (d) =&gt; d.color)
+    .attr(&#x27;stroke&#x27;, &#x27;white&#x27;)
+    .attr(&#x27;stroke-width&#x27;, 2)
+    .attr(&#x27;filter&#x27;, &#x27;url(#soft-shadow)&#x27;);
+  heads
+    .append(&#x27;text&#x27;)
+    .attr(&#x27;x&#x27;, 16)
+    .attr(&#x27;dy&#x27;, 4)
+    .attr(&#x27;font-size&#x27;, 12)
+    .attr(&#x27;font-weight&#x27;, 700)
+    .attr(&#x27;fill&#x27;, (d) =&gt; d.color)
+    .text((d) =&gt; d.name);
+  hover(
+    heads,
+    scene,
+    (d) =&gt; d.name,
+    (d) =&gt;
+      d.point
+        ? `${d.point.year}: previous ${number(d.point.x)}%, current ${number(d.point.y)}%`
+        : &#x27;No observation in selected year&#x27;,
+  );
+  heads.on(&#x27;click&#x27;, (_, d) =&gt; {
+    pin = pin === d.id ? null : d.id;
+    scene.inspect(
+      d.name,
+      d.point
+        ? `${d.point.year}: ${number(d.point.y)}% actual reported growth. The connected trail shows consecutive annual pairs.`
+        : &#x27;No reported value&#x27;,
+    );
+    scene.probe.country = pin;
+  });
+  const yearLabel = label(svg, 92, 108, &#x27;&#x27;, 48, &#x27;#cfdaea&#x27;);
+  const timeline = scene.timeline(&#x27;Economic year&#x27;, 0, years.length - 1, 0, (i) =&gt; {
+    index = i;
+    playing = false;
+    update();
+  });
+  scene.controls(
+    &#x27;Phase playback&#x27;,
+    [&#x27;Play years&#x27;, &#x27;Hold year&#x27;],
+    (_, i) =&gt; (playing = i === 0),
+  );
+  scene.controls(
+    &#x27;Trajectory detail&#x27;,
+    [&#x27;Reveal over time&#x27;, &#x27;Full selected history&#x27;],
+    (_, i) =&gt; {
+      full = !!i;
+      update();
+    },
+  );
+  function update() {
+    const year = years[index];
+    yearLabel.text(year);
+    timeline.set(index, year);
+    for (const g of groups) {
+      g.point = g.pairs.find((p) =&gt; p.year === year);
+      if (g.point) {
+        g.tx = x(g.point.x);
+        g.ty = y(g.point.y);
+        if (g.px === undefined) {
+          g.px = g.tx;
+          g.py = g.ty;
+        }
+      }
+    }
+    paths.attr(&#x27;d&#x27;, (g) =&gt;
+      d3
+        .line()
+        .x((d) =&gt; x(d.x))
+        .y((d) =&gt; y(d.y))
+        .curve(d3.curveCatmullRom.alpha(0.5))(
+        g.pairs.filter((p) =&gt; full || p.year &lt;= year),
+      ),
+    );
+    heads.attr(&#x27;display&#x27;, (d) =&gt; (d.point ? null : &#x27;none&#x27;));
+    scene.probe.year = year;
+  }
+  update();
+  scene.inspect(
+    &#x27;Economic history as a traversable phase portrait&#x27;,
+    &#x27;Each position is a pair of actual consecutive annual rates. Motion interpolates between records; it is not an economic forecast or a causal model.&#x27;,
+  );
+  scene.frame((dt, t) =&gt; {
+    clock += dt;
+    if (playing &amp;&amp; clock &gt; 0.9) {
+      index = (index + 1) % years.length;
+      clock = 0;
+      update();
+    }
+    for (const d of groups) {
+      d.px += (d.tx - d.px) * Math.min(1, dt * 5);
+      d.py += (d.ty - d.py) * Math.min(1, dt * 5);
+    }
+    heads
+      .attr(&#x27;transform&#x27;, (d) =&gt; `translate(${d.px || 0},${d.py || 0})`)
+      .attr(&#x27;opacity&#x27;, (d) =&gt; (pin &amp;&amp; pin !== d.id ? 0.15 : 1));
+    paths.attr(&#x27;opacity&#x27;, (d) =&gt; (pin &amp;&amp; pin !== d.id ? 0.08 : 0.6));
+    heads
+      .select(&#x27;circle&#x27;)
+      .attr(&#x27;r&#x27;, (d) =&gt; (pin === d.id ? 13 + Math.sin(t * 4) * 2 : 10));
+    scene.probe.series = groups.length;
+  });
+  return scene;
+}
+</code></pre></div></details><details><summary>shared/experiences/events.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { d3, createScene, label, hover, palette, number } from &#x27;./core.js&#x27;;
+export function events(node, packet, rows) {
+  const scene = createScene(
+    node,
+    &#x27;Natural-event radial atlas&#x27;,
+    &#x27;NASA EONET · BUNDLED MEMBERSHIPS · EXPLODE A CATEGORY&#x27;,
+  );
+  const { svg } = scene,
+    cx = 455,
+    cy = 300;
+  const categories = rows.map((d, i) =&gt; ({ ...d, color: palette[i % 6] })),
+    allowed = new Set(categories.map((d) =&gt; d.label));
+  const all = packet.raw.events
+    .filter((e) =&gt; (e.categories || []).some((c) =&gt; allowed.has(c.title)))
+    .map((e) =&gt; ({ ...e, time: Date.parse(e.geometry?.at(-1)?.date || &#x27;&#x27;) }))
+    .filter((e) =&gt; Number.isFinite(e.time))
+    .sort((a, b) =&gt; b.time - a.time);
+  const visible = all.slice(0, 150);
+  const arcs = d3
+      .pie()
+      .sort(null)
+      .value((d) =&gt; d.value)(categories),
+    byCat = new Map(arcs.map((a) =&gt; [a.data.label, a]));
+  let mode = 0,
+    pin = null;
+  const arc = d3.arc().innerRadius(235).outerRadius(249);
+  const wedges = svg
+    .append(&#x27;g&#x27;)
+    .attr(&#x27;transform&#x27;, `translate(${cx},${cy})`)
+    .selectAll(&#x27;path&#x27;)
+    .data(arcs)
+    .join(&#x27;path&#x27;)
+    .attr(&#x27;d&#x27;, arc)
+    .attr(&#x27;fill&#x27;, (d) =&gt; d.data.color)
+    .attr(&#x27;stroke&#x27;, &#x27;white&#x27;)
+    .attr(&#x27;stroke-width&#x27;, 4)
+    .attr(&#x27;tabindex&#x27;, 0)
+    .attr(&#x27;role&#x27;, &#x27;button&#x27;)
+    .attr(&#x27;aria-label&#x27;, (d) =&gt; `${d.data.label}, ${d.data.value} memberships`)
+    .on(&#x27;click&#x27;, (_, d) =&gt; {
+      pin = pin === d.data.label ? null : d.data.label;
+      scene.inspect(
+        d.data.label,
+        `${d.data.value} category memberships in returned events; click again to release.`,
+      );
+      scene.probe.category = pin;
+    });
+  wedges.append(&#x27;title&#x27;).text((d) =&gt; `${d.data.label}: ${d.data.value}`);
+  svg
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;text&#x27;)
+    .data(arcs)
+    .join(&#x27;text&#x27;)
+    .attr(&#x27;x&#x27;, (d) =&gt; cx + Math.sin((d.startAngle + d.endAngle) / 2) * 280)
+    .attr(&#x27;y&#x27;, (d) =&gt; cy - Math.cos((d.startAngle + d.endAngle) / 2) * 280)
+    .attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;)
+    .attr(&#x27;fill&#x27;, (d) =&gt; d.data.color)
+    .attr(&#x27;font-size&#x27;, 12)
+    .attr(&#x27;font-weight&#x27;, 700)
+    .text((d) =&gt; d.data.label);
+  const extent = d3.extent(visible, (d) =&gt; d.time),
+    radial = d3.scaleLinear().domain(extent).range([80, 218]);
+  const nodes = visible.map((e, i) =&gt; {
+    const first = e.categories.find((c) =&gt; allowed.has(c.title)),
+      a = byCat.get(first.title),
+      angle = a.startAngle + (a.endAngle - a.startAngle) * ((i * 0.618) % 1);
+    return {
+      ...e,
+      id: e.id,
+      category: first.title,
+      color: a.data.color,
+      angle,
+      r: radial(e.time),
+      px: cx,
+      py: cy,
+    };
+  });
+  const links = nodes.flatMap((n) =&gt;
+    n.categories
+      .filter((c) =&gt; allowed.has(c.title))
+      .map((c) =&gt; ({
+        node: n,
+        arc: byCat.get(c.title),
+        color: byCat.get(c.title).data.color,
+      })),
+  );
+  const curves = svg
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;path&#x27;)
+    .data(links)
+    .join(&#x27;path&#x27;)
+    .attr(&#x27;fill&#x27;, &#x27;none&#x27;)
+    .attr(&#x27;stroke&#x27;, (d) =&gt; d.color)
+    .attr(&#x27;stroke-width&#x27;, 0.75)
+    .attr(&#x27;opacity&#x27;, 0.2);
+  const dots = svg
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;circle&#x27;)
+    .data(nodes)
+    .join(&#x27;circle&#x27;)
+    .attr(&#x27;class&#x27;, &#x27;event-seed&#x27;)
+    .attr(&#x27;r&#x27;, 3.5)
+    .attr(&#x27;fill&#x27;, (d) =&gt; d.color)
+    .attr(&#x27;stroke&#x27;, &#x27;white&#x27;)
+    .attr(&#x27;stroke-width&#x27;, 0.6);
+  hover(
+    dots,
+    scene,
+    (d) =&gt; d.title,
+    (d) =&gt;
+      `${new Date(d.time).toLocaleDateString()} · ${d.categories.map((c) =&gt; c.title).join(&#x27;, &#x27;)} · ${d.closed ? &#x27;closed&#x27; : &#x27;open&#x27;} event`,
+  );
+  const center = svg.append(&#x27;g&#x27;);
+  center
+    .append(&#x27;circle&#x27;)
+    .attr(&#x27;cx&#x27;, cx)
+    .attr(&#x27;cy&#x27;, cy)
+    .attr(&#x27;r&#x27;, 59)
+    .attr(&#x27;fill&#x27;, &#x27;#fff&#x27;)
+    .attr(&#x27;stroke&#x27;, &#x27;#e7eaf3&#x27;)
+    .attr(&#x27;filter&#x27;, &#x27;url(#soft-shadow)&#x27;);
+  label(center, cx, cy + 2, String(all.length), 36, &#x27;#374b70&#x27;).attr(
+    &#x27;text-anchor&#x27;,
+    &#x27;middle&#x27;,
+  );
+  label(center, cx, cy + 22, &#x27;returned events&#x27;, 11).attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;);
+  label(svg, 835, 100, &#x27;THE EVENT GARDEN&#x27;, 12, &#x27;#9c77b9&#x27;);
+  label(svg, 835, 140, String(visible.length), 50, &#x27;#3f5278&#x27;);
+  label(svg, 835, 171, &#x27;latest events drawn&#x27;);
+  label(svg, 835, 218, &#x27;Category sectors use all returned&#x27;);
+  label(svg, 835, 241, &#x27;membership counts. Dots are&#x27;);
+  label(svg, 835, 264, &#x27;capped at the latest 150 events.&#x27;);
+  label(svg, 835, 316, &#x27;Click a category to explode it.&#x27;);
+  label(svg, 835, 339, &#x27;Hover a seed for its real title.&#x27;);
+  label(svg, 835, 402, &#x27;The 500-event API cap is not&#x27;);
+  label(svg, 835, 425, &#x27;a global disaster census.&#x27;);
+  scene.controls(&#x27;Event layout&#x27;, [&#x27;Category petals&#x27;, &#x27;Time orbit&#x27;], (_, i) =&gt; (mode = i));
+  scene.controls(&#x27;Event selection&#x27;, [&#x27;Release category&#x27;], () =&gt; (pin = null));
+  scene.inspect(
+    &#x27;Category memberships become a living radial structure&#x27;,
+    &#x27;Outer sectors encode returned membership counts. Dot radius encodes event recency, not severity; connectors show actual category membership.&#x27;,
+  );
+  const line = d3.line().curve(d3.curveBundle.beta(0.86));
+  scene.frame((dt, t) =&gt; {
+    for (const n of nodes) {
+      const a = mode
+        ? ((n.time - extent[0]) / Math.max(1, extent[1] - extent[0])) * Math.PI * 2
+        : n.angle;
+      const offset = pin &amp;&amp; n.categories.some((c) =&gt; c.title === pin) ? 36 : 0;
+      const r = n.r + offset;
+      n.px +=
+        (cx + Math.sin(a) * (r + Math.sin(t + n.angle) * 2) - n.px) * Math.min(1, dt * 5);
+      n.py +=
+        (cy - Math.cos(a) * (r + Math.sin(t + n.angle) * 2) - n.py) * Math.min(1, dt * 5);
+    }
+    dots
+      .attr(&#x27;cx&#x27;, (d) =&gt; d.px)
+      .attr(&#x27;cy&#x27;, (d) =&gt; d.py)
+      .attr(&#x27;r&#x27;, (d) =&gt; (pin &amp;&amp; d.categories.some((c) =&gt; c.title === pin) ? 5 : 3.5))
+      .attr(&#x27;opacity&#x27;, (d) =&gt;
+        !pin || d.categories.some((c) =&gt; c.title === pin) ? 1 : 0.1,
+      );
+    curves
+      .attr(&#x27;d&#x27;, (d) =&gt; {
+        const a = (d.arc.startAngle + d.arc.endAngle) / 2;
+        return line([
+          [d.node.px, d.node.py],
+          [cx + Math.sin(a) * 40, cy - Math.cos(a) * 40],
+          [cx + Math.sin(a) * 235, cy - Math.cos(a) * 235],
+        ]);
+      })
+      .attr(&#x27;opacity&#x27;, (d) =&gt; (pin ? (d.arc.data.label === pin ? 0.6 : 0.03) : 0.16));
+    scene.probe.eventNodes = nodes.length;
+    scene.probe.links = links.length;
+    scene.probe.layout = mode;
+  });
+  return scene;
+}
+</code></pre></div></details><details><summary>shared/experiences/globe.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { d3, createScene, label, hover, number } from &#x27;./core.js&#x27;;
+export function globe(node, packet, rows) {
+  const scene = createScene(
+    node,
+    &#x27;Seismic globe&#x27;,
+    &#x27;ORTHOGRAPHIC PROJECTION · DRAG TO ORBIT · CLICK AN EARTHQUAKE&#x27;,
+  );
+  const { svg } = scene;
+  const center = [430, 295],
+    radius = 248,
+    projection = d3.geoOrthographic().translate(center).scale(radius).rotate([65, -18]),
+    path = d3.geoPath(projection),
+    grid = d3.geoGraticule10();
+  svg
+    .append(&#x27;circle&#x27;)
+    .attr(&#x27;cx&#x27;, center[0])
+    .attr(&#x27;cy&#x27;, center[1])
+    .attr(&#x27;r&#x27;, radius + 14)
+    .attr(&#x27;fill&#x27;, &#x27;#f0f5fc&#x27;);
+  const sphere = svg
+    .append(&#x27;path&#x27;)
+    .datum({ type: &#x27;Sphere&#x27; })
+    .attr(&#x27;fill&#x27;, &#x27;url(#ocean)&#x27;)
+    .attr(&#x27;stroke&#x27;, &#x27;#8bafcf&#x27;);
+  const graticule = svg
+    .append(&#x27;path&#x27;)
+    .datum(grid)
+    .attr(&#x27;fill&#x27;, &#x27;none&#x27;)
+    .attr(&#x27;stroke&#x27;, &#x27;#7fadd0&#x27;)
+    .attr(&#x27;stroke-opacity&#x27;, 0.42);
+  const equator = svg
+    .append(&#x27;path&#x27;)
+    .datum({
+      type: &#x27;LineString&#x27;,
+      coordinates: d3.range(-180, 181, 2).map((lon) =&gt; [lon, 0]),
+    })
+    .attr(&#x27;fill&#x27;, &#x27;none&#x27;)
+    .attr(&#x27;stroke&#x27;, &#x27;#4087bd&#x27;)
+    .attr(&#x27;stroke-width&#x27;, 1.6);
+  const sorted = [...rows].sort((a, b) =&gt; a.time - b.time);
+  let progress = 1,
+    auto = true,
+    rotation = [65, -18],
+    style = &#x27;Depth needles&#x27;;
+  const spokes = svg
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;line&#x27;)
+    .data(rows)
+    .join(&#x27;line&#x27;)
+    .attr(&#x27;stroke&#x27;, &#x27;#e68853&#x27;)
+    .attr(&#x27;stroke-opacity&#x27;, 0.55);
+  const marks = svg
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;circle&#x27;)
+    .data(rows)
+    .join(&#x27;circle&#x27;)
+    .attr(&#x27;class&#x27;, &#x27;quake-node&#x27;)
+    .attr(&#x27;fill&#x27;, (d) =&gt; d3.interpolateTurbo(Math.max(0, Math.min(1, d.y / 650))))
+    .attr(&#x27;stroke&#x27;, &#x27;#fff&#x27;)
+    .attr(&#x27;stroke-width&#x27;, 1);
+  const pulses = svg
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;circle&#x27;)
+    .data(sorted.slice(-35))
+    .join(&#x27;circle&#x27;)
+    .attr(&#x27;fill&#x27;, &#x27;none&#x27;)
+    .attr(&#x27;stroke&#x27;, &#x27;#df793d&#x27;)
+    .attr(&#x27;pointer-events&#x27;, &#x27;none&#x27;);
+  hover(
+    marks,
+    scene,
+    (d) =&gt; d.label,
+    (d) =&gt;
+      `M ${d.x} · ${number(d.y)} km deep · ${new Date(d.time).toLocaleString()} · drag globe to expose the other hemisphere`,
+  );
+  svg.call(
+    d3
+      .drag()
+      .filter((e) =&gt; !e.target.classList.contains(&#x27;quake-node&#x27;))
+      .on(&#x27;start&#x27;, () =&gt; (auto = false))
+      .on(&#x27;drag&#x27;, (e) =&gt; {
+        rotation[0] += e.dx * 0.3;
+        rotation[1] = Math.max(-80, Math.min(80, rotation[1] - e.dy * 0.3));
+        render(0);
+      }),
+  );
+  scene.controls(&#x27;Geometry&#x27;, [&#x27;Depth needles&#x27;, &#x27;Surface pulses&#x27;], (name) =&gt; {
+    style = name;
+    render(0);
+  });
+  scene.controls(&#x27;Spin&#x27;, [&#x27;Auto orbit&#x27;, &#x27;Hold globe&#x27;], (_, i) =&gt; (auto = i === 0));
+  const timeline = scene.timeline(&#x27;Event time window&#x27;, 0, 100, 100, (v) =&gt; {
+    progress = v / 100;
+    render(0);
+  });
+  label(svg, 760, 75, &#x27;THE EARTH, IN MOTION&#x27;, 12, &#x27;#ce774a&#x27;);
+  label(svg, 760, 113, String(rows.length), 52, &#x27;#223f63&#x27;);
+  label(svg, 760, 142, &#x27;earthquakes in the current filter&#x27;);
+  label(svg, 760, 191, &#x27;Color = hypocenter depth&#x27;);
+  for (let i = 0; i &lt; 70; i++)
+    svg
+      .append(&#x27;rect&#x27;)
+      .attr(&#x27;x&#x27;, 760 + i * 3)
+      .attr(&#x27;y&#x27;, 210)
+      .attr(&#x27;width&#x27;, 3.3)
+      .attr(&#x27;height&#x27;, 9)
+      .attr(&#x27;fill&#x27;, d3.interpolateTurbo(i / 70));
+  label(svg, 760, 244, &#x27;0 km                         650+ km&#x27;, 12);
+  label(svg, 760, 297, &#x27;Ring motion is a visual locator.&#x27;, 13);
+  label(svg, 760, 320, &#x27;It is not a wave-speed simulation.&#x27;, 13);
+  label(svg, 760, 375, &#x27;Drag to rotate the sphere.&#x27;, 15, &#x27;#223f63&#x27;);
+  label(svg, 760, 402, &#x27;Hover to inspect a real event.&#x27;);
+  label(svg, 760, 429, &#x27;Scrub to reveal the weekly sequence.&#x27;);
+  label(svg, 760, 478, &#x27;USGS magnitude ≥ 2.5 feed&#x27;, 12);
+  scene.inspect(
+    &#x27;A live USGS response, not invented events&#x27;,
+    &#x27;The sphere rotates continuously; depths, coordinates and timestamps come from the current network response.&#x27;,
+  );
+  function render(t) {
+    projection.rotate(rotation);
+    sphere.attr(&#x27;d&#x27;, path);
+    graticule.attr(&#x27;d&#x27;, path);
+    equator.attr(&#x27;d&#x27;, path);
+    const inv = projection.invert(center),
+      cut =
+        sorted[0]?.time +
+        progress * ((sorted.at(-1)?.time || 0) - (sorted[0]?.time || 0));
+    const visible = (d) =&gt;
+      d3.geoDistance([d.lon, d.lat], inv) &lt; Math.PI / 2 &amp;&amp; d.time &lt;= cut;
+    marks
+      .attr(&#x27;display&#x27;, (d) =&gt; (visible(d) ? null : &#x27;none&#x27;))
+      .attr(&#x27;cx&#x27;, (d) =&gt; projection([d.lon, d.lat])[0])
+      .attr(&#x27;cy&#x27;, (d) =&gt; projection([d.lon, d.lat])[1])
+      .attr(&#x27;r&#x27;, (d) =&gt; Math.max(2.8, (d.x - 1) * 1.5));
+    spokes
+      .attr(&#x27;display&#x27;, (d) =&gt; (visible(d) &amp;&amp; style === &#x27;Depth needles&#x27; ? null : &#x27;none&#x27;))
+      .attr(&#x27;x1&#x27;, (d) =&gt; projection([d.lon, d.lat])[0])
+      .attr(&#x27;y1&#x27;, (d) =&gt; projection([d.lon, d.lat])[1])
+      .attr(
+        &#x27;x2&#x27;,
+        (d) =&gt;
+          center[0] +
+          (projection([d.lon, d.lat])[0] - center[0]) * (1 - Math.max(0, d.y) / 6371),
+      )
+      .attr(
+        &#x27;y2&#x27;,
+        (d) =&gt;
+          center[1] +
+          (projection([d.lon, d.lat])[1] - center[1]) * (1 - Math.max(0, d.y) / 6371),
+      );
+    pulses
+      .attr(&#x27;display&#x27;, (d) =&gt; (visible(d) ? null : &#x27;none&#x27;))
+      .attr(&#x27;cx&#x27;, (d) =&gt; projection([d.lon, d.lat])[0])
+      .attr(&#x27;cy&#x27;, (d) =&gt; projection([d.lon, d.lat])[1])
+      .attr(&#x27;r&#x27;, (d, i) =&gt; 4 + ((t * 0.5 + i * 0.17) % 1) * 24)
+      .attr(&#x27;opacity&#x27;, (d, i) =&gt; 1 - ((t * 0.5 + i * 0.17) % 1));
+    scene.probe.visible = rows.filter(visible).length;
+    scene.probe.rotation = rotation.slice();
+  }
+  scene.frame((dt, t) =&gt; {
+    if (auto) rotation[0] += dt * 5;
+    render(t);
+  });
+  return scene;
+}
+</code></pre></div></details><details><summary>shared/experiences/index.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { globe } from &#x27;./globe.js&#x27;;
+import { population } from &#x27;./population.js&#x27;;
+import { weather } from &#x27;./weather.js&#x27;;
+import { books } from &#x27;./books.js&#x27;;
+import { events } from &#x27;./events.js&#x27;;
+import { swarm } from &#x27;./swarm.js&#x27;;
+import { economy } from &#x27;./economy.js&#x27;;
+import { rain } from &#x27;./rain.js&#x27;;
+const scenes = new WeakMap();
+export function stopExperience(node) {
+  scenes.get(node)?.dispose();
+  scenes.delete(node);
+}
+export function renderExperience(node, packet, rows, options) {
+  stopExperience(node);
+  if (packet.invalid || packet.meta.mode !== &#x27;live&#x27;)
+    throw Error(&#x27;Only a valid live response may be visualized&#x27;);
+  if (!rows.length) {
+    node.textContent =
+      &#x27;No live observations match this filter. Adjust the selection; no data is invented.&#x27;;
+    return;
+  }
+  const id = Number(document.body.dataset.lab),
+    engines = [globe, population, weather, books, events, swarm, economy, rain];
+  const engine = id === 1 &amp;&amp; options.bins ? swarm : engines[id - 1];
+  const scene = engine(node, packet, rows);
+  scenes.set(node, scene);
+  window.__activeScene = scene;
+  return scene;
+}
+</code></pre></div></details><details><summary>shared/experiences/population.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { d3, createScene, label, hover, dragNodes, palette, number } from &#x27;./core.js&#x27;;
+export function population(node, packet, rows) {
+  const scene = createScene(
+    node,
+    &#x27;Population choreography&#x27;,
+    &#x27;LIVE-REQUESTED ANNUAL DATA · AREA = POPULATION · DRAG A COUNTRY&#x27;,
+  );
+  const { svg } = scene;
+  const grouped = [...d3.group(rows, (d) =&gt; d.country)].map(([id, series], i) =&gt; ({
+    id,
+    name: series[0].countryName,
+    series,
+    color: palette[i % 6],
+    x: 388 + Math.cos(i * 1.07) * 130,
+    y: 239 + Math.sin(i * 1.07) * 100,
+    r: 0,
+    value: 0,
+  }));
+  const years = [...new Set(rows.map((d) =&gt; d.time))].sort((a, b) =&gt; a - b);
+  let index = 0,
+    clock = 0,
+    playing = true,
+    mode = 0,
+    pinned = null;
+  const radius = d3
+    .scaleSqrt()
+    .domain([0, d3.max(rows, (d) =&gt; d.value)])
+    .range([0, 116]);
+  const hugeYear = label(svg, 760, 125, String(years[0]), 78, &#x27;#d5deec&#x27;);
+  label(svg, 760, 164, &#x27;ANNUAL PLAYBACK&#x27;, 12);
+  label(svg, 760, 202, &#x27;Six countries, requested now.&#x27;);
+  label(svg, 760, 225, &#x27;Annual records are historical,&#x27;);
+  label(svg, 760, 248, &#x27;not a live population counter.&#x27;);
+  label(svg, 760, 296, &#x27;Circle area is proportional&#x27;);
+  label(svg, 760, 319, &#x27;to reported population.&#x27;);
+  label(svg, 760, 380, &#x27;Pin a country to trace its history.&#x27;);
+  svg
+    .append(&#x27;circle&#x27;)
+    .attr(&#x27;cx&#x27;, 388)
+    .attr(&#x27;cy&#x27;, 239)
+    .attr(&#x27;r&#x27;, 203)
+    .attr(&#x27;fill&#x27;, &#x27;#f2f6fc&#x27;)
+    .attr(&#x27;stroke&#x27;, &#x27;#e3eaf5&#x27;);
+  const bodies = svg
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;g&#x27;)
+    .data(grouped)
+    .join(&#x27;g&#x27;)
+    .attr(&#x27;class&#x27;, &#x27;country-body&#x27;)
+    .style(&#x27;cursor&#x27;, &#x27;grab&#x27;);
+  bodies
+    .append(&#x27;circle&#x27;)
+    .attr(&#x27;fill&#x27;, (d) =&gt; d.color)
+    .attr(&#x27;fill-opacity&#x27;, 0.83)
+    .attr(&#x27;stroke&#x27;, &#x27;#fff&#x27;)
+    .attr(&#x27;stroke-width&#x27;, 3)
+    .attr(&#x27;filter&#x27;, &#x27;url(#soft-shadow)&#x27;);
+  bodies
+    .append(&#x27;text&#x27;)
+    .attr(&#x27;class&#x27;, &#x27;country-name&#x27;)
+    .attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;)
+    .attr(&#x27;fill&#x27;, &#x27;white&#x27;)
+    .attr(&#x27;font-size&#x27;, 15)
+    .attr(&#x27;font-weight&#x27;, 700)
+    .text((d) =&gt; d.name);
+  bodies
+    .append(&#x27;text&#x27;)
+    .attr(&#x27;class&#x27;, &#x27;country-pop&#x27;)
+    .attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;)
+    .attr(&#x27;fill&#x27;, &#x27;white&#x27;)
+    .attr(&#x27;dy&#x27;, 24)
+    .attr(&#x27;font-size&#x27;, 17);
+  bodies.on(&#x27;click&#x27;, (_, d) =&gt; {
+    pinned = pinned === d.id ? null : d.id;
+    scene.inspect(
+      d.name,
+      `${number(d.value)} people in ${years[index]}. The selected trace is highlighted.`,
+    );
+    scene.probe.country = pinned;
+  });
+  hover(
+    bodies,
+    scene,
+    (d) =&gt; d.name,
+    (d) =&gt; `${number(d.value)} people · ${years[index]}`,
+  );
+  const simulation = d3
+    .forceSimulation(grouped)
+    .force(
+      &#x27;x&#x27;,
+      d3
+        .forceX((d) =&gt;
+          mode ? 388 + 180 * Math.cos((grouped.indexOf(d) * Math.PI) / 3) : 388,
+        )
+        .strength(0.045),
+    )
+    .force(
+      &#x27;y&#x27;,
+      d3
+        .forceY((d) =&gt;
+          mode ? 239 + 130 * Math.sin((grouped.indexOf(d) * Math.PI) / 3) : 239,
+        )
+        .strength(0.045),
+    )
+    .force(&#x27;collide&#x27;, d3.forceCollide((d) =&gt; d.r + 5).iterations(4))
+    .stop();
+  dragNodes(bodies, simulation);
+  const history = svg.append(&#x27;g&#x27;);
+  const sx = d3.scaleLinear().domain(d3.extent(years)).range([95, 1010]),
+    sy = d3
+      .scaleLinear()
+      .domain([0, d3.max(rows, (d) =&gt; d.value)])
+      .range([555, 465]);
+  const traces = history
+    .selectAll(&#x27;path&#x27;)
+    .data(grouped)
+    .join(&#x27;path&#x27;)
+    .attr(&#x27;fill&#x27;, &#x27;none&#x27;)
+    .attr(&#x27;stroke&#x27;, (d) =&gt; d.color)
+    .attr(&#x27;stroke-width&#x27;, 2)
+    .attr(&#x27;d&#x27;, (d) =&gt;
+      d3
+        .line()
+        .x((r) =&gt; sx(r.time))
+        .y((r) =&gt; sy(r.value))(d.series),
+    );
+  const scan = history
+    .append(&#x27;line&#x27;)
+    .attr(&#x27;y1&#x27;, 457)
+    .attr(&#x27;y2&#x27;, 558)
+    .attr(&#x27;stroke&#x27;, &#x27;#243d64&#x27;)
+    .attr(&#x27;stroke-dasharray&#x27;, &#x27;3 3&#x27;);
+  label(svg, 95, 591, String(years[0]), 12);
+  label(svg, 966, 591, String(years.at(-1)), 12);
+  label(svg, 95, 446, &#x27;LINKED HISTORY · SAME REPORTING YEARS&#x27;, 11);
+  const timeline = scene.timeline(&#x27;Reporting year&#x27;, 0, years.length - 1, 0, (i) =&gt; {
+    index = i;
+    playing = false;
+    update();
+  });
+  scene.controls(
+    &#x27;Population motion&#x27;,
+    [&#x27;Play years&#x27;, &#x27;Hold year&#x27;],
+    (_, i) =&gt; (playing = i === 0),
+  );
+  scene.controls(&#x27;Country layout&#x27;, [&#x27;Packed population&#x27;, &#x27;Country orbit&#x27;], (_, i) =&gt; {
+    mode = i;
+    simulation.alpha(0.8);
+  });
+  function update() {
+    const year = years[index];
+    hugeYear.text(year);
+    timeline.set(index, year);
+    for (const d of grouped) {
+      const r = d.series.find((r) =&gt; r.time === year);
+      d.value = r?.value ?? null;
+      d.targetRadius = r ? radius(r.value) : 0;
+      if (d.r === 0) d.r = d.targetRadius;
+    }
+    bodies
+      .select(&#x27;.country-pop&#x27;)
+      .text((d) =&gt; (d.value === null ? &#x27;not reported&#x27; : number(d.value)));
+    scene.probe.year = year;
+    scan.attr(&#x27;x1&#x27;, sx(year)).attr(&#x27;x2&#x27;, sx(year));
+    simulation.alpha(0.35);
+  }
+  update();
+  scene.inspect(
+    &#x27;Population as a moving, collision-aware composition&#x27;,
+    &#x27;Scrub reported years, drag countries and switch layouts. Layout physics changes position; the circle area continues to encode the actual record.&#x27;,
+  );
+  scene.frame((dt) =&gt; {
+    clock += dt;
+    if (playing &amp;&amp; clock &gt; 1.1) {
+      index = (index + 1) % years.length;
+      clock = 0;
+      update();
+    }
+    for (const d of grouped) {
+      if (!d.fx) {
+        d.x = Math.max(70 + d.r, Math.min(700 - d.r, d.x));
+        d.y = Math.max(60 + d.r, Math.min(417 - d.r, d.y));
+      }
+    }
+    for (const d of grouped) d.r += (d.targetRadius - d.r) * Math.min(1, dt * 5);
+    simulation.force(&#x27;collide&#x27;).radius((d) =&gt; d.r + 5);
+    simulation.tick();
+    bodies
+      .attr(&#x27;transform&#x27;, (d) =&gt; `translate(${d.x},${d.y})`)
+      .attr(&#x27;opacity&#x27;, (d) =&gt; (pinned &amp;&amp; pinned !== d.id ? 0.25 : 1));
+    bodies.select(&#x27;circle&#x27;).attr(&#x27;r&#x27;, (d) =&gt; d.r);
+    bodies.select(&#x27;.country-name&#x27;).attr(&#x27;font-size&#x27;, (d) =&gt; (d.r &lt; 45 ? 10 : 15));
+    traces
+      .attr(&#x27;opacity&#x27;, (d) =&gt; (pinned &amp;&amp; pinned !== d.id ? 0.13 : 1))
+      .attr(&#x27;stroke-width&#x27;, (d) =&gt; (pinned === d.id ? 4 : 2));
+  });
+  return scene;
+}
+</code></pre></div></details><details><summary>shared/experiences/rain.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { d3, createScene, label, number, palette } from &#x27;./core.js&#x27;;
+export function rain(node, packet, rows) {
+  const scene = createScene(
+    node,
+    &#x27;Rainfall observatory&#x27;,
+    &#x27;ISOMETRIC RAIN PHYSICS · FIVE LIVE FORECAST LOCATIONS · DRAG TO ORBIT&#x27;,
+  );
+  const { svg, surface } = scene;
+  const canvas = document.createElement(&#x27;canvas&#x27;);
+  canvas.width = 1100;
+  canvas.height = 600;
+  canvas.className = &#x27;particle-layer&#x27;;
+  surface.prepend(canvas);
+  const ctx = canvas.getContext(&#x27;2d&#x27;),
+    cities = [...d3.group(rows, (d) =&gt; d.city)].map(([name, series], i) =&gt; ({
+      name,
+      series: series.sort((a, b) =&gt; a.time - b.time),
+      color: palette[i % 6],
+      x: (i - 2) * 165,
+    }));
+  let selected = d3.greatestIndex(cities, (c) =&gt; d3.sum(c.series, (d) =&gt; d.value)),
+    index = d3.greatestIndex(cities[selected].series, (d) =&gt; d.value),
+    yaw = 0.55,
+    auto = true,
+    clock = 0,
+    accumulated = false;
+  const max = Math.max(
+      0.1,
+      d3.max(rows, (d) =&gt; d.value),
+    ),
+    height = d3.scaleLinear().domain([0, max]).range([0, 150]);
+  const labels = svg
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;text&#x27;)
+    .data(cities)
+    .join(&#x27;text&#x27;)
+    .attr(&#x27;font-size&#x27;, 13)
+    .attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;)
+    .attr(&#x27;fill&#x27;, &#x27;#365374&#x27;)
+    .attr(&#x27;font-weight&#x27;, 700);
+  const values = svg
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;text&#x27;)
+    .data(cities)
+    .join(&#x27;text&#x27;)
+    .attr(&#x27;font-size&#x27;, 12)
+    .attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;)
+    .attr(&#x27;fill&#x27;, &#x27;#5f86aa&#x27;);
+  const big = label(svg, 65, 88, &#x27;&#x27;, 48, &#x27;#357db5&#x27;),
+    caption = label(svg, 65, 118, &#x27;&#x27;, 14);
+  const timeLabel = label(svg, 770, 90, &#x27;&#x27;, 15),
+    modeLabel = label(svg, 770, 117, &#x27;Amounts, not probabilities&#x27;, 12);
+  const particles = Array.from({ length: 500 }, () =&gt; ({
+    x: (Math.random() - 0.5) * 120,
+    y: (Math.random() - 0.5) * 75,
+    z: Math.random() * 260,
+  }));
+  function project(x, y, z = 0) {
+    const xx = x * Math.cos(yaw) - y * Math.sin(yaw),
+      yy = x * Math.sin(yaw) + y * Math.cos(yaw);
+    return [550 + xx, 382 + yy * 0.42 - z * 0.9];
+  }
+  function poly(points, fill, stroke) {
+    ctx.beginPath();
+    points.forEach((p, i) =&gt; {
+      const xy = project(...p);
+      if (i) ctx.lineTo(...xy);
+      else ctx.moveTo(...xy);
+    });
+    ctx.closePath();
+    ctx.fillStyle = fill;
+    ctx.fill();
+    if (stroke) {
+      ctx.strokeStyle = stroke;
+      ctx.stroke();
+    }
+  }
+  function amount(c) {
+    return c.series[Math.min(index, c.series.length - 1)]?.value || 0;
+  }
+  const timeline = scene.timeline(
+    &#x27;Rain forecast interval&#x27;,
+    0,
+    cities[selected].series.length - 1,
+    index,
+    (i) =&gt; {
+      index = i;
+      auto = false;
+      update();
+    },
+  );
+  scene.controls(
+    &#x27;Forecast location&#x27;,
+    cities.map((c) =&gt; c.name),
+    (_, i) =&gt; {
+      selected = i;
+      index = Math.min(index, cities[i].series.length - 1);
+      update();
+    },
+  );
+  scene.controls(
+    &#x27;Rain playback&#x27;,
+    [&#x27;Play hours&#x27;, &#x27;Hold hour&#x27;, &#x27;Find wettest interval&#x27;],
+    (_, i) =&gt; {
+      if (i === 2) {
+        selected = d3.greatestIndex(cities, (c) =&gt; d3.max(c.series, (d) =&gt; d.value));
+        index = d3.greatestIndex(cities[selected].series, (d) =&gt; d.value);
+        auto = false;
+        update();
+      } else auto = i === 0;
+    },
+  );
+  svg.call(
+    d3.drag().on(&#x27;drag&#x27;, (e) =&gt; {
+      yaw += e.dx * 0.008;
+    }),
+  );
+  function update() {
+    const d = cities[selected].series[index];
+    big.text(`${number(d.value)} mm`);
+    caption.text(`${cities[selected].name} · selected forecast interval`);
+    timeLabel.text(new Date(d.time).toLocaleString());
+    timeline.set(
+      index,
+      new Date(d.time).toLocaleTimeString(&#x27;en-US&#x27;, { hour: &#x27;numeric&#x27; }),
+    );
+    scene.probe.city = cities[selected].name;
+    scene.probe.rain = d.value;
+    scene.probe.hour = d.time;
+    scene.inspect(
+      d.value &gt; 0 ? &#x27;Rainfall amount drives the scene&#x27; : &#x27;Dry forecast interval&#x27;,
+      d.value &gt; 0
+        ? &#x27;Particles are illustrative; their density follows the selected actual forecast amount. The plinths compare five cities.&#x27;
+        : &#x27;The actual selected amount is zero, so no rain particles are emitted. Choose another city or find the wettest interval.&#x27;,
+    );
+  }
+  update();
+  scene.frame((dt, t) =&gt; {
+    clock += dt;
+    if (auto &amp;&amp; clock &gt; 0.65) {
+      clock = 0;
+      index = (index + 1) % cities[selected].series.length;
+      update();
+    }
+    ctx.clearRect(0, 0, 1100, 600);
+    const ground = ctx.createLinearGradient(0, 180, 0, 580);
+    ground.addColorStop(0, &#x27;#fafcff&#x27;);
+    ground.addColorStop(1, &#x27;#e4eff8&#x27;);
+    ctx.fillStyle = ground;
+    ctx.fillRect(0, 0, 1100, 600);
+    for (const c of cities) {
+      const a = amount(c),
+        z = height(a);
+      poly(
+        [
+          [c.x - 62, -40, 0],
+          [c.x + 62, -40, 0],
+          [c.x + 62, 40, 0],
+          [c.x - 62, 40, 0],
+        ],
+        &#x27;#d8e4f1&#x27;,
+        &#x27;#b1c8de&#x27;,
+      );
+      if (z &gt; 0) {
+        poly(
+          [
+            [c.x - 62, -40, 0],
+            [c.x - 62, 40, 0],
+            [c.x - 62, 40, z],
+            [c.x - 62, -40, z],
+          ],
+          &#x27;#5d9bcaa0&#x27;,
+          &#x27;#75add2&#x27;,
+        );
+        poly(
+          [
+            [c.x - 62, 40, 0],
+            [c.x + 62, 40, 0],
+            [c.x + 62, 40, z],
+            [c.x - 62, 40, z],
+          ],
+          &#x27;#79bce3a0&#x27;,
+          &#x27;#75add2&#x27;,
+        );
+        poly(
+          [
+            [c.x - 62, -40, z],
+            [c.x + 62, -40, z],
+            [c.x + 62, 40, z],
+            [c.x - 62, 40, z],
+          ],
+          &#x27;#bce3f0b0&#x27;,
+          &#x27;#5a9ec8&#x27;,
+        );
+        for (let k = 0; k &lt; 6; k++) {
+          ctx.beginPath();
+          for (let j = 0; j &lt;= 18; j++) {
+            const p = project(
+              c.x - 60 + j * 6.6,
+              -35 + k * 13,
+              z + Math.sin(j * 0.5 + t * 2 + k) * 1.2,
+            );
+            if (j) ctx.lineTo(...p);
+            else ctx.moveTo(...p);
+          }
+          ctx.strokeStyle = &#x27;#e4faffaa&#x27;;
+          ctx.stroke();
+        }
+      }
+    }
+    const selectedCity = cities[selected],
+      rainCount = Math.min(500, Math.round((amount(selectedCity) / max) * 450));
+    ctx.lineWidth = 1.2;
+    ctx.strokeStyle = &#x27;#4d9ec1b0&#x27;;
+    for (let i = 0; i &lt; rainCount; i++) {
+      const p = particles[i],
+        z0 = p.z;
+      p.z -= dt * (130 + amount(selectedCity) * 20);
+      if (p.z &lt; height(amount(selectedCity))) {
+        p.z = 220 + Math.random() * 80;
+        p.x = (Math.random() - 0.5) * 120;
+        p.y = (Math.random() - 0.5) * 75;
+      }
+      const a = project(selectedCity.x + p.x, p.y, p.z),
+        b = project(selectedCity.x + p.x, p.y, p.z + 11);
+      ctx.beginPath();
+      ctx.moveTo(...a);
+      ctx.lineTo(...b);
+      ctx.stroke();
+    }
+    labels
+      .attr(&#x27;x&#x27;, (d) =&gt; project(d.x, 73, 0)[0])
+      .attr(&#x27;y&#x27;, (d) =&gt; project(d.x, 73, 0)[1] + 20)
+      .attr(&#x27;fill&#x27;, (_, i) =&gt; (i === selected ? &#x27;#186497&#x27; : &#x27;#738aa1&#x27;))
+      .text((d) =&gt; d.name);
+    values
+      .attr(&#x27;x&#x27;, (d) =&gt; project(d.x, 73, 0)[0])
+      .attr(&#x27;y&#x27;, (d) =&gt; project(d.x, 73, 0)[1] + 40)
+      .text((d) =&gt; number(amount(d)) + &#x27; mm&#x27;);
+    scene.probe.particles = rainCount;
+    scene.probe.rotation = yaw;
+  });
+  return scene;
+}
+</code></pre></div></details><details><summary>shared/experiences/swarm.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { d3, createScene, label, hover, dragNodes, number } from &#x27;./core.js&#x27;;
+export function swarm(node, packet, rows) {
+  const scene = createScene(
+    node,
+    &#x27;Seismic particle sculpture&#x27;,
+    &#x27;ONE PARTICLE = ONE EARTHQUAKE · MORPH / BRUSH / ORBIT&#x27;,
+  );
+  const { svg } = scene;
+  const x = d3
+      .scaleLinear()
+      .domain([
+        2.5,
+        Math.max(
+          6.5,
+          d3.max(rows, (d) =&gt; d.x),
+        ),
+      ])
+      .range([90, 1000]),
+    depth = d3
+      .scaleSqrt()
+      .domain([
+        0,
+        Math.max(
+          50,
+          d3.max(rows, (d) =&gt; d.y),
+        ),
+      ])
+      .range([80, 470]);
+  let mode = 0,
+    auto = true,
+    clock = 0,
+    yaw = 0.25,
+    pinned = null;
+  const byBin = d3.group(rows, (d) =&gt; Math.floor(d.x * 2) / 2);
+  const particles = rows.map((d, i) =&gt; ({
+    ...d,
+    depthKm: d.y,
+    magnitude: d.x,
+    xPos: x(d.x),
+    x: x(d.x),
+    y: 290 + (i % 7) * 4,
+    r: 3.3,
+    tx: x(d.x),
+    ty: 300,
+  }));
+  const simulation = d3
+    .forceSimulation(particles)
+    .force(&#x27;x&#x27;, d3.forceX((d) =&gt; d.tx).strength(0.18))
+    .force(&#x27;y&#x27;, d3.forceY((d) =&gt; d.ty).strength(0.16))
+    .force(&#x27;collide&#x27;, d3.forceCollide(4.7).iterations(3))
+    .stop();
+  const guide = svg.append(&#x27;g&#x27;),
+    baseAxis = svg
+      .append(&#x27;g&#x27;)
+      .attr(&#x27;transform&#x27;, &#x27;translate(0,515)&#x27;)
+      .call(d3.axisBottom(x).ticks(8));
+  label(svg, 410, 565, &#x27;EARTHQUAKE MAGNITUDE&#x27;, 12);
+  const glyph = svg
+    .append(&#x27;g&#x27;)
+    .selectAll(&#x27;circle&#x27;)
+    .data(particles)
+    .join(&#x27;circle&#x27;)
+    .attr(&#x27;class&#x27;, &#x27;seismic-particle&#x27;)
+    .attr(&#x27;r&#x27;, 4)
+    .attr(&#x27;fill&#x27;, (d) =&gt; d3.interpolatePlasma(Math.min(1, Math.max(0, d.depthKm) / 650)))
+    .attr(&#x27;stroke&#x27;, &#x27;white&#x27;)
+    .attr(&#x27;stroke-width&#x27;, 0.6);
+  hover(
+    glyph,
+    scene,
+    (d) =&gt; d.label,
+    (d) =&gt; `M ${d.magnitude} · ${number(d.depthKm)} km`,
+  );
+  dragNodes(glyph, simulation);
+  glyph.on(&#x27;click&#x27;, (_, d) =&gt; {
+    pinned = d.id;
+    const original = rows.find((r) =&gt; r.id === d.id);
+    scene.inspect(
+      original.label,
+      `M ${original.x} · ${original.y} km deep · ${new Date(original.time).toLocaleString()}`,
+    );
+    scene.probe.pinned = pinned;
+  });
+  const halos = svg
+    .append(&#x27;circle&#x27;)
+    .attr(&#x27;fill&#x27;, &#x27;none&#x27;)
+    .attr(&#x27;stroke&#x27;, &#x27;#ec884b&#x27;)
+    .attr(&#x27;stroke-width&#x27;, 2)
+    .attr(&#x27;r&#x27;, 13)
+    .attr(&#x27;pointer-events&#x27;, &#x27;none&#x27;);
+  const top = label(svg, 90, 40, &#x27;MAGNITUDE SWARM&#x27;, 18, &#x27;#3e4775&#x27;);
+  const countLabel = label(svg, 760, 40, `${rows.length} real earthquakes`, 14);
+  const rawByID = new Map(rows.map((d) =&gt; [d.id, d]));
+  function targets() {
+    guide.selectAll(&#x27;*&#x27;).remove();
+    top.text([&#x27;MAGNITUDE SWARM&#x27;, &#x27;BIN SCULPTURE&#x27;, &#x27;DEPTH ORBIT&#x27;][mode]);
+    for (const p of particles) {
+      const d = rawByID.get(p.id);
+      if (mode === 0) {
+        p.tx = x(d.x);
+        p.ty = 290;
+      } else if (mode === 1) {
+        const bin = Math.floor(d.x * 2) / 2,
+          group = byBin.get(bin),
+          at = group.findIndex((r) =&gt; r.id === d.id);
+        p.tx = x(bin + 0.25) + ((at % 5) - 2) * 10;
+        p.ty = 490 - Math.floor(at / 5) * 10;
+      } else {
+        const a = (d.x - 4.5) * 145,
+          z = ((d.time - d3.min(rows, (r) =&gt; r.time)) / 86400000) * 35 - 120;
+        p.tx = 550 + a * Math.cos(yaw) - z * Math.sin(yaw);
+        p.ty = 90 + depth(d.y) * 0.7 + (a * Math.sin(yaw) + z * Math.cos(yaw)) * 0.25;
+      }
+    }
+    if (mode === 1)
+      for (const [bin, group] of byBin) {
+        label(
+          guide,
+          x(bin + 0.25),
+          480 - Math.ceil(group.length / 5) * 10,
+          String(group.length),
+          12,
+          &#x27;#806595&#x27;,
+        ).attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;);
+      }
+    simulation.alpha(0.7);
+    scene.probe.layout = [&#x27;swarm&#x27;, &#x27;bins&#x27;, &#x27;depth&#x27;][mode];
+  }
+  scene.controls(
+    &#x27;Particle layout&#x27;,
+    [&#x27;Magnitude swarm&#x27;, &#x27;Bin sculpture&#x27;, &#x27;Depth orbit&#x27;],
+    (_, i) =&gt; {
+      mode = i;
+      auto = false;
+      targets();
+    },
+  );
+  scene.controls(
+    &#x27;Choreography&#x27;,
+    [&#x27;Auto morph&#x27;, &#x27;Hold layout&#x27;],
+    (_, i) =&gt; (auto = i === 0),
+  );
+  const brush = svg
+    .append(&#x27;g&#x27;)
+    .attr(&#x27;class&#x27;, &#x27;magnitude-brush&#x27;)
+    .call(
+      d3
+        .brushX()
+        .extent([
+          [85, 525],
+          [1005, 552],
+        ])
+        .on(&#x27;brush end&#x27;, (e) =&gt; {
+          if (!e.selection) {
+            glyph.attr(&#x27;opacity&#x27;, 1);
+            return;
+          }
+          const [a, b] = e.selection.map(x.invert);
+          const chosen = particles.filter((p) =&gt; {
+            const d = rawByID.get(p.id);
+            return d.x &gt;= a &amp;&amp; d.x &lt;= b;
+          });
+          glyph.attr(&#x27;opacity&#x27;, (p) =&gt; (chosen.includes(p) ? 1 : 0.08));
+          scene.inspect(
+            `${chosen.length} events in the brushed interval`,
+            `Magnitude ${a.toFixed(2)}–${b.toFixed(2)}; selection is linked to actual event IDs.`,
+          );
+          scene.probe.selectedEventIds = chosen.map((d) =&gt; d.id);
+        }),
+    );
+  label(
+    svg,
+    90,
+    591,
+    &#x27;BRUSH THE STRIP BELOW THE AXIS · COLOR = DEPTH · LAYOUT PHYSICS DOES NOT CHANGE DATA&#x27;,
+    11,
+  );
+  targets();
+  for (let i = 0; i &lt; 35; i++) simulation.tick();
+  scene.inspect(
+    &#x27;A histogram built from individual events&#x27;,
+    &#x27;Watch the same particles become a swarm, stacked bins and a rotating depth cloud. Nothing is replaced by synthetic counts.&#x27;,
+  );
+  scene.frame((dt, t) =&gt; {
+    clock += dt;
+    if (auto &amp;&amp; clock &gt; 7) {
+      mode = (mode + 1) % 3;
+      clock = 0;
+      targets();
+    }
+    if (mode === 2) {
+      yaw += dt * 0.17;
+      targets();
+    }
+    simulation.tick();
+    glyph
+      .attr(&#x27;cx&#x27;, (d) =&gt; d.x)
+      .attr(&#x27;cy&#x27;, (d) =&gt; d.y)
+      .attr(&#x27;r&#x27;, (d) =&gt; (d.id === pinned ? 7 : 4));
+    const selected = particles.find((p) =&gt; p.id === pinned);
+    halos.attr(&#x27;display&#x27;, selected ? null : &#x27;none&#x27;);
+    if (selected)
+      halos
+        .attr(&#x27;cx&#x27;, selected.x)
+        .attr(&#x27;cy&#x27;, selected.y)
+        .attr(&#x27;r&#x27;, 12 + Math.sin(t * 3) * 3);
+    scene.probe.particleCount = particles.length;
+  });
+  return scene;
+}
+</code></pre></div></details><details><summary>shared/experiences/weather.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { d3, createScene, label, number } from &#x27;./core.js&#x27;;
+export function weather(node, packet, rows) {
+  const scene = createScene(
+    node,
+    &#x27;Forecast wind atelier&#x27;,
+    &#x27;ADVECTED PARTICLES · LINKED WEATHER RIBBON · BRUSH OR SCRUB&#x27;,
+  );
+  const { svg, surface } = scene;
+  const canvas = document.createElement(&#x27;canvas&#x27;);
+  canvas.width = 1100;
+  canvas.height = 600;
+  canvas.className = &#x27;particle-layer&#x27;;
+  surface.prepend(canvas);
+  const ctx = canvas.getContext(&#x27;2d&#x27;);
+  const particles = Array.from({ length: 450 }, () =&gt; ({
+    x: 80 + Math.random() * 660,
+    y: 55 + Math.random() * 340,
+    age: Math.random(),
+  }));
+  let index = 0,
+    clock = 0,
+    auto = true,
+    trail = true;
+  const x = d3
+      .scaleLinear()
+      .domain(d3.extent(rows, (d) =&gt; d.time))
+      .range([80, 750]),
+    temp = d3
+      .scaleLinear()
+      .domain(d3.extent(rows, (d) =&gt; d.value))
+      .range([390, 90]);
+  if (temp.domain()[0] === temp.domain()[1])
+    temp.domain([temp.domain()[0] - 1, temp.domain()[1] + 1]);
+  const base = d3
+    .area()
+    .x((d) =&gt; x(d.time))
+    .y0(430)
+    .y1((d) =&gt; temp(d.value))
+    .curve(d3.curveCatmullRom);
+  for (let i = 12; i &gt;= 0; i--)
+    svg
+      .append(&#x27;path&#x27;)
+      .datum(rows)
+      .attr(&#x27;class&#x27;, &#x27;thermal-ribbon&#x27;)
+      .attr(&#x27;d&#x27;, base)
+      .attr(&#x27;transform&#x27;, `translate(${i * 2},${i * 3})`)
+      .attr(&#x27;fill&#x27;, d3.interpolateBlues(0.2 + i * 0.035))
+      .attr(&#x27;fill-opacity&#x27;, 0.035 + i * 0.012)
+      .attr(&#x27;stroke&#x27;, &#x27;#4d9eb8&#x27;)
+      .attr(&#x27;stroke-opacity&#x27;, 0.15);
+  const path = svg
+    .append(&#x27;path&#x27;)
+    .datum(rows)
+    .attr(
+      &#x27;d&#x27;,
+      d3
+        .line()
+        .x((d) =&gt; x(d.time))
+        .y((d) =&gt; temp(d.value))
+        .curve(d3.curveCatmullRom),
+    )
+    .attr(&#x27;fill&#x27;, &#x27;none&#x27;)
+    .attr(&#x27;stroke&#x27;, &#x27;#a45a97&#x27;)
+    .attr(&#x27;stroke-width&#x27;, 3);
+  const scan = svg
+    .append(&#x27;line&#x27;)
+    .attr(&#x27;y1&#x27;, 58)
+    .attr(&#x27;y2&#x27;, 438)
+    .attr(&#x27;stroke&#x27;, &#x27;#ba6b91&#x27;)
+    .attr(&#x27;stroke-dasharray&#x27;, &#x27;3 4&#x27;);
+  const halo = svg
+    .append(&#x27;circle&#x27;)
+    .attr(&#x27;r&#x27;, 11)
+    .attr(&#x27;fill&#x27;, &#x27;#fff&#x27;)
+    .attr(&#x27;stroke&#x27;, &#x27;#9a538a&#x27;)
+    .attr(&#x27;stroke-width&#x27;, 3);
+  label(svg, 820, 73, &#x27;WEATHER, AS A FIELD&#x27;, 12, &#x27;#ab6f92&#x27;);
+  const big = label(svg, 820, 136, &#x27;&#x27;, 53, &#x27;#2b476b&#x27;),
+    wind = label(svg, 820, 181, &#x27;&#x27;, 17),
+    humidity = label(svg, 820, 212, &#x27;&#x27;, 17),
+    hour = label(svg, 820, 253, &#x27;&#x27;, 13);
+  label(svg, 820, 314, &#x27;Particle flow follows forecast&#x27;);
+  label(svg, 820, 337, &#x27;wind direction and speed.&#x27;);
+  label(svg, 820, 379, &#x27;Motion is an illustrative field,&#x27;);
+  label(svg, 820, 402, &#x27;not a geographic wind model.&#x27;);
+  svg
+    .append(&#x27;g&#x27;)
+    .attr(&#x27;transform&#x27;, &#x27;translate(0,450)&#x27;)
+    .call(
+      d3
+        .axisBottom(x)
+        .ticks(4)
+        .tickFormat((v) =&gt;
+          new Date(v).toLocaleString(&#x27;en-US&#x27;, {
+            hour: &#x27;numeric&#x27;,
+            month: &#x27;short&#x27;,
+            day: &#x27;numeric&#x27;,
+          }),
+        ),
+    );
+  const brush = svg
+    .append(&#x27;g&#x27;)
+    .attr(&#x27;class&#x27;, &#x27;weather-brush&#x27;)
+    .call(
+      d3
+        .brushX()
+        .extent([
+          [80, 475],
+          [750, 540],
+        ])
+        .on(&#x27;brush&#x27;, (e) =&gt; {
+          if (e.selection) {
+            const t = x.invert((e.selection[0] + e.selection[1]) / 2);
+            index = d3.leastIndex(rows, (d) =&gt; Math.abs(d.time - t));
+            auto = false;
+            update();
+          }
+        }),
+    );
+  svg
+    .append(&#x27;path&#x27;)
+    .datum(rows)
+    .attr(&#x27;pointer-events&#x27;, &#x27;none&#x27;)
+    .attr(
+      &#x27;d&#x27;,
+      d3
+        .area()
+        .x((d) =&gt; x(d.time))
+        .y0(538)
+        .y1((d) =&gt; 490 - (d.value - temp.domain()[0]) * 1.2)
+        .curve(d3.curveMonotoneX),
+    )
+    .attr(&#x27;fill&#x27;, &#x27;#c6d9e5&#x27;);
+  brush.raise();
+  label(svg, 80, 574, &#x27;DRAG A WINDOW IN THE OVERVIEW TO REFOCUS THE WIND FIELD&#x27;, 11);
+  scene.controls(
+    &#x27;Weather playback&#x27;,
+    [&#x27;Play forecast&#x27;, &#x27;Hold hour&#x27;],
+    (_, i) =&gt; (auto = i === 0),
+  );
+  scene.controls(
+    &#x27;Particle mode&#x27;,
+    [&#x27;Persistent trails&#x27;, &#x27;Clear particles&#x27;],
+    (_, i) =&gt; (trail = i === 0),
+  );
+  const timeline = scene.timeline(&#x27;Forecast hour&#x27;, 0, rows.length - 1, 0, (i) =&gt; {
+    index = i;
+    auto = false;
+    update();
+  });
+  function update() {
+    const d = rows[index];
+    if (!d) return;
+    big.text(number(d.value) + &#x27;°C&#x27;);
+    wind.text(
+      Number.isFinite(d.wind) ? `${number(d.wind)} m/s wind` : &#x27;Wind not reported&#x27;,
+    );
+    humidity.text(
+      Number.isFinite(d.humidity)
+        ? `${d.humidity}% relative humidity`
+        : &#x27;Humidity not reported&#x27;,
+    );
+    hour.text(new Date(d.time).toLocaleString());
+    scan.attr(&#x27;x1&#x27;, x(d.time)).attr(&#x27;x2&#x27;, x(d.time));
+    halo.attr(&#x27;cx&#x27;, x(d.time)).attr(&#x27;cy&#x27;, temp(d.value));
+    timeline.set(
+      index,
+      new Date(d.time).toLocaleTimeString(&#x27;en-US&#x27;, { hour: &#x27;numeric&#x27; }),
+    );
+    scene.probe.hour = d.time;
+    scene.probe.wind = d.wind;
+    scene.probe.temperature = d.value;
+  }
+  update();
+  scene.inspect(
+    &#x27;A temperature ribbon and a live-requested wind field&#x27;,
+    &#x27;Scrub time: color, wind advection, humidity and the crosshair stay linked to the same forecast hour.&#x27;,
+  );
+  scene.frame((dt, t) =&gt; {
+    clock += dt;
+    if (auto &amp;&amp; clock &gt; 0.22) {
+      index = (index + 1) % rows.length;
+      clock = 0;
+      update();
+    }
+    const d = rows[index];
+    const theta = (((d?.direction || 0) + 180) * Math.PI) / 180,
+      speed = Number.isFinite(d?.wind) ? d.wind : 0;
+    ctx.fillStyle = trail ? &#x27;rgba(248,250,253,.06)&#x27; : &#x27;rgba(248,250,253,1)&#x27;;
+    ctx.fillRect(0, 0, 1100, 600);
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(76, 45, 690, 390);
+    ctx.clip();
+    ctx.lineWidth = 1.4;
+    for (const p of particles) {
+      const ox = p.x,
+        oy = p.y;
+      p.x += Math.sin(theta) * speed * dt * 9;
+      p.y -= Math.cos(theta) * speed * dt * 9;
+      p.age += dt * 0.25;
+      if (p.x &lt; 76 || p.x &gt; 766 || p.y &lt; 45 || p.y &gt; 435 || p.age &gt; 1) {
+        p.x = 80 + Math.random() * 670;
+        p.y = 55 + Math.random() * 365;
+        p.age = 0;
+      }
+      ctx.strokeStyle = d3.interpolateCool(
+        Math.max(0, Math.min(1, (d?.value + 10) / 45)),
+      );
+      ctx.globalAlpha = Math.sin(p.age * Math.PI) * 0.7;
+      ctx.beginPath();
+      ctx.moveTo(ox, oy);
+      if (Math.abs(p.x - ox) &lt; 50 &amp;&amp; Math.abs(p.y - oy) &lt; 50) ctx.lineTo(p.x, p.y);
+      ctx.stroke();
+    }
+    ctx.restore();
+    halo.attr(&#x27;r&#x27;, 9 + Math.sin(t * 3) * 2);
+  });
+  return scene;
+}
+</code></pre></div></details><details><summary>shared/lab.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>import { renderExperience, stopExperience } from &#x27;./experiences/index.js&#x27;;
+import { element as e, download, statistics, aiPanel } from &#x27;./evidence.js&#x27;;
+export const titles = [
+  &#x27;Seismic globe&#x27;,
+  &#x27;Population choreography&#x27;,
+  &#x27;Forecast wind atelier&#x27;,
+  &#x27;Author–work constellation&#x27;,
+  &#x27;Natural-event radial atlas&#x27;,
+  &#x27;Seismic particle sculpture&#x27;,
+  &#x27;Economic phase space&#x27;,
+  &#x27;Rainfall observatory&#x27;,
+];
+const frameworks = [
+  &#x27;Vanilla JavaScript&#x27;,
+  &#x27;Vue&#x27;,
+  &#x27;React&#x27;,
+  &#x27;Preact&#x27;,
+  &#x27;Lit&#x27;,
+  &#x27;Svelte&#x27;,
+  &#x27;Solid&#x27;,
+  &#x27;Qwik&#x27;,
+];
+const descriptions = [
+  &#x27;Orbit a data-driven globe. Track real earthquakes through space and time.&#x27;,
+  &#x27;Six countries become a collision-aware, time-traversable composition.&#x27;,
+  &#x27;Wind-driven particles, temperature ribbons and a linked temporal lens.&#x27;,
+  &#x27;Drag, pin and rearrange actual author–work relationships.&#x27;,
+  &#x27;Explore actual category memberships as a bundled radial event garden.&#x27;,
+  &#x27;Morph individual earthquakes between a swarm, stacked bins and depth space.&#x27;,
+  &#x27;Follow consecutive annual GDP rates through an interactive phase portrait.&#x27;,
+  &#x27;Orbit a five-city rain scene driven by actual hourly forecast amounts.&#x27;,
+];
+export function installShell(id) {
+  document.body.dataset.lab = id;
+  if (new URLSearchParams(location.search).has(&#x27;embed&#x27;))
+    document.body.classList.add(&#x27;embedded&#x27;);
+  document.title = `Lab ${id} · ${titles[id - 1]}`;
+  document.querySelector(&#x27;#shell&#x27;).innerHTML =
+    `&lt;header&gt;&lt;div class=&quot;wrap&quot;&gt;&lt;div class=&quot;topline&quot;&gt;&lt;a href=&quot;http://127.0.0.1:5280&quot;&gt;← LIVE MOTION LABS&lt;/a&gt;&lt;span class=&quot;eyebrow&quot;&gt;CPS 5745 / ${frameworks[id - 1]} / 0${id}&lt;/span&gt;&lt;/div&gt;&lt;h1&gt;${titles[id - 1]}&lt;/h1&gt;&lt;p class=&quot;sub&quot;&gt;${descriptions[id - 1]}&lt;/p&gt;&lt;label class=&quot;student&quot;&gt;Student name &lt;input id=&quot;student-name&quot; type=&quot;text&quot; placeholder=&quot;Your name&quot; maxlength=&quot;80&quot;&gt;&lt;span id=&quot;student-label&quot;&gt;&lt;/span&gt;&lt;/label&gt;&lt;/div&gt;&lt;/header&gt;&lt;main class=&quot;wrap&quot;&gt;&lt;div class=&quot;mode-row&quot;&gt;&lt;span class=&quot;pill&quot; id=&quot;data-badge&quot;&gt;FETCHING LIVE SOURCE&lt;/span&gt;&lt;span id=&quot;request-status&quot; role=&quot;status&quot;&gt;A fresh network request is required.&lt;/span&gt;&lt;button id=&quot;reload-data&quot;&gt;Fetch fresh data&lt;/button&gt;&lt;a href=&quot;http://127.0.0.1:5280/assignment&quot;&gt;How this works / source code&lt;/a&gt;&lt;/div&gt;&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;&lt;section id=&quot;evidence&quot;&gt;&lt;/section&gt;&lt;/main&gt;&lt;footer&gt;&lt;div class=&quot;wrap&quot;&gt;Live-only public APIs. No stored responses, disk cache or synthetic measurements. Animated layouts illustrate the retrieved data; they do not invent new observations.&lt;/div&gt;&lt;/footer&gt;`;
+  const input = document.querySelector(&#x27;#student-name&#x27;);
+  input.addEventListener(
+    &#x27;input&#x27;,
+    () =&gt;
+      (document.querySelector(&#x27;#student-label&#x27;).textContent = input.value
+        ? &#x27;Student: &#x27; + input.value
+        : &#x27;&#x27;),
+  );
+  document.querySelector(&#x27;#reload-data&#x27;).onclick = () =&gt;
+    window.dispatchEvent(new Event(&#x27;lab:refresh&#x27;));
+  document.addEventListener(&#x27;lab:request&#x27;, (event) =&gt; {
+    const d = event.detail,
+      badge = document.querySelector(&#x27;#data-badge&#x27;),
+      status = document.querySelector(&#x27;#request-status&#x27;);
+    badge.textContent =
+      d.state === &#x27;error&#x27;
+        ? &#x27;LIVE SOURCE UNAVAILABLE&#x27;
+        : d.state === &#x27;fetching&#x27;
+          ? &#x27;REQUESTING PROVIDER&#x27;
+          : &#x27;LIVE RESPONSE VERIFIED&#x27;;
+    badge.className = &#x27;pill &#x27; + (d.state === &#x27;error&#x27; ? &#x27;failed&#x27; : &#x27;&#x27;);
+    status.textContent =
+      d.state === &#x27;error&#x27;
+        ? d.message
+        : d.state === &#x27;ready&#x27;
+          ? &#x27;Retrieved &#x27; + new Date(d.at).toLocaleTimeString() + &#x27; · auto refresh enabled&#x27;
+          : &#x27;Connecting to the free public API…&#x27;;
+    if (d.state === &#x27;error&#x27;) {
+      const node = document.querySelector(&#x27;.chart&#x27;);
+      if (node) {
+        stopExperience(node);
+        node.textContent = d.message;
+      }
+      document.querySelector(&#x27;#evidence&#x27;)?.replaceChildren();
+      window.__labState = null;
+    }
+  });
+  window.addEventListener(
+    &#x27;pagehide&#x27;,
+    () =&gt; {
+      const node = document.querySelector(&#x27;.chart&#x27;);
+      if (node) stopExperience(node);
+    },
+    { once: true },
+  );
+}
+export function setStatus(node, message, error = false) {
+  node.textContent = message;
+  node.className = error ? &#x27;error&#x27; : &#x27;status&#x27;;
+  node.setAttribute(&#x27;role&#x27;, error ? &#x27;alert&#x27; : &#x27;status&#x27;);
+}
+export function draw(node, packet, shown, options) {
+  if (packet.invalid) return;
+  const scene = renderExperience(node, packet, shown, options);
+  const summary = statistics(shown),
+    meta = packet.meta,
+    context = {
+      lab: document.title,
+      source: meta.name,
+      sourceUrl: meta.url,
+      dataMode: &#x27;live&#x27;,
+      retrievedAt: meta.fetchedAt,
+      unit: options.unit || meta.unit,
+      filters: options.filters || {},
+      summary,
+      limitation: options.limitation,
+    };
+  window.__labState = { rows: shown, summary, meta, context };
+  if (window.parent !== window)
+    window.parent.postMessage(
+      {
+        type: &#x27;lab:ready&#x27;,
+        lab: Number(document.body.dataset.lab),
+        count: shown.length,
+        at: meta.fetchedAt,
+        source: meta.name,
+      },
+      &#x27;http://127.0.0.1:5280&#x27;,
+    );
+  const panel = document.querySelector(&#x27;#evidence&#x27;);
+  panel.replaceChildren();
+  const details = e(&#x27;details&#x27;, &#x27;&#x27;, panel);
+  details.className = &#x27;live-evidence panel&#x27;;
+  e(&#x27;summary&#x27;, &#x27;Inspect the real data / provenance / accessible table&#x27;, details);
+  e(
+    &#x27;p&#x27;,
+    `${meta.name} · ${shown.length} selected records · request completed ${meta.fetchedAt}.`,
+    details,
+  );
+  const a = e(&#x27;a&#x27;, meta.url, details);
+  a.href = meta.url;
+  a.target = &#x27;_blank&#x27;;
+  a.rel = &#x27;noreferrer&#x27;;
+  e(&#x27;p&#x27;, meta.license, details);
+  e(&#x27;p&#x27;, options.limitation, details);
+  if (Array.isArray(packet.raw) &amp;&amp; packet.raw[0]?.lastupdated)
+    e(
+      &#x27;p&#x27;,
+      &#x27;Provider reports series last updated: &#x27; +
+        packet.raw[0].lastupdated +
+        &#x27;. Historical series are retrieved live; annual figures do not update every second.&#x27;,
+      details,
+    );
+  const actions = e(&#x27;div&#x27;, &#x27;&#x27;, details);
+  actions.className = &#x27;actions&#x27;;
+  const b = e(&#x27;button&#x27;, &#x27;Download this live response&#x27;, actions);
+  b.onclick = () =&gt; download(&#x27;live-provider-response.json&#x27;, packet.rawText || packet.raw);
+  const scroll = e(&#x27;div&#x27;, &#x27;&#x27;, details);
+  scroll.className = &#x27;table-wrap&#x27;;
+  const table = e(&#x27;table&#x27;, &#x27;&#x27;, scroll);
+  const cols =
+    shown[0] &amp;&amp; &#x27;x&#x27; in shown[0]
+      ? [&#x27;label&#x27;, &#x27;x&#x27;, &#x27;y&#x27;, &#x27;time&#x27;]
+      : [&#x27;label&#x27;, &#x27;value&#x27;, &#x27;time&#x27;];
+  const head = e(&#x27;tr&#x27;, &#x27;&#x27;, table);
+  cols.forEach((c) =&gt; e(&#x27;th&#x27;, c, head));
+  for (const row of shown.slice(0, 100)) {
+    const tr = e(&#x27;tr&#x27;, &#x27;&#x27;, table);
+    cols.forEach((c) =&gt; e(&#x27;td&#x27;, row[c] ?? &#x27;&#x27;, tr));
+  }
+  e(
+    &#x27;p&#x27;,
+    &#x27;First 100 selected rows shown; no source response is automatically saved.&#x27;,
+    details,
+  );
+  aiPanel(panel, context);
+  return scene;
+}
+</code></pre></div></details><details><summary>shared/sources.js</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>export const numeric = (v) =&gt;
+  (typeof v === &#x27;number&#x27; || (typeof v === &#x27;string&#x27; &amp;&amp; v.trim() !== &#x27;&#x27;)) &amp;&amp;
+  Number.isFinite(Number(v));
+export function normalizeEarthquakes(raw) {
+  if (!Array.isArray(raw?.features)) throw Error(&#x27;USGS features[] missing&#x27;);
+  return raw.features
+    .filter(
+      (f) =&gt;
+        numeric(f.properties?.mag) &amp;&amp; f.geometry?.coordinates?.length &gt;= 3 &amp;&amp; f.geometry.coordinates.slice(0, 3).every(numeric),
+    )
+    .map((f) =&gt; ({
+      id: f.id,
+      label: f.properties.place || &#x27;Unknown location&#x27;,
+      x: +f.properties.mag,
+      y: +f.geometry.coordinates[2],
+      lon: +f.geometry.coordinates[0],
+      lat: +f.geometry.coordinates[1],
+      time: f.properties.time,
+      url: f.properties.url,
+    }));
+}
+export function normalizeWorldBank(raw) {
+  if (!Array.isArray(raw?.[1])) throw Error(&#x27;World Bank observations missing&#x27;);
+  if (+raw[0].pages &gt; 1)
+    throw Error(&#x27;Response has more pages; refusing incomplete series&#x27;);
+  return raw[1]
+    .filter((d) =&gt; numeric(d.value) &amp;&amp; /^\d{4}$/.test(String(d.date)))
+    .map((d) =&gt; ({
+      label: `${d.country.value} · ${d.date}`,
+      time: +d.date,
+      value: +d.value,
+      country: d.countryiso3code || d.country.id,
+      countryName: d.country.value,
+      year: +d.date,
+    }))
+    .sort((a, b) =&gt; a.time - b.time || a.country.localeCompare(b.country));
+}
+export function normalizeForecast(raw, variable) {
+  const cities = [&#x27;New York&#x27;, &#x27;London&#x27;, &#x27;Mumbai&#x27;, &#x27;Singapore&#x27;, &#x27;São Paulo&#x27;];
+  return (Array.isArray(raw) ? raw : [raw]).flatMap((r, cityIndex) =&gt; {
+    const times = r.hourly?.time,
+      values = r.hourly?.[variable];
+    if (
+      !Array.isArray(times) ||
+      times.length !== values?.length ||
+      r.hourly_units?.time !== &#x27;unixtime&#x27;
+    )
+      throw Error(&#x27;Invalid live hourly response&#x27;);
+    return times.flatMap((t, i) =&gt;
+      numeric(t) &amp;&amp; numeric(values[i])
+        ? [
+            {
+              label: new Date(t * 1000).toISOString(),
+              time: t * 1000,
+              value: +values[i],
+              city: Array.isArray(raw) ? cities[cityIndex] : &#x27;New York&#x27;,
+              lat: r.latitude,
+              lon: r.longitude,
+              wind: +r.hourly.wind_speed_10m?.[i],
+              direction: +r.hourly.wind_direction_10m?.[i],
+              humidity: +r.hourly.relative_humidity_2m?.[i],
+            },
+          ]
+        : [],
+    );
+  });
+}
+export function normalizeBooks(raw) {
+  if (!Array.isArray(raw.docs)) throw Error(&#x27;Book results missing&#x27;);
+  return raw.docs
+    .filter((d) =&gt; numeric(d.edition_count))
+    .map((d) =&gt; ({
+      id: d.key,
+      label: d.title || &#x27;Untitled&#x27;,
+      value: +d.edition_count,
+      year: d.first_publish_year,
+      authors: (d.author_key || []).map((id, i) =&gt; ({
+        id,
+        name: d.author_name?.[i] || id,
+      })),
+      subjects: (d.subject || []).slice(0, 5),
+    }))
+    .sort((a, b) =&gt; b.value - a.value);
+}
+export function normalizeEvents(raw, mode = &#x27;all&#x27;) {
+  if (!Array.isArray(raw.events)) throw Error(&#x27;NASA events missing&#x27;);
+  const counts = new Map();
+  for (const event of raw.events) {
+    let cats = [...new Set((event.categories || []).map((c) =&gt; c.title))];
+    if (!cats.length) cats = [&#x27;Other&#x27;];
+    if (mode === &#x27;first&#x27;) cats = cats.slice(0, 1);
+    for (const label of cats) counts.set(label, (counts.get(label) || 0) + 1);
+  }
+  return [...counts]
+    .map(([label, value]) =&gt; ({ label, value }))
+    .sort((a, b) =&gt; b.value - a.value);
+}
+export function magnitudeBins(rows) {
+  const map = new Map();
+  for (const r of rows) {
+    const k = Math.floor(r.x * 2) / 2;
+    map.set(k, (map.get(k) || 0) + 1);
+  }
+  return [...map]
+    .sort((a, b) =&gt; a[0] - b[0])
+    .map(([k, value]) =&gt; ({
+      label: `[${k.toFixed(1)}, ${(k + 0.5).toFixed(1)})`,
+      value,
+    }));
+}
+export function recentYears(packet, n) {
+  const latest = Math.max(...packet.rows.map((d) =&gt; d.time));
+  return packet.rows.filter((d) =&gt; d.time &gt;= latest - n + 1);
+}
+export function firstHours(packet, hours) {
+  const starts = new Map();
+  for (const d of packet.rows)
+    starts.set(d.city, Math.min(starts.get(d.city) ?? Infinity, d.time));
+  return packet.rows.filter((d) =&gt; d.time &lt; starts.get(d.city) + hours * 3600000);
+}
+export async function loadDataset(key, signal) {
+  const response = await fetch(`/api/data/${key}`, { signal, cache: &#x27;no-store&#x27; }),
+    packet = await response.json();
+  if (!response.ok) throw Error(packet.error || `HTTP ${response.status}`);
+  if (packet.meta?.mode !== &#x27;live&#x27;) throw Error(&#x27;Refusing non-live data&#x27;);
+  const raw = packet.raw;
+  const rows =
+    key === &#x27;earthquakes&#x27;
+      ? normalizeEarthquakes(raw)
+      : [&#x27;population&#x27;, &#x27;growth&#x27;].includes(key)
+        ? normalizeWorldBank(raw)
+        : key === &#x27;books&#x27;
+          ? normalizeBooks(raw)
+          : key === &#x27;events&#x27;
+            ? normalizeEvents(raw)
+            : normalizeForecast(
+                raw,
+                key === &#x27;temperature&#x27; ? &#x27;temperature_2m&#x27; : &#x27;precipitation&#x27;,
+              );
+  return {
+    ...packet,
+    rows,
+    meta: {
+      ...packet.meta,
+      validCount: rows.length,
+      rawCount:
+        key === &#x27;earthquakes&#x27;
+          ? raw.features.length
+          : [&#x27;population&#x27;, &#x27;growth&#x27;].includes(key)
+            ? raw[1].length
+            : key === &#x27;books&#x27;
+              ? raw.docs.length
+              : key === &#x27;events&#x27;
+                ? raw.events.length
+                : rows.length,
+      omitted: 0,
+    },
+  };
+}
+export function watchLive(key, onPacket, onError) {
+  let controller,
+    last,
+    active = true,
+    busy = false;
+  async function refresh() {
+    if (busy || document.hidden) return;
+    busy = true;
+    controller = new AbortController();
+    document.dispatchEvent(
+      new CustomEvent(&#x27;lab:request&#x27;, { detail: { key, state: &#x27;fetching&#x27; } }),
+    );
+    try {
+      const packet = await loadDataset(key, controller.signal);
+      if (active) {
+        last = packet;
+        onPacket(packet);
+        document.dispatchEvent(
+          new CustomEvent(&#x27;lab:request&#x27;, {
+            detail: { key, state: &#x27;ready&#x27;, at: packet.meta.fetchedAt },
+          }),
+        );
+      }
+    } catch (e) {
+      if (active &amp;&amp; e.name !== &#x27;AbortError&#x27;) {
+        if (last) last.invalid = true;
+        document.dispatchEvent(
+          new CustomEvent(&#x27;lab:request&#x27;, {
+            detail: { key, state: &#x27;error&#x27;, message: e.message },
+          }),
+        );
+        onError(e);
+      }
+    } finally {
+      busy = false;
+    }
+  }
+  const interval = setInterval(
+    refresh,
+    [&#x27;population&#x27;, &#x27;growth&#x27;, &#x27;books&#x27;, &#x27;events&#x27;].includes(key) ? 300000 : 120000,
+  );
+  window.addEventListener(&#x27;lab:refresh&#x27;, refresh);
+  refresh();
+  return () =&gt; {
+    active = false;
+    controller?.abort();
+    clearInterval(interval);
+    window.removeEventListener(&#x27;lab:refresh&#x27;, refresh);
+  };
+}
+</code></pre></div></details><details><summary>shared/style.css</summary><div class="source-code"><button class="copy">Copy complete file</button><pre><code>:root {
+  font-family:
+    Inter,
+    Segoe UI,
+    Arial,
+    sans-serif;
+  color: #173b49;
+  background: #f4f5f1;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+a {
+  color: #176174;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+select,
+input[type=&#x27;text&#x27;],
+input[type=&#x27;number&#x27;] {
+  border: 1px solid #b8cbd0;
+  border-radius: 8px;
+  padding: 9px 13px;
+  background: white;
+  color: #173b49;
+}
+button {
+  cursor: pointer;
+}
+button:hover {
+  background: #edf5f5;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+button.primary {
+  background: #164f60;
+  color: white;
+  border-color: #164f60;
+}
+input[type=&#x27;range&#x27;] {
+  accent-color: #146477;
+  max-width: 350px;
+  width: 100%;
+}
+header {
+  border-bottom: 1px solid #d8dedb;
+  padding: 20px 0;
+  background: white;
+}
+.wrap {
+  max-width: 1160px;
+  margin: auto;
+  padding: 0 25px;
+}
+.topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+}
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7a6439;
+}
+h1 {
+  font-size: clamp(26px, 4vw, 38px);
+  margin: 14px 0 8px;
+  letter-spacing: -0.035em;
+}
+h2 {
+  font-size: 21px;
+}
+h3 {
+  font-size: 16px;
+}
+p {
+  line-height: 1.6;
+}
+.sub {
+  color: #506773;
+  max-width: 850px;
+}
+.student {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.student input {
+  width: 180px;
+}
+.pill {
+  display: inline-block;
+  border-radius: 99px;
+  background: #e7f1ee;
+  color: #164f60;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.pill.snapshot {
+  background: #fff0cf;
+  color: #76541a;
+}
+main.wrap {
+  padding-top: 24px;
+  padding-bottom: 55px;
+}
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid #d8e2e2;
+  border-radius: 12px;
+}
+.controls label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.chart-card,
+.panel {
+  padding: 22px;
+  background: white;
+  border: 1px solid #d8e2e2;
+  border-radius: 12px;
+  margin: 18px 0;
+}
+.chart-card h2 {
+  margin: 0 0 8px;
+}
+.chart {
+  min-height: 210px;
+}
+.chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chart .grid line {
+  stroke: #e4ebed;
+}
+.chart .grid path {
+  stroke: none;
+}
+.mark:hover,
+.mark:focus {
+  fill: #b27838;
+  stroke: #173b49;
+  stroke-width: 2;
+  outline: none;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.stat {
+  border: 1px solid #d8e2e2;
+  border-radius: 10px;
+  padding: 16px;
+  background: #fbfcfa;
+}
+.stat strong {
+  display: block;
+  font-size: 26px;
+  overflow-wrap: anywhere;
+}
+.stat span {
+  font-size: 12px;
+  color: #506773;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0;
+}
+.notice {
+  border-left: 4px solid #b27838;
+  padding: 12px 16px;
+  background: #fff5df;
+}
+.error {
+  color: #8c2832;
+  background: #fff0f0;
+  padding: 12px;
+}
+.table-wrap {
+  overflow: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+td,
+th {
+  text-align: left;
+  padding: 9px;
+  border-bottom: 1px solid #e0e6e5;
+  overflow-wrap: anywhere;
+}
+textarea {
+  width: 100%;
+  min-height: 145px;
+  padding: 12px;
+  border: 1px solid #becdd0;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  background: #f3f6f5;
+  padding: 16px;
+}
+summary {
+  cursor: pointer;
+  font-weight: 650;
+  padding: 8px 0;
+}
+details {
+  margin: 10px 0;
+}
+.small {
+  font-size: 12px;
+  color: #506773;
+}
+label {
+  line-height: 1.5;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #b27838;
+  outline-offset: 3px;
+}
+.empty {
+  padding: 25px;
+  background: #faf2e5;
+}
+code {
+  font-size: 0.92em;
+  background: #edf1ef;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+.mode-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 15px 0;
+}
+.status {
+  font-size: 13px;
+}
+footer {
+  border-top: 1px solid #d8dedb;
+  padding: 20px 0;
+  font-size: 13px;
+}
+.audit input {
+  max-width: 380px;
+}
+.audit-result {
+  min-height: 24px;
+}
+.loading {
+  padding: 20px;
+}
+@media (max-width: 650px) {
+  .wrap {
+    padding: 0 14px;
+  }
+  .topline {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+  .controls {
+    gap: 12px;
+  }
+  .chart-card,
+  .panel {
+    padding: 14px;
+  }
+
+  td,
+  th {
+    min-width: 90px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+}
+/* V2: custom kinetic scenes, responsive artboards and live-only provenance. */
+:root {
+  background: #f5f7fb;
+  color: #233d61;
+}
+header {
+  padding: 18px 0 12px;
+  background: #fff;
+}
+header .wrap {
+  max-width: 1440px;
+}
+h1 {
+  font-size: clamp(27px, 4vw, 43px);
+  margin: 10px 0 4px;
+  letter-spacing: -0.045em;
+}
+.sub {
+  margin: 7px 0 13px;
+  max-width: none;
+}
+.student {
+  position: absolute;
+  right: 28px;
+  top: 80px;
+  font-size: 11px;
+}
+.student input {
+  padding: 5px 9px;
+  width: 130px;
+}
+.wrap {
+  max-width: 1440px;
+}
+.mode-row {
+  font-size: 12px;
+  margin: 4px 0 14px;
+  gap: 13px;
+}
+.mode-row button {
+  padding: 6px 11px;
+  font-size: 12px;
+}
+.pill {
+  background: #e5f5ef;
+  color: #28755c;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+.pill.failed {
+  background: #fbe9e9;
+  color: #a34444;
+}
+.controls {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  gap: 20px;
+  font-size: 12px;
+}
+.controls input[type=&#x27;range&#x27;] {
+  width: 200px;
+}
+.controls select {
+  padding: 6px 10px;
+}
+.status {
+  font-size: 11px;
+  color: #7687a0;
+  margin: 8px 0;
+}
+.chart-card {
+  margin: 0 0 18px;
+  padding: 0;
+  border: 1px solid #dbe3ef;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 15px 55px #283e6010;
+}
+.chart-card &gt; h2 {
+  display: none;
+}
+.chart {
+  min-height: 200px;
+}
+.kinetic-stage {
+  background: #fafcff;
+}
+.scene-toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 13px 18px;
+  background: #fff;
+  border-bottom: 1px solid #e4eaf4;
+}
+.scene-label {
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  color: #7486a0;
+  margin-right: auto;
+}
+.scene-toolbar button {
+  font-size: 11px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border-color: #d7e2ee;
+}
+.segmented {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+}
+.segmented button[aria-pressed=&#x27;true&#x27;] {
+  background: #e9f0fb;
+  color: #29558d;
+  border-color: #b7cbe6;
+}
+.scene-surface {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.custom-scene {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+  touch-action: none;
+}
+.custom-scene text {
+  font-family:
+    Inter,
+    Segoe UI,
+    sans-serif;
+}
+.custom-scene .scene-grid line {
+  stroke: #e3eaf4;
+}
+.custom-scene .scene-grid path {
+  stroke: none;
+}
+.custom-scene .domain {
+  stroke: #acbcd0;
+}
+.custom-scene .tick line {
+  stroke: #b9c8d9;
+}
+.custom-scene .tick text {
+  fill: #7185a1;
+  font-size: 11px;
+}
+.particle-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.scene-inspector {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  flex-wrap: wrap;
+  background: #fff;
+  border-top: 1px solid #e4eaf4;
+  padding: 13px 20px;
+  font-size: 12px;
+  min-height: 50px;
+}
+.scene-inspector strong {
+  color: #405a83;
+}
+.scene-inspector span {
+  color: #7b8da4;
+  line-height: 1.5;
+}
+.scene-timeline {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px 20px;
+  font-size: 12px;
+  background: #f1f5fc;
+}
+.scene-timeline input {
+  flex: 1;
+  max-width: none;
+}
+.scene-timeline output {
+  min-width: 65px;
+  font-weight: 700;
+  color: #577daa;
+}
+.mission-board {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  background: #fff;
+  color: #8595ac;
+  font-size: 11px;
+}
+.mission-board strong {
+  color: #476187;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+.mission-board span:before {
+  content: &#x27;○ &#x27;;
+  color: #aebcd0;
+}
+.mission-board span.complete {
+  color: #2f9776;
+}
+.mission-board span.complete:before {
+  content: &#x27;● &#x27;;
+}
+.live-evidence {
+  font-size: 12px;
+}
+.live-evidence a {
+  overflow-wrap: anywhere;
+}
+.panel {
+  background: #fff;
+}
+.embedded header,
+.embedded .mode-row,
+.embedded .controls,
+.embedded #app &gt; p,
+.embedded #app &gt; .small,
+.embedded #evidence,
+.embedded footer,
+.embedded .scene-toolbar,
+.embedded .scene-inspector,
+.embedded .scene-timeline,
+.embedded .mission-board {
+  display: none !important;
+}
+.embedded main.wrap {
+  padding: 0;
+  max-width: none;
+}
+.embedded .chart-card {
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+}
+.embedded .custom-scene {
+  width: 1100px;
+}
+.embedded .scene-surface {
+  overflow: hidden;
+}
+.embedded body {
+  background: #fff;
+}
+@media (max-width: 900px) {
+  .student {
+    position: static;
+    margin: 10px 0 0;
+  }
+  .scene-label {
+    width: 100%;
+    margin: 0;
+  }
+  .scene-toolbar {
+    gap: 7px;
+  }
+  .scene-surface {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+  .custom-scene {
+    width: 900px;
+    max-width: none;
+  }
+  .particle-layer {
+    width: 900px;
+    height: 491px;
+  }
+  .mode-row {
+    gap: 8px;
+  }
+  .scene-timeline {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .scene-inspector {
+    gap: 6px;
+  }
+  .scene-toolbar button {
+    min-height: 34px;
+  }
+}
+@media (max-width: 550px) {
+  .wrap {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .custom-scene {
+    width: 760px;
+  }
+  .particle-layer {
+    width: 760px;
+    height: 415px;
+  }
+  .controls input[type=&#x27;range&#x27;] {
+    width: 150px;
+  }
+  .scene-toolbar {
+    padding: 10px;
+  }
+  .scene-timeline input {
+    min-width: 150px;
+  }
+  .mission-board {
+    gap: 10px;
+  }
+  .scene-label {
+    font-size: 9px;
+  }
+}
+
+.mobile-pan {
+  display: none;
+}
+@media (max-width: 900px) {
+  .mobile-pan {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 14px;
+    background: #edf3fc;
+    font-size: 11px;
+  }
+  .mobile-pan input {
+    flex: 1;
+    max-width: none;
+  }
+}
+.scene-surface {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.chart-card {
+  background: #fafcff;
+}
+.embedded .mobile-pan {
+  display: none !important;
+}
+.embedded .custom-scene {
+  max-width: none;
+}
+@media (max-width:900px) { .chart .custom-scene { width:900px; max-width:none; } }
+@media (max-width:550px) { .chart .custom-scene { width:760px; } }
+</code></pre></div></details></article><script>document.querySelectorAll('.copy').forEach(b=>b.onclick=async()=>{const code=b.parentElement.querySelector('code');try{await navigator.clipboard.writeText(code.textContent);b.textContent='Copied'}catch{const range=document.createRange();range.selectNodeContents(code);const sel=getSelection();sel.removeAllRanges();sel.addRange(range);b.textContent='Selected: press Ctrl+C'}});</script></body></html>

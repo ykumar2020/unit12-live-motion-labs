@@ -1,0 +1,14 @@
+node_modules/
+apps/*/dist/
+.runtime/
+test-results/
+playwright-report/
+.env*
+!.env.example
+
+tmp/
+
+.vercel/
+public-site/
+data/
+output/*.zip

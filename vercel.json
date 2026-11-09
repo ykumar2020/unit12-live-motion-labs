@@ -1,0 +1,12 @@
+{
+ "version":2,
+ "buildCommand":"npm run build:public",
+ "outputDirectory":"public-site",
+ "framework":null,
+ "functions":{"api/data/[key].js":{"maxDuration":30}},
+ "rewrites":[
+  {"source":"/assignment","destination":"/assignment.html"},
+  {"source":"/verification","destination":"/verification.json"},
+  {"source":"/labs/:id","destination":"/labs/:id/index.html"}
+ ]
+}

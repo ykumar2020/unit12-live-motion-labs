@@ -1,0 +1,145 @@
+{
+  "version": 2,
+  "apiAudit": {
+    "checkedAt": "2026-11-09T13:34:35.273Z",
+    "policy": "Fresh upstream requests; metadata only saved; no response cache or fallback.",
+    "results": [
+      {
+        "key": "earthquakes",
+        "provider": "USGS",
+        "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson",
+        "http": 200,
+        "usableRecords": 316,
+        "fetchedAt": "2026-11-09T13:34:34.162Z",
+        "milliseconds": 130,
+        "sha256": "773545ca95855fb56e6fb4911a6cda2718c148157876c819df50c2671e7e2b7e",
+        "requiresKey": false,
+        "paidService": false
+      },
+      {
+        "key": "population",
+        "provider": "World Bank",
+        "url": "https://api.worldbank.org/v2/country/USA;CHN;IND;BRA;DEU;NGA/indicator/SP.POP.TOTL?format=json&per_page=1000&date=1980:2026",
+        "http": 200,
+        "usableRecords": 276,
+        "fetchedAt": "2026-11-09T13:34:34.193Z",
+        "milliseconds": 92,
+        "sha256": "2af40d9a35c048404d0bd8958836ae8a30d94f4e2b0bacb2ef474bd503e67587",
+        "requiresKey": false,
+        "paidService": false
+      },
+      {
+        "key": "growth",
+        "provider": "World Bank",
+        "url": "https://api.worldbank.org/v2/country/USA;CHN;IND;BRA;DEU;NGA/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=1000",
+        "http": 200,
+        "usableRecords": 390,
+        "fetchedAt": "2026-11-09T13:34:34.195Z",
+        "milliseconds": 92,
+        "sha256": "1cca40fdbc7c01803f30efb22402a6c2991f4c403b6233d45db886061659dacd",
+        "requiresKey": false,
+        "paidService": false
+      },
+      {
+        "key": "temperature",
+        "provider": "Open-Meteo",
+        "url": "https://api.open-meteo.com/v1/forecast?latitude=40.7&longitude=-74.0&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m&wind_speed_unit=ms&forecast_days=2&timezone=America%2FNew_York&timeformat=unixtime",
+        "http": 200,
+        "usableRecords": 48,
+        "fetchedAt": "2026-11-09T13:34:34.519Z",
+        "milliseconds": 415,
+        "sha256": "51e4e2a89e21aa12c24e8e98c63520b1c3f8111b21af70d9ed19d1b2ce48eb82",
+        "requiresKey": false,
+        "paidService": false
+      },
+      {
+        "key": "precipitation",
+        "provider": "Open-Meteo",
+        "url": "https://api.open-meteo.com/v1/forecast?latitude=40.7,51.5074,19.076,1.3521,-23.5505&longitude=-74.0,-0.1278,72.8777,103.8198,-46.6333&hourly=precipitation&forecast_days=2&timezone=America%2FNew_York&timeformat=unixtime",
+        "http": 200,
+        "usableRecords": 240,
+        "fetchedAt": "2026-11-09T13:34:34.514Z",
+        "milliseconds": 409,
+        "sha256": "0ed60c8015b1cab97a4f613ded083325f6f4ad2fa0b055c5f1eb1e0b3a361b8b",
+        "requiresKey": false,
+        "paidService": false
+      },
+      {
+        "key": "books",
+        "provider": "Open Library",
+        "url": "https://openlibrary.org/search.json?q=data+visualization&limit=70&fields=key,title,first_publish_year,edition_count,author_key,author_name,subject",
+        "http": 200,
+        "usableRecords": 70,
+        "fetchedAt": "2026-11-09T13:34:35.272Z",
+        "milliseconds": 1166,
+        "sha256": "bc8b7cce7628a13237ed0a4f1921bdbd2fad10ee5621f0aed10624dd23c0e914",
+        "requiresKey": false,
+        "paidService": false
+      },
+      {
+        "key": "events",
+        "provider": "NASA EONET",
+        "url": "https://eonet.gsfc.nasa.gov/api/v3/events?status=all&days=60&limit=500",
+        "http": 200,
+        "usableRecords": 4,
+        "fetchedAt": "2026-11-09T13:34:34.308Z",
+        "milliseconds": 200,
+        "sha256": "1c1e3fc8db23690c8d172c93c746bd4b1959ee892e7d56812d6b0af0bc31b47e",
+        "requiresKey": false,
+        "paidService": false
+      }
+    ]
+  },
+  "browserChecks": {
+    "startTime": "2026-11-09T13:34:01.145Z",
+    "duration": 15392.508,
+    "expected": 26,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "builds": [
+    {
+      "lab": "01-vanilla",
+      "exitCode": 0,
+      "seconds": 3.484
+    },
+    {
+      "lab": "02-vue",
+      "exitCode": 0,
+      "seconds": 4.389
+    },
+    {
+      "lab": "03-react",
+      "exitCode": 0,
+      "seconds": 5.522
+    },
+    {
+      "lab": "04-preact",
+      "exitCode": 0,
+      "seconds": 4.655
+    },
+    {
+      "lab": "05-lit",
+      "exitCode": 0,
+      "seconds": 3.529
+    },
+    {
+      "lab": "06-svelte",
+      "exitCode": 0,
+      "seconds": 5.529
+    },
+    {
+      "lab": "07-solid",
+      "exitCode": 0,
+      "seconds": 4.758
+    },
+    {
+      "lab": "08-qwik",
+      "exitCode": 0,
+      "seconds": 3.922
+    }
+  ],
+  "unitTests": "4 passed",
+  "runtimeDataPolicy": "No saved responses or fallback; external fetch on every refresh."
+}

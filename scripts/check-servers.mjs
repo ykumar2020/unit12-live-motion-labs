@@ -1,0 +1,3 @@
+﻿import {labs} from './labs.mjs';
+const wait=process.argv.includes('--wait'),deadline=Date.now()+30000;
+for(;;){try{const response=await fetch('http://127.0.0.1:5280/api/status',{signal:AbortSignal.timeout(5000)}),status=await response.json();if(status.labs.length===labs.length&&status.labs.every(l=>l.ready)){console.log('PASS: all eight assigned ports return HTTP 200.');console.table(status.labs.map(l=>({lab:l.folder,url:`http://127.0.0.1:${l.port}`,ready:l.ready})));break}}catch{}if(!wait||Date.now()>deadline){console.error('Not all eight servers are ready. See .runtime/manager.log and manager-error.log.');process.exitCode=1;break}await new Promise(r=>setTimeout(r,500))}

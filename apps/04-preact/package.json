@@ -1,0 +1,18 @@
+{
+  "name": "unit12-04-preact",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "d3": "7.9.0",
+    "preact": "^10.27.0"
+  },
+  "devDependencies": {
+    "vite": "7.3.7"
+  }
+}
