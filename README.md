@@ -37,3 +37,9 @@ World Bank values are historical annual data. Open-Meteo values are forecasts. M
 `npm.cmd run audit:live` checks all seven upstream endpoints and writes metadata/checksums only. `npm.cmd test` validates normalization. `npm.cmd run build` builds all eight. With servers running, `npx playwright install chromium` then `npm.cmd run test:browser` verifies actual data, checksum exports, motion, controls, mobile layouts and no-fallback failures.
 
 Edit root `shared/` then `npm.cmd run sync`. Native framework entry files are in `apps/*/src`. The complete HTML assignment includes copyable actual source for every custom scene. Current evidence is in `evidence/v2`; `evidence/verification.json` summarizes the latest run.
+
+## Deploy updates
+
+Run `npm run build:public` to assemble all lab routes, then `vercel deploy --prod` in the linked checkout. Initial publication was deployed through Vercel CLI. Automatic GitHub-triggered deployment is not enabled: Vercel could not connect its GitHub integration to this repository. This does not affect the public site or cloning/running the source.
+
+The hosted smoke check in `evidence/public-deployment-check.json` confirms all eight public lab pages loaded fresh provider data with no JavaScript page errors.
